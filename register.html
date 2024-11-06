@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -30,7 +30,14 @@
                                             <input class="form-control" id="inputEmail" type="text" placeholder="" />
                                             <label for="inputNome">Nome completo</label>
                                         </div>
-
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputEmail" type="text" placeholder="" />
+                                            <label for="inputCPF">CPF</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputEmail" type="text" placeholder="" />
+                                            <label for="inputRG">RG</label>
+                                        </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
@@ -49,7 +56,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="inputEmail" type="tel" placeholder="" />
                                             <label for="inputTelefone">Telefone</label>
@@ -57,14 +63,6 @@
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="inputEmail" type="tel" placeholder="" />
                                             <label for="inputTelefoneemergencia">Telefone de emergência</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="text" placeholder="" />
-                                            <label for="inputCPF">CPF</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="text" placeholder="" />
-                                            <label for="inputRG">RG</label>
                                         </div>
 
                                         <div class="form-floating mb-3">
@@ -85,7 +83,18 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="form-floating">
+                                            <select id="IDPlanoSaude" class="form-select" name="IDPlanoSaude" aria-label="Plano de Saúde" required>
+                                                <option value="" disabled selected>Plano de Saúde</option>
+                                                <option value="masculino">Masculino</option>
+                                                <option value="feminino">Feminino</option>
+                                                <option value="masculino">Masculino</option>
+                                                <option value="feminino">Feminino</option>
+                                                <option value="masculino">Masculino</option>
+                                                <option value="feminino">Feminino</option>
+                                            </select>
+                                            <label for="IDPlanoSaude">Plano de Saúde</label>
+                                        </div>
                                         <div class="col-md-12 additional-fields hidden" id="additionalFields">
 
                                             <h2 class="VoltapramimIsadora" >Campo do Responsável</h2>

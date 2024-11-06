@@ -11100,6 +11100,42 @@ footer.footer .social-link:hover {
   }
 }
 
+/* .containerap{
+  display: flex;
+  align-items: center;
+  padding: 50px;
+}
+
+.cardap{
+  padding-top: 70px;
+  font-size: 200%;
+  text-align: center;
+  border-radius: 20px;
+  margin-left: 10px;
+  height: 200px;
+  background-color: #0dcaf0;
+  flex: 1;
+  transition: .3s all ease;
+}
+
+.cardap:hover{
+  flex: 2;
+  background-color: #166077;
+}
+
+.ap h1{
+  font-size: 600%;
+  text-align: center;
+  padding-bottom: 1%;
+}
+
+.ap h3{
+  font-size: 200%;
+  margin-bottom: 3%;
+  text-align: center;
+} */
+
+
 .service-icon {
   background-color: #fff;
   color: #1D809F;
@@ -11166,4 +11202,56 @@ footer.footer .social-link:hover {
 .VoltapramimIsadora{
   padding-top: 3%;
   padding-bottom: 3%;
+}
+
+.soninho{
+  background-color: white;
+}
+
+.tumbalatumba{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+}
+
+.subirusdoistiuzin{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  padding: 3%;
+}
+
+.subirusdoistiuzin, h1{
+  font-size: 200%;
+}
+
+.cirilo{
+  padding-top: 5%;
+  background-color: #1D809F;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: auto;
+  padding-bottom: 5%;
+  border-radius: 20px;
+  margin-bottom: 10%;
+}
+
+.calcaangelical{
+  font-size: 150%;
+  padding: 5%;
+}
+
+.zuzuimperador{
+  border-right: 2px solid black;
+}
+
+@media (max-width: 768px) { 
+  .zuzuimperador{ border-right: 0px solid black;
+
+}}
+
+.orangotango{
+  margin-top: 3%;
 }
