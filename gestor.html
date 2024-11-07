@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Consultas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="soninho">
+    <div class="container cirilo">
+        <h1>Gestão de Consultas</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Data/Hora</th>
+                        <th>Médico</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>17/03/2025 - 21:00</td>
+                        <td>Menezes</td>
+                        <td id="status-1">Pendente</td>
+                        <td>
+                            <button class="btn btn-success" onclick="alterarStatus(1, 'Aceito')">Aceitar</button>
+                            <button class="btn btn-warning" onclick="alterarStatus(1, 'Pendente')">Pendente</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>20/03/2025 - 15:30</td>
+                        <td>Ramos</td>
+                        <td id="status-2">Pendente</td>
+                        <td>
+                            <button class="btn btn-success" onclick="alterarStatus(2, 'Aceito')">Aceitar</button>
+                            <button class="btn btn-warning" onclick="alterarStatus(2, 'Pendente')">Pendente</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function alterarStatus(id, status) {
+            document.getElementById('status-' + id).innerText = status;
+        }
+    </script>
+</body>
+</html>

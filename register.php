@@ -1,3 +1,9 @@
+<?php
+    include 'conecta.php';
+    include 'menu.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -90,16 +96,19 @@
                                             <input class="form-control" name="email" type="text" placeholder="" />
                                             <label for="email">Endereço</label>
                                         </div>
+                                        
                                         <div class="form-floating">
                                             <select id="NomePlano" class="form-select" name="NomePlano" aria-label="Plano de Saúde" required>
                                                 <option value="" disabled selected>Plano de Saúde</option>
-                                                <option value="plano">Plano</option>
-                                                <option value="plano2">Plano2</option>
-                                                <option value="plano3">Plano3</option>
-                                                <option value="plano4">Plano4</option>
-                                                <option value="Plano5">Plano5</option>
-                                                <option value="plano6">Plano6</option>
-                                                <option value="plano7">Plano7</option>
+                                                <?php
+                                                    $sql = "SELECT NomePlano FROM planosaude";
+                                                    $consulta = $conexao->query($sql);
+                                                    while($dados = $consulta->fetch_assoc()){
+                                                        echo "<tr>";
+                                                        echo "<option value=''>".$dados['NomePlano']."</option>";
+                                                        echo "</tr>";
+                                                    }
+                                                ?>
                                             </select>
                                             <label for="NomePlano">Plano de Saúde</label>
                                         </div>
