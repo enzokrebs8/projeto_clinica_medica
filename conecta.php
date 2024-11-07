@@ -8,8 +8,5 @@
 
     if(mysqli_connect_errno()){
         echo "Erro na conexão com o Banco de Dados!";
-    }
-    // else{
-    //     echo "CONECTADO AO BANCO COM SUCESSO!";
-    // }
+    }   
 ?>

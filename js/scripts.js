@@ -79,26 +79,30 @@ function fadeIn(el, display) {
     })();
 };
 
-document.getElementById("inputBirthDate").addEventListener("change", checkAge);
+document.getElementById("nascimento").addEventListener("change", checkAge);
 
 function checkAge() {
-    const birthDateInput = document.getElementById("inputBirthDate");
+
+    var maiorIdade = {};
+    const nascimento = document.getElementById("nascimento");
     const additionalFields = document.getElementById("additionalFields");
 
-    if (!birthDateInput.value) {
+    if (!nascimento.value) {
         additionalFields.classList.add("hidden");
         return; // Se não houver data, não faz nada
     }
 
-    const birthDate = new Date(birthDateInput.value);
+    const birthDate = new Date(nascimento.value);
     const today = new Date();
-    const age = today.getFullYear() - birthDate.getFullYear();
-    const m = today.getMonth() - birthDate.getMonth();
+    const age = today.getFullYear() - nascimento.getFullYear();
+    const m = today.getMonth() - nascimento.getMonth();
 
     // Verifica se é menor de idade
     if (age < 18 || (age === 18 && m < 0)) {
         additionalFields.classList.remove("hidden"); // Mostra campos adicionais
+        maiorIdade = 1; 
     } else {
         additionalFields.classList.add("hidden"); // Esconde campos adicionais
+        maiorIdade = 0;
     }
 }

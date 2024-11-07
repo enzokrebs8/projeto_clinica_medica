@@ -11016,7 +11016,7 @@ footer.footer .social-link:hover {
   height: auto;
   padding-top: 8rem;
   padding-bottom: 8rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%),
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11238,6 +11238,10 @@ footer.footer .social-link:hover {
   margin-bottom: 10%;
 }
 
+.slk{
+  padding-top: 50px;
+}
+
 .calcaangelical{
   font-size: 150%;
   padding: 5%;
@@ -11254,4 +11258,70 @@ footer.footer .social-link:hover {
 
 .orangotango{
   margin-top: 3%;
+}
+
+
+:root {
+    --bs-primary: #1D809F;
+    --bs-secondary: #ecb807;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-body-font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    font-family: var(--bs-body-font-family);
+    font-size: 1rem;
+    color: var(--bs-dark);
+    background-color: var(--bs-light);
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.subirusdoistiuzin {
+    background-color: var(--bs-primary);
+    color: var(--bs-light);
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    color: var(--bs-primary);
+}
+
+/* Ajustes de Responsividade */
+@media (max-width: 768px) {
+    .subirusdoistiuzin h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.table th, .table td {
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.table thead th {
+    background-color: var(--bs-primary);
+    color: var(--bs-light);
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: var(--bs-light);
 }
