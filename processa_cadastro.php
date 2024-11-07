@@ -23,8 +23,8 @@
     $senha = password_hash('123456', PASSWORD_DEFAULT);
     $telefone = '11 40028922';
     $telefoneEmergencia = '11 40028922';
-    $IDEndereco = '1';
-    $IDPlanoSaude = '1';
+    $endereco = '1';
+    $NomePlano = 'SELECT IDPlanoSaude WHERE NomePlano = "$"';
 
     $data_atual = new DateTime();
     $data_nascimento_formatada = new DateTime($nascimento);

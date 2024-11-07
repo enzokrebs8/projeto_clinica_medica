@@ -48,7 +48,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <select id="genero" class="form-select" name="genero" aria-label="Gênero" required>
-                                                        <option value="" disabled selected>Gênero</option>
+                                                        <option value="" disabled selected>Selecione seu gênero biológico</option>
                                                         <option value="masculino">Masculino</option>
                                                         <option value="feminino">Feminino</option>
                                                     </select>
@@ -99,7 +99,7 @@
                                         
                                         <div class="form-floating">
                                             <select id="NomePlano" class="form-select" name="NomePlano" aria-label="Plano de Saúde" required>
-                                                <option value="" disabled selected>Plano de Saúde</option>
+                                                <option value="" disabled selected>Selecione seu Plano de Saúde</option>
                                                 <?php
                                                     $sql = "SELECT NomePlano FROM planosaude";
                                                     $consulta = $conexao->query($sql);
@@ -115,7 +115,7 @@
 
                                         <div class="col-md-12 additional-fields hidden" id="additionalFields">
 
-                                            <h2 class="VoltapramimIsadora" >Campo do Responsável</h2>
+                                            <h3 class="vaiviverDavi">Campo do Responsável</h3>
                                             
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputGuardian" type="text" placeholder="" />

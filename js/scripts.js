@@ -94,13 +94,13 @@ function checkAge() {
 
     const birthDate = new Date(nascimento.value);
     const today = new Date();
-    const age = today.getFullYear() - nascimento.getFullYear();
-    const m = today.getMonth() - nascimento.getMonth();
+    const age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
 
     // Verifica se é menor de idade
     if (age < 18 || (age === 18 && m < 0)) {
         additionalFields.classList.remove("hidden"); // Mostra campos adicionais
-        maiorIdade = 1; 
+        maiorIdade = 1;
     } else {
         additionalFields.classList.add("hidden"); // Esconde campos adicionais
         maiorIdade = 0;
