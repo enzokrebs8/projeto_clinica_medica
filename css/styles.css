@@ -13095,32 +13095,6 @@ h1 {
   margin-top: 4%;
 }
 
-.slk {
-  padding-top: 50px;
-}
-
-.calcaangelical {
-  font-size: 150%;
-  padding: 5%;
-}
-
-/* .zuzuimperador {
-  border-right: 2px solid black;
-}
-
-@media (max-width: 768px) {
-  .zuzuimperador {
-    border-right: 0px solid black;
-
-  }
-} */
-
-.orangotango {
-  margin-top: 3%;
-  margin-bottom: 3%;
-}
-
-
 :root {
   --bs-primary: #1D809F;
   --bs-secondary: #ecb807;
@@ -13150,6 +13124,31 @@ body {
   .subirusdoistiuzin h1 {
     font-size: 1.5rem;
   }
+}
+
+.slk {
+  padding-top: 50px;
+}
+
+.calcaangelical {
+  font-size: 150%;
+  padding: 5%;
+}
+
+/* .zuzuimperador {
+  border-right: 2px solid black;
+}
+
+@media (max-width: 768px) {
+  .zuzuimperador {
+    border-right: 0px solid black;
+
+  }
+} */
+
+.orangotango {
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 .opala98{
