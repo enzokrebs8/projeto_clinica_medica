@@ -75,6 +75,22 @@
                                         </div>
 
                                         <div class="form-floating mb-3">
+                                            <select id="NomePlano" class="form-select" name="NomePlano" aria-label="Plano de Saúde" required>
+                                                <option value="" disabled selected>Selecione seu Plano de Saúde</option>
+                                                <?php
+                                                    $sql = "SELECT NomePlano FROM planosaude";
+                                                    $consulta = $conexao->query($sql);
+                                                    while($dados = $consulta->fetch_assoc()){
+                                                        echo "<tr>";
+                                                        echo "<option value=''>".$dados['NomePlano']."</option>";
+                                                        echo "</tr>";
+                                                    }
+                                                ?>
+                                            </select>
+                                            <label for="NomePlano">Plano de Saúde</label>
+                                        </div>
+
+                                        <div class="form-floating mb-3">
                                             <input class="form-control" name="email" type="text" placeholder="" />
                                             <label for="email">Endereço de Email</label>
                                         </div>
@@ -92,26 +108,42 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <h3 class="vaiviverDavi">Endereço</h3>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="email" type="text" placeholder="" />
-                                            <label for="email">Endereço</label>
+                                            <input id='cep' class="form-control" name="cep" type="text" placeholder="" />
+                                            <label for="cep">CEP</label>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input id='rua' class="form-control" name="rua" type="text" placeholder="" />
+                                                    <label for="rua">Rua</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input id='numero' class="form-control" name="numero" type="text" placeholder="" />
+                                                    <label for="numero">Número da Casa</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input id='bairro' class="form-control" name="bairro" type="text" placeholder="" />
+                                            <label for="bairro">Bairro</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input id='complemento' class="form-control" name="complemento" type="text" placeholder="" />
+                                            <label for="complemento">Complemento</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input id='cidade' class="form-control" name="cidade" type="text" placeholder="" />
+                                            <label for="cidade">Cidade</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input id='estado' class="form-control" name="estado" type="text" placeholder="" />
+                                            <label for="estado">Estado</label>
                                         </div>
                                         
-                                        <div class="form-floating">
-                                            <select id="NomePlano" class="form-select" name="NomePlano" aria-label="Plano de Saúde" required>
-                                                <option value="" disabled selected>Selecione seu Plano de Saúde</option>
-                                                <?php
-                                                    $sql = "SELECT NomePlano FROM planosaude";
-                                                    $consulta = $conexao->query($sql);
-                                                    while($dados = $consulta->fetch_assoc()){
-                                                        echo "<tr>";
-                                                        echo "<option value=''>".$dados['NomePlano']."</option>";
-                                                        echo "</tr>";
-                                                    }
-                                                ?>
-                                            </select>
-                                            <label for="NomePlano">Plano de Saúde</label>
-                                        </div>
 
                                         <div class="col-md-12 additional-fields hidden" id="additionalFields">
 
@@ -157,5 +189,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="js/checkAge.js"></script>
+    <script type="text/javascropt" src='js/cep.js'></script>
 </body>
 </html>
