@@ -12952,6 +12952,42 @@ footer.footer .social-link:hover {
   text-align: center;
 } */
 
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead th {
+  background-color: var(--bs-primary);
+  color: var(--bs-light);
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: var(--bs-light);
+}
+
+
+.menu-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  color: var(--bs-primary);
+}
+
 
 .service-icon {
   background-color: #fff;
@@ -13054,7 +13090,8 @@ h1 {
   height: auto;
   padding-bottom: 5%;
   border-radius: 20px;
-  margin-bottom: 10%;
+  margin-bottom: 3%;
+  margin-top: 4%;
 }
 
 .slk {
@@ -13066,7 +13103,7 @@ h1 {
   padding: 5%;
 }
 
-.zuzuimperador {
+/* .zuzuimperador {
   border-right: 2px solid black;
 }
 
@@ -13075,10 +13112,11 @@ h1 {
     border-right: 0px solid black;
 
   }
-}
+} */
 
 .orangotango {
   margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 
@@ -13106,13 +13144,6 @@ body {
   color: var(--bs-light);
 }
 
-.menu-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  color: var(--bs-primary);
-}
-
 /* Ajustes de Responsividade */
 @media (max-width: 768px) {
   .subirusdoistiuzin h1 {
@@ -13120,30 +13151,19 @@ body {
   }
 }
 
-.table-responsive {
-  display: block;
+.opala98{
+  background-color: var(--bs-gray-600);
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
   width: 100%;
-  overflow-x: auto;
 }
 
-.table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 1rem;
+.aluacheiaclareiaasruasdocapaoacimadenoisodeushumildenenaonenaosaudeplinmulheremuitosomvinhobrancoparatodoseumadvogadobom{
+  background-color: var(--bs-gray-600);
 }
 
-.table th,
-.table td {
-  padding: 0.75rem;
-  text-align: left;
-  vertical-align: middle;
-}
-
-.table thead th {
-  background-color: var(--bs-primary);
-  color: var(--bs-light);
-}
-
-.table tbody tr:nth-child(odd) {
-  background-color: var(--bs-light);
+.querumnoveboladoprecisofaraodoegitoquequeixoqueralguemquesocravepoeopedronoataquedorivaldiolafezopedroterebolaebolanarededosrivalatodahoratavamsequeixandodoataquerubronegroagorasimaipedrotatranquilinaipedrobrabotemnomeaipedroqueixodeconeaipapaidoscanarinarrastaopedrolapracomasabequeanovevaicairbemnacarcacadopedrocaquerfazerfrancesebelgachorarnobanheirolevaopedrinaipedrolapracanarinaipedrolevapedrinaipedrotrocasemfimaipedronovedohexaeoferapedroecraquepradedeutuquerverumgolacoprecisocabecadaigualtirodesejonocantinhodatraveeuqueropoeopedronoataquequeixadaopobrelewandowkiganhounemcariocapedroebemmaistopevaiprovarissonacopatitetamoscandolevalogoohomemqueixochamaopedrinlapracanarinlevaopedrintrocasemfimnovedohexaeoferapedroecraquepradedeu{
+  margin-left: 2%;
+  margin-left: 2%;
 }
