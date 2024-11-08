@@ -110,38 +110,38 @@
                                         </div>
                                         <h3 class="vaiviverDavi">Endereço</h3>
                                         <div class="form-floating mb-3">
-                                            <input id='cep' class="form-control" name="cep" type="text" placeholder="" />
-                                            <label for="cep">CEP</label>
+                                            <input id='txtCep' class="form-control" name="cep" type="text" placeholder="" />
+                                            <label for="txtCep">CEP</label>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input id='rua' class="form-control" name="rua" type="text" placeholder="" />
-                                                    <label for="rua">Rua</label>
+                                                    <input id='txtRua' class="form-control" name="rua" type="text" placeholder="" />
+                                                    <label for="txtRua">Rua</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input id='numero' class="form-control" name="numero" type="text" placeholder="" />
-                                                    <label for="numero">Número da Casa</label>
+                                                    <input id='txtNumero' class="form-control" name="numero" type="text" placeholder="" />
+                                                    <label for="txtNumero">Número da Casa</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input id='bairro' class="form-control" name="bairro" type="text" placeholder="" />
-                                            <label for="bairro">Bairro</label>
+                                            <input id='txtBairro' class="form-control" name="bairro" type="text" placeholder="" />
+                                            <label for="txtBairro">Bairro</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input id='complemento' class="form-control" name="complemento" type="text" placeholder="" />
-                                            <label for="complemento">Complemento</label>
+                                            <input id='txtComplemento' class="form-control" name="complemento" type="text" placeholder="" />
+                                            <label for="txtComplemento">Complemento</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input id='cidade' class="form-control" name="cidade" type="text" placeholder="" />
-                                            <label for="cidade">Cidade</label>
+                                            <input id='txtCidade' class="form-control" name="cidade" type="text" placeholder="" />
+                                            <label for="txtCidade">Cidade</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input id='estado' class="form-control" name="estado" type="text" placeholder="" />
-                                            <label for="estado">Estado</label>
+                                            <input id='txtEstado' class="form-control" name="estado" type="text" placeholder="" />
+                                            <label for="txtEstado">Estado</label>
                                         </div>
                                         
 
