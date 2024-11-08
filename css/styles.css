@@ -12722,7 +12722,7 @@ html {
   background: none;
 }
 
-#sidebar-wrapper.active {svg-inline--fa fa-bars
+#sidebar-wrapper.active {
   right: 250px;
   width: 250px;
   transition: all 0.4s ease 0s;
