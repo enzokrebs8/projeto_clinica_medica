@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 07, 2024 at 01:06 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: 127.0.0.1:3306
+-- Tempo de geração: 08-Nov-2024 às 04:18
+-- Versão do servidor: 8.0.31
+-- versão do PHP: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `clinicamedica`
+-- Banco de dados: `clinicamedica`
 --
 CREATE DATABASE IF NOT EXISTS `clinicamedica` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `clinicamedica`;
@@ -26,154 +26,159 @@ USE `clinicamedica`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agendapaciente`
+-- Estrutura da tabela `consultasmedico`
 --
 
-CREATE TABLE `agendapaciente` (
-  `IDPacienteMaior` int(11) DEFAULT NULL,
-  `IDConsulta` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `agendarecepcionista`
---
-
-CREATE TABLE `agendarecepcionista` (
-  `IDRecepcionista` int(11) DEFAULT NULL,
-  `IDConsulta` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `agendaresponsavel`
---
-
-CREATE TABLE `agendaresponsavel` (
-  `IDResponsavel` int(11) DEFAULT NULL,
-  `IDConsulta` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `consulta`
---
-
-CREATE TABLE `consulta` (
-  `dataHorarioConsulta` datetime DEFAULT NULL,
-  `IDConsulta` int(11) NOT NULL,
-  `IDMedico` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `devs`
---
-
-CREATE TABLE `devs` (
-  `nome` varchar(255) NOT NULL,
-  `cpf` varchar(14) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `senha` varchar(50) NOT NULL
+DROP TABLE IF EXISTS `consultasmedico`;
+CREATE TABLE IF NOT EXISTS `consultasmedico` (
+  `idConsultasM` int NOT NULL AUTO_INCREMENT,
+  `data_hora` datetime NOT NULL,
+  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_paciente` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idConsultasM`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `endereco`
+-- Estrutura da tabela `consultaspaciente`
 --
 
-CREATE TABLE `endereco` (
-  `IDEndereco` int(11) NOT NULL,
-  `CEP` varchar(9) DEFAULT NULL,
-  `complemento` varchar(255) DEFAULT NULL,
-  `bairro` varchar(51) DEFAULT NULL,
-  `estado` varchar(16) DEFAULT NULL,
-  `cidade` varchar(30) DEFAULT NULL,
-  `numero` varchar(10) DEFAULT NULL,
-  `rua` varchar(70) DEFAULT NULL
+DROP TABLE IF EXISTS `consultaspaciente`;
+CREATE TABLE IF NOT EXISTS `consultaspaciente` (
+  `idConsultasP` int NOT NULL AUTO_INCREMENT,
+  `data_hora` datetime NOT NULL,
+  `medico` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idConsultasP`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `devs`
+--
+
+DROP TABLE IF EXISTS `devs`;
+CREATE TABLE IF NOT EXISTS `devs` (
+  `nome` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `cpf` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `senha` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`cpf`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `endereco`
+--
+
+DROP TABLE IF EXISTS `endereco`;
+CREATE TABLE IF NOT EXISTS `endereco` (
+  `IDEndereco` int NOT NULL,
+  `CEP` varchar(9) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `complemento` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `bairro` varchar(51) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `estado` varchar(16) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `cidade` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `numero` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `rua` varchar(70) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`IDEndereco`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medicos`
+-- Estrutura da tabela `medicos`
 --
 
-CREATE TABLE `medicos` (
-  `IDMedico` int(11) NOT NULL,
-  `CPF` varchar(14) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `RG` varchar(12) DEFAULT NULL,
-  `nome` varchar(255) DEFAULT NULL,
-  `Especialidade` varchar(50) DEFAULT NULL,
+DROP TABLE IF EXISTS `medicos`;
+CREATE TABLE IF NOT EXISTS `medicos` (
+  `IDMedico` int NOT NULL,
+  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Especialidade` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `CRM` varchar(9) DEFAULT NULL,
-  `telefone` varchar(15) DEFAULT NULL
+  `CRM` varchar(9) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`IDMedico`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pacientemaior`
+-- Estrutura da tabela `pacientemaior`
 --
 
-CREATE TABLE `pacientemaior` (
-  `genero` varchar(20) DEFAULT NULL,
+DROP TABLE IF EXISTS `pacientemaior`;
+CREATE TABLE IF NOT EXISTS `pacientemaior` (
+  `genero` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `RG` varchar(12) DEFAULT NULL,
-  `nome` varchar(255) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `senha` varchar(50) NOT NULL,
-  `telefoneEmergencia` varchar(15) DEFAULT NULL,
-  `telefone` varchar(15) DEFAULT NULL,
-  `CPF` varchar(14) DEFAULT NULL,
-  `IDPacienteMaior` int(11) NOT NULL,
-  `IDEndereco` int(11) DEFAULT NULL,
-  `IDPlanoSaude` int(11) DEFAULT NULL
+  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `senha` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `telefoneEmergencia` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IDPacienteMaior` int NOT NULL,
+  `IDEndereco` int DEFAULT NULL,
+  `IDPlanoSaude` int DEFAULT NULL,
+  PRIMARY KEY (`IDPacienteMaior`),
+  KEY `IDPlanoSaude` (`IDPlanoSaude`),
+  KEY `IDEndereco` (`IDEndereco`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pacientemenor`
+-- Estrutura da tabela `pacientemenor`
 --
 
-CREATE TABLE `pacientemenor` (
-  `IDPacienteMenor` int(11) NOT NULL,
-  `relacaoResponsavel` varchar(100) DEFAULT NULL,
-  `telefone` varchar(15) NOT NULL,
-  `telefoneEmergencia` varchar(15) DEFAULT NULL,
+DROP TABLE IF EXISTS `pacientemenor`;
+CREATE TABLE IF NOT EXISTS `pacientemenor` (
+  `IDPacienteMenor` int NOT NULL,
+  `relacaoResponsavel` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefone` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `telefoneEmergencia` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `senha` varchar(50) NOT NULL,
-  `nome` varchar(255) DEFAULT NULL,
-  `RG` varchar(12) DEFAULT NULL,
-  `CPF` varchar(14) DEFAULT NULL,
-  `genero` varchar(20) DEFAULT NULL,
-  `IDResponsavel` int(11) DEFAULT NULL,
-  `IDEndereco` int(11) DEFAULT NULL,
-  `IDPlanoSaude` int(11) DEFAULT NULL
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `senha` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `genero` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IDResponsavel` int DEFAULT NULL,
+  `IDEndereco` int DEFAULT NULL,
+  `IDPlanoSaude` int DEFAULT NULL,
+  PRIMARY KEY (`IDPacienteMenor`),
+  KEY `IDPlanoSaude` (`IDPlanoSaude`),
+  KEY `IDResponsavel` (`IDResponsavel`),
+  KEY `IDEndereco` (`IDEndereco`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `planosaude`
+-- Estrutura da tabela `planosaude`
 --
 
-CREATE TABLE `planosaude` (
-  `IDPlanoSaude` int(11) NOT NULL,
-  `ContatoCentralPlano` varchar(255) DEFAULT NULL,
-  `NomePlano` varchar(100) NOT NULL
+DROP TABLE IF EXISTS `planosaude`;
+CREATE TABLE IF NOT EXISTS `planosaude` (
+  `IDPlanoSaude` int NOT NULL,
+  `ContatoCentralPlano` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NomePlano` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`IDPlanoSaude`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `planosaude`
+-- Extraindo dados da tabela `planosaude`
 --
 
 INSERT INTO `planosaude` (`IDPlanoSaude`, `ContatoCentralPlano`, `NomePlano`) VALUES
@@ -191,164 +196,72 @@ INSERT INTO `planosaude` (`IDPlanoSaude`, `ContatoCentralPlano`, `NomePlano`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recepcionistas`
+-- Estrutura da tabela `recepcionistas`
 --
 
-CREATE TABLE `recepcionistas` (
-  `email` varchar(100) DEFAULT NULL,
-  `CPF` varchar(14) DEFAULT NULL,
-  `telefone` varchar(15) DEFAULT NULL,
-  `nome` varchar(255) DEFAULT NULL,
-  `RG` varchar(12) DEFAULT NULL,
+DROP TABLE IF EXISTS `recepcionistas`;
+CREATE TABLE IF NOT EXISTS `recepcionistas` (
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `IDRecepcionista` int(11) NOT NULL
+  `IDRecepcionista` int NOT NULL,
+  PRIMARY KEY (`IDRecepcionista`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `responsavel`
+-- Estrutura da tabela `responsavel`
 --
 
-CREATE TABLE `responsavel` (
-  `IDResponsavel` int(11) NOT NULL,
-  `CPF` varchar(14) NOT NULL,
-  `telefone` varchar(15) DEFAULT NULL,
-  `nome` varchar(255) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `senha` varchar(50) NOT NULL,
-  `RG` varchar(12) DEFAULT NULL,
+DROP TABLE IF EXISTS `responsavel`;
+CREATE TABLE IF NOT EXISTS `responsavel` (
+  `IDResponsavel` int NOT NULL,
+  `CPF` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
+  `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `senha` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `IDEndereco` int(11) DEFAULT NULL
+  `IDEndereco` int DEFAULT NULL,
+  PRIMARY KEY (`IDResponsavel`),
+  KEY `IDEndereco` (`IDEndereco`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Estrutura da tabela `solicitarconsulta`
+--
+
+DROP TABLE IF EXISTS `solicitarconsulta`;
+CREATE TABLE IF NOT EXISTS `solicitarconsulta` (
+  `idSolicitacao` int NOT NULL AUTO_INCREMENT,
+  `data_hora` datetime NOT NULL,
+  `nome_paciente` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `medico` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idSolicitacao`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Restrições para despejos de tabelas
 --
 
 --
--- Indexes for table `agendapaciente`
---
-ALTER TABLE `agendapaciente`
-  ADD KEY `IDPacienteMaior` (`IDPacienteMaior`),
-  ADD KEY `IDConsulta` (`IDConsulta`);
-
---
--- Indexes for table `agendarecepcionista`
---
-ALTER TABLE `agendarecepcionista`
-  ADD KEY `IDRecepcionista` (`IDRecepcionista`),
-  ADD KEY `IDConsulta` (`IDConsulta`);
-
---
--- Indexes for table `agendaresponsavel`
---
-ALTER TABLE `agendaresponsavel`
-  ADD KEY `IDResponsavel` (`IDResponsavel`),
-  ADD KEY `IDConsulta` (`IDConsulta`);
-
---
--- Indexes for table `consulta`
---
-ALTER TABLE `consulta`
-  ADD PRIMARY KEY (`IDConsulta`),
-  ADD KEY `IDMedico` (`IDMedico`);
-
---
--- Indexes for table `devs`
---
-ALTER TABLE `devs`
-  ADD PRIMARY KEY (`cpf`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- Indexes for table `endereco`
---
-ALTER TABLE `endereco`
-  ADD PRIMARY KEY (`IDEndereco`);
-
---
--- Indexes for table `medicos`
---
-ALTER TABLE `medicos`
-  ADD PRIMARY KEY (`IDMedico`);
-
---
--- Indexes for table `pacientemaior`
---
-ALTER TABLE `pacientemaior`
-  ADD PRIMARY KEY (`IDPacienteMaior`),
-  ADD KEY `IDPlanoSaude` (`IDPlanoSaude`),
-  ADD KEY `IDEndereco` (`IDEndereco`);
-
---
--- Indexes for table `pacientemenor`
---
-ALTER TABLE `pacientemenor`
-  ADD PRIMARY KEY (`IDPacienteMenor`),
-  ADD KEY `IDPlanoSaude` (`IDPlanoSaude`),
-  ADD KEY `IDResponsavel` (`IDResponsavel`),
-  ADD KEY `IDEndereco` (`IDEndereco`);
-
---
--- Indexes for table `planosaude`
---
-ALTER TABLE `planosaude`
-  ADD PRIMARY KEY (`IDPlanoSaude`);
-
---
--- Indexes for table `recepcionistas`
---
-ALTER TABLE `recepcionistas`
-  ADD PRIMARY KEY (`IDRecepcionista`);
-
---
--- Indexes for table `responsavel`
---
-ALTER TABLE `responsavel`
-  ADD PRIMARY KEY (`IDResponsavel`),
-  ADD KEY `IDEndereco` (`IDEndereco`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `agendapaciente`
---
-ALTER TABLE `agendapaciente`
-  ADD CONSTRAINT `agendapaciente_ibfk_1` FOREIGN KEY (`IDPacienteMaior`) REFERENCES `pacientemaior` (`IDPacienteMaior`),
-  ADD CONSTRAINT `agendapaciente_ibfk_2` FOREIGN KEY (`IDConsulta`) REFERENCES `consulta` (`IDConsulta`);
-
---
--- Constraints for table `agendarecepcionista`
---
-ALTER TABLE `agendarecepcionista`
-  ADD CONSTRAINT `agendarecepcionista_ibfk_1` FOREIGN KEY (`IDRecepcionista`) REFERENCES `recepcionistas` (`IDRecepcionista`),
-  ADD CONSTRAINT `agendarecepcionista_ibfk_2` FOREIGN KEY (`IDConsulta`) REFERENCES `consulta` (`IDConsulta`);
-
---
--- Constraints for table `agendaresponsavel`
---
-ALTER TABLE `agendaresponsavel`
-  ADD CONSTRAINT `agendaresponsavel_ibfk_1` FOREIGN KEY (`IDResponsavel`) REFERENCES `responsavel` (`IDResponsavel`),
-  ADD CONSTRAINT `agendaresponsavel_ibfk_2` FOREIGN KEY (`IDConsulta`) REFERENCES `consulta` (`IDConsulta`);
-
---
--- Constraints for table `consulta`
---
-ALTER TABLE `consulta`
-  ADD CONSTRAINT `consulta_ibfk_1` FOREIGN KEY (`IDMedico`) REFERENCES `medicos` (`IDMedico`);
-
---
--- Constraints for table `pacientemaior`
+-- Limitadores para a tabela `pacientemaior`
 --
 ALTER TABLE `pacientemaior`
   ADD CONSTRAINT `pacientemaior_ibfk_1` FOREIGN KEY (`IDPlanoSaude`) REFERENCES `planosaude` (`IDPlanoSaude`),
   ADD CONSTRAINT `pacientemaior_ibfk_2` FOREIGN KEY (`IDEndereco`) REFERENCES `endereco` (`IDEndereco`);
 
 --
--- Constraints for table `pacientemenor`
+-- Limitadores para a tabela `pacientemenor`
 --
 ALTER TABLE `pacientemenor`
   ADD CONSTRAINT `pacientemenor_ibfk_1` FOREIGN KEY (`IDPlanoSaude`) REFERENCES `planosaude` (`IDPlanoSaude`),
@@ -356,7 +269,7 @@ ALTER TABLE `pacientemenor`
   ADD CONSTRAINT `pacientemenor_ibfk_3` FOREIGN KEY (`IDEndereco`) REFERENCES `endereco` (`IDEndereco`);
 
 --
--- Constraints for table `responsavel`
+-- Limitadores para a tabela `responsavel`
 --
 ALTER TABLE `responsavel`
   ADD CONSTRAINT `responsavel_ibfk_1` FOREIGN KEY (`IDEndereco`) REFERENCES `endereco` (`IDEndereco`);
