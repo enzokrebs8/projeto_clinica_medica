@@ -251,7 +251,8 @@ strong {
 
 small,
 .small {
-  font-size: 0.875em;
+
+  font-size: 1em;
 }
 
 mark,
@@ -528,8 +529,9 @@ progress {
 }
 
 .lead {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 300;
+  text-align: justify;
 }
 
 .display-1 {
@@ -8641,6 +8643,7 @@ fieldset:disabled .btn {
   margin-bottom: 0 !important;
   color: black;
   font-weight: bolder;
+  padding-top: 0.9rem;
 }
 
 .mb-1 {
@@ -12618,8 +12621,9 @@ html {
 }
 
 .content-section {
-  padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  margin-top: 2.5rem;
 }
 
 .content-section-heading h2,
@@ -12783,7 +12787,7 @@ footer.footer .social-link {
   width: 4rem;
   line-height: 4.3rem;
   font-size: 1.5rem;
-  background-color: #1D809F;
+  background-color: #04414d;
   transition: background-color 0.15s ease-in-out;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
@@ -13004,7 +13008,8 @@ footer.footer .social-link:hover {
 .Sobre {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: #c1c1c3;
+  background-color: #badce3;
+  margin-top: 2.5rem;
 }
 
 .Sobre h2 {
@@ -13018,6 +13023,9 @@ footer.footer .social-link:hover {
   flex-direction: column;
   align-items: center;
   padding: 10%;
+  background-image: url("../assets/img/banner_fundo2.png");
+  background-size: cover; 
+  background-position: center;
 }
 
 .Sos h1 {
@@ -13152,7 +13160,7 @@ body {
 }
 
 .opala98{
-  background-color: var(--bs-gray-600);
+  background-color: var(--bs-primary);
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -13160,10 +13168,118 @@ body {
 }
 
 .aluacheiaclareiaasruasdocapaoacimadenoisodeushumildenenaonenaosaudeplinmulheremuitosomvinhobrancoparatodoseumadvogadobom{
-  background-color: var(--bs-gray-600);
+  background-color: var(--bs-primary);
 }
 
 .querumnoveboladoprecisofaraodoegitoquequeixoqueralguemquesocravepoeopedronoataquedorivaldiolafezopedroterebolaebolanarededosrivalatodahoratavamsequeixandodoataquerubronegroagorasimaipedrotatranquilinaipedrobrabotemnomeaipedroqueixodeconeaipapaidoscanarinarrastaopedrolapracomasabequeanovevaicairbemnacarcacadopedrocaquerfazerfrancesebelgachorarnobanheirolevaopedrinaipedrolapracanarinaipedrolevapedrinaipedrotrocasemfimaipedronovedohexaeoferapedroecraquepradedeutuquerverumgolacoprecisocabecadaigualtirodesejonocantinhodatraveeuqueropoeopedronoataquequeixadaopobrelewandowkiganhounemcariocapedroebemmaistopevaiprovarissonacopatitetamoscandolevalogoohomemqueixochamaopedrinlapracanarinlevaopedrintrocasemfimnovedohexaeoferapedroecraquepradedeu{
   margin-left: 2%;
   margin-left: 2%;
 }
+
+.avaliacoes-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(11, 7, 231, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+.avaliacoes-container h2 {
+  color: #333;
+}
+.avaliacao {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+.avaliacao:last-child {
+  border-bottom: none;
+}
+.avaliacao p {
+  font-size: 1.1em;
+  color: #666;
+  margin: 10px 0;
+}
+.avaliacao .nome {
+  font-weight: bold;
+  color: #333;
+}
+.avaliacao .data {
+  font-size: 0.9em;
+  color: #888;
+}
+
+
+.convenios-container {
+  background-color: var(--bs-blue);
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.convenios-container h2 {
+  font-size: 48px;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  width: 80%; 
+  margin: 0 auto; 
+  margin-bottom: 40px;
+}
+
+.convenio-item {
+  display: flex;
+  align-items: center; 
+  padding-left: 20%;
+  gap: 10px; 
+}
+
+.convenio-item img {
+  width: 60px;
+  max-width: 100px; 
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.convenio-item span {
+  font-size: 1.1em;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .logos-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    padding-left: 10%;
+  }
+
+  .convenio-item img {
+    max-width: 50px; 
+  }
+
+  .convenio-item span {
+    font-size: 1em; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  .logos-grid {
+    grid-template-columns: 1fr; 
+    padding-left: 5%;
+  }
+
+  .convenio-item img {
+    max-width: 40px; 
+  }
+
+  .convenio-item span {
+    font-size: 0.9em; 
+  }
+}
+
