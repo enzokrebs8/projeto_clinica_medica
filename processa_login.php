@@ -28,7 +28,7 @@ if ($resultado_maior->num_rows == 1) {
         $_SESSION['tipo'] = 'paciente_maior';
         header('Location: paciente_maior.php');
     } else {
-        header('Location: ../index.html');
+        header('Location: paciente.html');
     }
 } elseif ($resultado_menor->num_rows == 1) {
     $resultado_usuario = mysqli_fetch_assoc($resultado_menor);
@@ -38,7 +38,7 @@ if ($resultado_maior->num_rows == 1) {
         $_SESSION['tipo'] = 'paciente_menor';
         header('Location: paciente_menor.php');
     } else {
-        header('Location: ../index.html');
+        header('Location: index.html');
     }
 } elseif ($resultado_medico->num_rows == 1) {
     $resultado_usuario = mysqli_fetch_assoc($resultado_medico);
@@ -48,7 +48,7 @@ if ($resultado_maior->num_rows == 1) {
         $_SESSION['tipo'] = 'medico';
         header('Location: medico.php');
     } else {
-        header('Location: ../index.html');
+        header('Location: index.html');
     }
 } elseif ($resultado_dev->num_rows == 1) {
     $resultado_usuario = mysqli_fetch_assoc($resultado_dev);
@@ -58,7 +58,7 @@ if ($resultado_maior->num_rows == 1) {
         $_SESSION['tipo'] = 'dev';
         header('Location: index.php');
     } else {
-        header('Location: ../index.html');
+        header('Location: index.html');
     }
 } elseif ($resultado_recepcionista->num_rows == 1) {
     $resultado_usuario = mysqli_fetch_assoc($resultado_recepcionista);
@@ -68,9 +68,9 @@ if ($resultado_maior->num_rows == 1) {
         $_SESSION['tipo'] = 'recepcionista';
         header('Location: consultas.html');
     } else {
-        header('Location: ../index.html');
+        header('Location: index.html');
     }
 } else {
-    header('Location: ../index.html');
+    header('Location: index.html');
 }
 ?>

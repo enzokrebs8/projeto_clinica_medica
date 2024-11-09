@@ -1,3 +1,7 @@
+<?php
+    include 'conecta.php'
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -27,22 +31,24 @@
 
                 <div class="zuzuimperador">
                     <h2 class="calcaangelical">Agendar consulta</h2>
-                    <div class="form-floating mb-3 mb-md-0">
-                        <input class="form-control" id="inputBirthDate" type="datetime-local" placeholder="" />
-                        <label for="Datanascimento">Data e horário</label>
-                    </div>
-                    <select id="medico" class="form-select mb-3" name="medico" aria-label="Medico" required>
-                        <option value="" disabled selected>Médico</option>
-                        <option value="masculino">Menezes</option>
-                        <option value="feminino">Ramos</option>
-                    </select>
-                    <select id="especialidade" class="form-select mb-3" name="especialidade" aria-label="Especialidade" required>
-                        <option value="" disabled selected>Especialidade</option>
-                        <option value="masculino">1</option>
-                        <option value="feminino">2</option>
-                        <option value="feminino">3</option>
-                    </select>
-                    <input class="btn btn-primary orangotango" type="submit" value="Solicitar consulta">
+                    <form action="processa_cadastro.php" method="POST">
+                        <div class="form-floating mb-3 ">
+                            <input class="form-control" id="inputBirthDate" type="datetime-local" placeholder="" />
+                            <label for="Datanascimento">Data e horário</label>
+                        </div>
+                        <select id="medico" class="form-select mb-3" name="medico" aria-label="Medico" required>
+                            <option value="" disabled selected>Médico</option>
+                            <option value="masculino">Menezes</option>
+                            <option value="feminino">Ramos</option>
+                        </select>
+                        <select id="especialidade" class="form-select mb-3" name="especialidade" aria-label="Especialidade" required>
+                            <option value="" disabled selected>Especialidade</option>
+                            <option value="masculino">1</option>
+                            <option value="feminino">2</option>
+                            <option value="feminino">3</option>
+                        </select>
+                        <input class="btn btn-primary orangotango" type="submit" value="Solicitar consulta">
+                    </form>
                 </div>
 
             </div>

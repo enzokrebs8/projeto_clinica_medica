@@ -78,12 +78,10 @@
                                             <select id="NomePlano" class="form-select" name="NomePlano" aria-label="Plano de Saúde" required>
                                                 <option value="" disabled selected>Selecione seu Plano de Saúde</option>
                                                 <?php
-                                                    // Supondo que você já tenha uma conexão com o banco de dados
                                                     $query = "SELECT NomePlano FROM planosaude";
                                                     $result = $conexao->query($query);
 
                                                     while ($row = $result->fetch_assoc()) {
-                                                        // Aqui você atribui o valor do plano de saúde como value
                                                         echo '<option value="' . htmlspecialchars($row['NomePlano']) . '">' . htmlspecialchars($row['NomePlano']) . '</option>';
                                                     }
                                                 ?>
