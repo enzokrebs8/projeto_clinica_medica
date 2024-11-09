@@ -34,113 +34,114 @@
                                 <div class="card-body">
                                     <form action="processa_cadastro.php" method="POST">
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="nome" type="text" placeholder="" />
-                                            <label for="nome">Nome completo</label>
+                                            <input class="form-control" name="nome" type="text" placeholder="" required/>
+                                            <label for="txtNome">Nome completo</label>
                                         </div>
 
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" name="nascimento" id="nascimento" type="date" placeholder="" />
-                                                    <label for="nascimento">Data de nascimento</label>
+                                                    <input class="form-control" name="nascimento" id="txtNascimento" type="date" placeholder="" required />
+                                                    <label for="txtNascimento">Data de nascimento</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <select id="genero" class="form-select" name="genero" aria-label="Gênero" required>
+                                                    <select id="genero" class="form-select" id='txtGenero' name="genero" aria-label="Gênero" required>
                                                         <option value="" disabled selected>Selecione seu gênero biológico</option>
                                                         <option value="masculino">Masculino</option>
                                                         <option value="feminino">Feminino</option>
                                                     </select>
-                                                    <label for="genero">Gênero</label>
+                                                    <label for="txtGenero">Gênero</label>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="telefone" type="tel" placeholder="" />
-                                            <label for="telefone">Telefone</label>
+                                            <input class="form-control" id="txtTelefone" name="telefone" type="tel" placeholder="" required/>
+                                            <label for="txtTelefone">Telefone</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="telefoneEmergencia" type="tel" placeholder="" />
-                                            <label for="telefoneEmergencia">Telefone de emergência</label>
+                                            <input class="form-control" id="txtTelefoneEmergencia" name="telefoneEmergencia" type="tel" placeholder="" required/>
+                                            <label for="txtTelefoneEmergencia">Telefone de emergência</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="CPF" type="text" placeholder="" />
+                                            <input class="form-control" id='txtCpf' name="CPF" type="text" placeholder="" required/>
                                             <label for="CPF">CPF</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="RG" type="text" placeholder="" />
-                                            <label for="RG">RG</label>
+                                            <input class="form-control" name="RG" type="text" placeholder="" required/>
+                                            <label for="txtRG">RG</label>
                                         </div>
 
                                         <div class="form-floating mb-3">
                                             <select id="NomePlano" class="form-select" name="NomePlano" aria-label="Plano de Saúde" required>
                                                 <option value="" disabled selected>Selecione seu Plano de Saúde</option>
                                                 <?php
-                                                    $sql = "SELECT NomePlano FROM planosaude";
-                                                    $consulta = $conexao->query($sql);
-                                                    while($dados = $consulta->fetch_assoc()){
-                                                        echo "<tr>";
-                                                        echo "<option value=''>".$dados['NomePlano']."</option>";
-                                                        echo "</tr>";
+                                                    // Supondo que você já tenha uma conexão com o banco de dados
+                                                    $query = "SELECT NomePlano FROM planosaude";
+                                                    $result = $conexao->query($query);
+
+                                                    while ($row = $result->fetch_assoc()) {
+                                                        // Aqui você atribui o valor do plano de saúde como value
+                                                        echo '<option value="' . htmlspecialchars($row['NomePlano']) . '">' . htmlspecialchars($row['NomePlano']) . '</option>';
                                                     }
                                                 ?>
                                             </select>
-                                            <label for="NomePlano">Plano de Saúde</label>
+                                            <label for="txtNomePlano">Plano de Saúde</label>
                                         </div>
 
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="email" type="text" placeholder="" />
-                                            <label for="email">Endereço de Email</label>
+                                            <input class="form-control" id='txtEmail' name="email" type="text" placeholder="" required/>
+                                            <label for="txtEmail">Endereço de Email</label>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" name="senha" type="password" placeholder="" />
-                                                    <label for="senha">Senha</label>
+                                                    <input class="form-control" id='txtSenha' name="senha" type="password" placeholder="" required/>
+                                                    <label for="txtSenha">Senha</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <!-- <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" name="confirmar_senha" type="password" placeholder="" />
-                                                    <label for="confirmar_senha">Confirmar senha</label>
+                                                    <input class="form-control" id='txtConfirmar_senha' name="confirmar_senha" type="password" placeholder="" />
+                                                    <label for="txtConfirmar_senha">Confirmar senha</label>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <h3 class="vaiviverDavi">Endereço</h3>
                                         <div class="form-floating mb-3">
-                                            <input id='txtCep' class="form-control" name="cep" type="text" placeholder="" />
+                                            <input id='txtCep' class="form-control" name="cep" type="text" placeholder="" required/>
                                             <label for="txtCep">CEP</label>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input id='txtRua' class="form-control" name="rua" type="text" placeholder="" />
+                                                    <input id='txtRua' class="form-control" name="rua" type="text" placeholder="" required/>
                                                     <label for="txtRua">Rua</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input id='txtNumero' class="form-control" name="numero" type="text" placeholder="" />
+                                                    <input id='txtNumero' class="form-control" name="numero" type="text" placeholder="" required/>
                                                     <label for="txtNumero">Número da Casa</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input id='txtBairro' class="form-control" name="bairro" type="text" placeholder="" />
+                                            <input id='txtBairro' class="form-control" name="bairro" type="text" placeholder="" required/>
                                             <label for="txtBairro">Bairro</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input id='txtComplemento' class="form-control" name="complemento" type="text" placeholder="" />
+                                            <input id='txtComplemento' class="form-control" name="complemento" type="text" placeholder="" required/>
                                             <label for="txtComplemento">Complemento</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input id='txtCidade' class="form-control" name="cidade" type="text" placeholder="" />
+                                            <input id='txtCidade' class="form-control" name="cidade" type="text" placeholder="" required/>
                                             <label for="txtCidade">Cidade</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input id='txtEstado' class="form-control" name="estado" type="text" placeholder="" />
+                                            <input id='txtEstado' class="form-control" name="estado" type="text" placeholder="" required/>
                                             <label for="txtEstado">Estado</label>
                                         </div>
                                         
@@ -150,24 +151,24 @@
                                             <h3 class="vaiviverDavi">Campo do Responsável</h3>
                                             
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputGuardian" type="text" placeholder="" />
-                                                <label for="inputGuardian">Nome do responsável</label>
+                                                <input class="form-control" id="TxtNome" type="text" placeholder="" />
+                                                <label for="TxtNome">Nome do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputGuardian" type="text" placeholder="" />
-                                                <label for="inputGuardian">CPF do responsável</label>
+                                                <input class="form-control" id="TxtCPF" type="text" placeholder="" />
+                                                <label for="TxtCPF">CPF do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputGuardian" type="text" placeholder="" />
-                                                <label for="inputGuardian">RG do responsável</label>
+                                                <input class="form-control" id="TxtRG" type="text" placeholder="" />
+                                                <label for="TxtRG">RG do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputGuardian" type="date" placeholder="" />
-                                                <label for="inputGuardian">Data de nascimento do responsável</label>
+                                                <input class="form-control" id="TxtNascimento" type="date" placeholder="" />
+                                                <label for="TxtNascimento">Data de nascimento do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputGuardian" type="email" placeholder="" />
-                                                <label for="inputGuardian">Email do responsável</label>
+                                                <input class="form-control" id="TxtEmail" type="email" placeholder="" />
+                                                <label for="TxtEmail">Email do responsável</label>
                                             </div>
                                         </div>
 
@@ -187,8 +188,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/checkAge.js"></script>
     <script type="text/javascropt" src='js/cep.js'></script>
+    <script src="js/checkAge.js"></script>
 </body>
 </html>

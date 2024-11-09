@@ -1,7 +1,7 @@
 function buscaCep(){
     let cep = document.getElementById('txtCep').value;
     if(cep !== ""){
-        let url = `https://brasilapi.com.br/api/cep/v1/`+ cep;
+        let url = "https://brasilapi.com.br/api/cep/v1/" + cep;
         let req = new XMLHttpRequest();
         req.open('GET', url);
         req.send();
@@ -25,6 +25,6 @@ function buscaCep(){
 }
 
 window.onload = function(){
-    let cep = document.getElementById('cep');
+    let cep = document.getElementById('txtCep');
     cep.addEventListener('blur', buscaCep);
 }
