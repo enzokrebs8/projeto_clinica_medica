@@ -164,7 +164,7 @@ include 'conecta.php';
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" name="relacaoResponsavel" type="text" placeholder="" required/>
-                                                <label for="relacaoResponsavel">Relação do responsável (ex: Pai, Mãe, etc)</label>
+                                                <label for="relacaoResponsavel">Relação do responsável com o menor (ex: Pai, Mãe, etc)</label>
                                             </div>
                                         </div>
 
