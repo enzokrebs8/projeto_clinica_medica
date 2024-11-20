@@ -34,17 +34,6 @@ foreach ($tabelas as $tabela => $redirect) {
             // echo "<script>alert('$mensagem');window.location.href = 'login.html';</script>";
             exit; // Para garantir que o script pare após o alerta
         }
-
-
-        // echo password_hash('enzokrebs2007', PASSWORD_BCRYPT);
-        // $senha_cadastrada = $usuario['senha']; // A senha que você obteve do banco de dados
-        // $senha_digitada = 'enzokrebs2007'; // A senha que você digitou
-
-        // if (password_verify($senha_digitada, $senha_cadastrada)) {
-        //     echo "Senha correta!";
-        // } else {
-        //     echo "Senha incorreta!";
-        // }
     }
 }
 ?>
