@@ -12,7 +12,7 @@ $tabelas = [
     'recepcionistas' => 'gestor.php'
 ];
 
-$usuarioEncontrado = false; // Variável para controlar se o usuário foi encontrado
+$usuarioEncontrado = false; 
 
 foreach ($tabelas as $tabela => $redirect) {
     echo "Consultando a tabela: $tabela\n";
@@ -20,19 +20,19 @@ foreach ($tabelas as $tabela => $redirect) {
     $resultado = $conexao->query($query);
 
     if (!$resultado) {
-        die("Erro na consulta: " . $conexao->error); // Adicione esta linha
+        die("Erro na consulta: " . $conexao->error);
     }
 
     if ($resultado && $resultado->num_rows == 1) {
         $usuario = $resultado->fetch_assoc();
         if (password_verify($senha, $usuario['senha'])) {
-            $usuarioEncontrado = true; // Marca que o usuário foi encontrado
+            $usuarioEncontrado = true;
             header("Location: $redirect");
-            exit; // Para garantir que o script pare após o redirecionamento
+            exit;
         } else {
             $mensagem = "Usuário ou senha incorretos!";
-            // echo "<script>alert('$mensagem');window.location.href = 'login.html';</script>";
-            exit; // Para garantir que o script pare após o alerta
+            echo "<script>alert('$mensagem');window.location.href = 'login.html';</script>";
+            exit;
         }
     }
 }
