@@ -57,11 +57,11 @@ include 'conecta.php';
 
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="txtTelefone" name="telefone" type="tel" placeholder="" required/>
-                                            <label for="txtTelefone">Telefone</label>
+                                            <label for="txtTelefone">Número de Telefone</label>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="txtTelefoneEmergencia" name="telefoneEmergencia" type="tel" placeholder="" required/>
-                                            <label for="txtTelefoneEmergencia">Telefone de emergência</label>
+                                            <label for="txtTelefoneEmergencia">Número de Telefone de emergência</label>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id='txtCpf' name="CPF" type="text" placeholder="" required/>
@@ -156,7 +156,7 @@ include 'conecta.php';
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" name="telefoneResp" type="text" placeholder="" required/>
-                                                <label for="telefoneResp">Número do responsável</label>
+                                                <label for="telefoneResp">Número de Telefone do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" name="email_responsavel" type="email" placeholder="" required/>
