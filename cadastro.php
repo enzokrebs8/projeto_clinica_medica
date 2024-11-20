@@ -169,8 +169,7 @@ include 'conecta.php';
                                         </div>
 
                                         <div class="mt-4 mb-0">
-                                            <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Criar conta</button ```php
-                                            </div>
+                                            <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Criar conta</button</div>
                                         </div>
                                     </form>
                                 </div>
