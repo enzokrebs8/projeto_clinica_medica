@@ -6,13 +6,13 @@
 
     $conexao = new mysqli($servidor,$usuario,$senha,$banco);
 
-    $sql= "SET NAMES utf8'";
+    $sql= "SET NAMES utf8";
     mysqli_query($conexao, $sql);
-    $sql= 'SET NAMES character_set_connection=utf8';
+    $sql= "SET NAMES character_set_connection=utf8";
     mysqli_query($conexao, $sql); 
-    $sql= 'SET NAMES character_set_client=utf8';
+    $sql= "SET NAMES character_set_client=utf8";
     mysqli_query($conexao, $sql); 
-    $sql= 'SET character_set_results=utf8';
+    $sql= "SET character_set_results=utf8";
     mysqli_query($conexao, $sql); 
 
 
