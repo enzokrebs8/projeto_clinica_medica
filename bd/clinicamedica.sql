@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 20-Nov-2024 às 22:04
+-- Tempo de geração: 20-Nov-2024 às 23:28
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.0.26
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `devs` (
   `nome` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `cpf` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `senha` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`cpf`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `endereco` (
   `numero` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `rua` varchar(70) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`IDEndereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `endereco`
@@ -110,7 +110,10 @@ INSERT INTO `endereco` (`IDEndereco`, `CEP`, `complemento`, `bairro`, `estado`, 
 (53, 'cep', 'complemento', 'bairro', 'estado', 'cidade', 'numero', 'rua'),
 (54, 'cep', 'complemento', 'bairro', 'estado', 'cidade', 'numero', 'rua'),
 (55, 'cep', 'complemento', 'bairro', 'estado', 'cidade', 'numero', 'rua'),
-(56, 'cep', 'complemento', 'bairro', 'estado', 'cidade', 'numero', 'rua');
+(56, 'cep', 'complemento', 'bairro', 'estado', 'cidade', 'numero', 'rua'),
+(57, 'cep', 'complemento', 'bairro', 'estado', 'cidade', 'numero', 'rua'),
+(58, 'cep', 'complemento', 'bairro', 'estado', 'cidade', 'numero', 'rua'),
+(59, 'cep', 'complemento', 'bairro', 'estado', 'cidade', 'numero', 'rua');
 
 -- --------------------------------------------------------
 
@@ -123,6 +126,7 @@ CREATE TABLE IF NOT EXISTS `medicos` (
   `IDMedico` int NOT NULL AUTO_INCREMENT,
   `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `senha` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `Especialidade` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -178,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `pacientemenor` (
   `telefoneEmergencia` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
   `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `senha` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -190,7 +194,14 @@ CREATE TABLE IF NOT EXISTS `pacientemenor` (
   KEY `IDPlanoSaude` (`IDPlanoSaude`),
   KEY `IDResponsavel` (`IDResponsavel`),
   KEY `IDEndereco` (`IDEndereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `pacientemenor`
+--
+
+INSERT INTO `pacientemenor` (`IDPacienteMenor`, `relacaoResponsavel`, `telefone`, `telefoneEmergencia`, `nascimento`, `email`, `senha`, `nome`, `RG`, `CPF`, `genero`, `IDResponsavel`, `IDEndereco`, `IDPlanoSaude`) VALUES
+(7, 'Mãe', '(11) 93357-2695', '11 40028923', '2007-11-24', 'enzo8@gmail.com', '$2y$10$uE1myyYXDe5Rb60RFhHSbua2j2yBq79L4i7xbPf4OTgXMmJ4rwcBa', 'Enzo Krebs Silva', '123456789101', '464.048.678-26', 'masculino', NULL, 41, 8);
 
 -- --------------------------------------------------------
 
@@ -233,6 +244,7 @@ INSERT INTO `planosaude` (`IDPlanoSaude`, `ContatoCentralPlano`, `NomePlano`) VA
 DROP TABLE IF EXISTS `recepcionistas`;
 CREATE TABLE IF NOT EXISTS `recepcionistas` (
   `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `senha` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -255,20 +267,20 @@ CREATE TABLE IF NOT EXISTS `responsavel` (
   `telefoneResp` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `senha` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
   `IDEndereco` int DEFAULT NULL,
   PRIMARY KEY (`IDResponsavel`),
   KEY `IDEndereco` (`IDEndereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `responsavel`
 --
 
 INSERT INTO `responsavel` (`IDResponsavel`, `CPF`, `telefoneResp`, `nome`, `email`, `senha`, `RG`, `nascimento`, `IDEndereco`) VALUES
-(8, '09093094', '11 40028922', 'Enzo', 'asdas@gmail.com', '', 'asdasda', '1980-11-24', 41);
+(11, 'dasdasd', '11 40028922', 'Enzo', 'asdas@gmail.com', '', 'asdasda', '1969-11-24', 41);
 
 -- --------------------------------------------------------
 

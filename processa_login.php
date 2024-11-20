@@ -12,20 +12,39 @@ $tabelas = [
     'recepcionistas' => 'gestor.php'
 ];
 
+$usuarioEncontrado = false; // Variável para controlar se o usuário foi encontrado
+
 foreach ($tabelas as $tabela => $redirect) {
+    echo "Consultando a tabela: $tabela\n";
     $query = "SELECT * FROM $tabela WHERE email = '$email'";
     $resultado = $conexao->query($query);
+
+    if (!$resultado) {
+        die("Erro na consulta: " . $conexao->error); // Adicione esta linha
+    }
 
     if ($resultado && $resultado->num_rows == 1) {
         $usuario = $resultado->fetch_assoc();
         if (password_verify($senha, $usuario['senha'])) {
+            $usuarioEncontrado = true; // Marca que o usuário foi encontrado
             header("Location: $redirect");
-            exit;
+            exit; // Para garantir que o script pare após o redirecionamento
         } else {
             $mensagem = "Usuário ou senha incorretos!";
-            echo "<script>alert('$mensagem');window.location.href = 'login.html';</script>";
+            // echo "<script>alert('$mensagem');window.location.href = 'login.html';</script>";
+            exit; // Para garantir que o script pare após o alerta
         }
+
+
+        // echo password_hash('enzokrebs2007', PASSWORD_BCRYPT);
+        // $senha_cadastrada = $usuario['senha']; // A senha que você obteve do banco de dados
+        // $senha_digitada = 'enzokrebs2007'; // A senha que você digitou
+
+        // if (password_verify($senha_digitada, $senha_cadastrada)) {
+        //     echo "Senha correta!";
+        // } else {
+        //     echo "Senha incorreta!";
+        // }
     }
 }
-
 ?>
