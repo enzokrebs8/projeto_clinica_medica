@@ -6,6 +6,6 @@
         $_SESSION['nome'],
         $_SESSION['email']
     );
-    header('Location: ../index.html');
 
+    header('Location: ../index.html');
 ?>
