@@ -124,7 +124,7 @@ include 'conecta.php';
                                             <label for="txtBairro">Bairro</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input id='txtComplemento' class="form-control" name="complemento" type="text" placeholder="" required/>
+                                            <input id='txtComplemento' class="form-control" name="complemento" type="text" placeholder=""/>
                                             <label for="txtComplemento">Complemento</label>
                                         </div>
                                         <div class="form-floating mb-3">
