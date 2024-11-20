@@ -1,3 +1,7 @@
+<?php
+    include 'conecta.php'
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,10 +11,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="/assets/img/consulta.png" type="image/x-icon">
 </head>
 
-<a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+<a class="menu-toggle rounded" href="#"><i class="fa-solid fa-bars" style="color: #ffffff;"></i></a>
 <nav id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li class="sidebar-brand"><a>Área do Paciente</a></li>
@@ -23,54 +26,32 @@
 </header>
 
 <body class="soninho">
-    <div class="slk">
-        <div class="container cirilo">
-            <div class="container text-center tumbalatumba">
-                <div class="row">
+    <div class="container cirilo">
+        <div class="container text-center tumbalatumba">
+            <div class="row">
 
-                    <div class="col-md-5 zuzuimperador">
-                        <h2 class="calcaangelical">Agendar consulta</h2>
-                        <div class="form-floating mb-3 mb-md-0">
+                <div class="zuzuimperador">
+                    <h2 class="calcaangelical">Agendar consulta</h2>
+                    <form action="processa_cadastro.php" method="POST">
+                        <div class="form-floating mb-3 ">
                             <input class="form-control" id="inputBirthDate" type="datetime-local" placeholder="" />
                             <label for="Datanascimento">Data e horário</label>
                         </div>
-                        <select id="genero" class="form-select" name="genero" aria-label="Gênero" required>
+                        <select id="medico" class="form-select mb-3" name="medico" aria-label="Medico" required>
                             <option value="" disabled selected>Médico</option>
                             <option value="masculino">Menezes</option>
                             <option value="feminino">Ramos</option>
                         </select>
+                        <select id="especialidade" class="form-select mb-3" name="especialidade" aria-label="Especialidade" required>
+                            <option value="" disabled selected>Especialidade</option>
+                            <option value="masculino">1</option>
+                            <option value="feminino">2</option>
+                            <option value="feminino">3</option>
+                        </select>
                         <input class="btn btn-primary orangotango" type="submit" value="Solicitar consulta">
-                    </div>
-
-
-                    <div class="col-md-7">
-                        <h2 class="calcaangelical">Consultas agendadas</h2>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Data/Hora</th>
-                                    <th scope="col">Médico</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>17/03/2025 - 21:99</td>
-                                    <td>Menezes</td>
-                                    <td>Aceito</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>

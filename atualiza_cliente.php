@@ -4,11 +4,9 @@
 
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM clientes WHERE id_cliente = '$id'";
+    $sql = "SELECT * FROM pacientemenor WHERE idPacienteMenor = '$id'";
     $consulta = $conexao->query($sql);
     $dados = $consulta->fetch_assoc();
-
-    
 
 ?>
             <div id="layoutSidenav_content">
@@ -19,11 +17,11 @@
                             <form action="processa_atualiza_cliente.php?id=<?php echo $id; ?>" method="POST">
                                 <div class="mb-3">
                                     <label class="form-label">Nome</label>
-                                    <input name="nome_novo" type="text" class="form-control" value="<?php echo $dados['nome_cliente']; ?>">                                    
+                                    <input name="nome_novo" type="text" class="form-control" value="<?php echo $dados['nome']; ?>">                                    
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
-                                    <input name="email_novo" type="email" class="form-control" value="<?php echo $dados['email_cliente']; ?>">                                    
+                                    <input name="email_novo" type="email" class="form-control" value="<?php echo $dados['email']; ?>">                                    
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Telefone</label>

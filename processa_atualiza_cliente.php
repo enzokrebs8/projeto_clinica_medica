@@ -10,7 +10,7 @@
     // Agora criar a String de UPDATE e executar
     // Direcionar para a index.php
 
-    $consulta = "UPDATE clientes SET nome_cliente = '$nome_novo', email_cliente = '$email_novo',telefone='$telefone_novo' WHERE id_cliente = '$id' ";
+    $consulta = "UPDATE pacientemenor SET nome = '$nome_novo', email = '$email_novo',telefone='$telefone_novo' WHERE id_cliente = '$id' ";
 
     $conexao->query($consulta);
 

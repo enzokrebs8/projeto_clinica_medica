@@ -1,6 +1,7 @@
 <?php
+
 include 'conecta.php';
-include 'menu.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +85,6 @@ include 'menu.php';
                                                 ?>
                                             </select>
                                             <label for="txtNomePlano">Plano de Saúde</label>
-                                        </ ```php
                                         </div>
 
                                         <div class="form-floating mb-3">
@@ -155,8 +155,8 @@ include 'menu.php';
                                                 <label for="nascimento_responsavel">Data de nascimento do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" name="numeroResp" type="text" placeholder="" required/>
-                                                <label for="numeroResp">Número do responsável</label>
+                                                <input class="form-control" name="telefoneResp" type="text" placeholder="" required/>
+                                                <label for="telefoneResp">Número do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" name="email_responsavel" type="email" placeholder="" required/>

@@ -1,3 +1,31 @@
+<?php>
+    include ('conecta.php');
+
+    if(isset($_POST[OK])){
+
+        $email = $mysqli->escape_string($_POST['email']);
+
+        if(!filter_var($email, FILTER_VALIDADE_EMAIL)){
+            $erro[] = "E-mail inválido.";
+        }
+        
+        
+
+        if(count($erro)) == 0{
+
+            $novasenha = substr(md5(time()), 0, 6);
+            $novasenha_cript = md5(md5($novasenha));
+            
+
+            if(mail($email, "Recuperação de Senha - Clínica SOS", "Soubemos que teve problemas ao logar em sua conta e precisou redefinir sua senha, aqui está ela: ".$novasenha)){
+
+                $sql_code = "UPDATE pacientemaior SET senha = '$novasenha_cript' WHERE email = '$email'";
+                $sql_query = $mysqli->query($sql_code) or die($mysqli->error);
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -21,14 +49,14 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Recupere sua senha</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form method="POST" action="">
                                             <div class="form-floating mb-3">
                                                 <input name="email" class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
                                                 <label for="inputEmail">Endereço de Email</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="login.html">Ir para Login</a>
-                                                <input class="btn btn-primary" type="submit" value="Enviar email de recuperação">
+                                                <input class="btn btn-primary" name="OK" type="submit" value="Enviar email de recuperação">
                                             </div>
                                         </form>
                                     </div>

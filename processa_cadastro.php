@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $telefoneEmergencia = $_POST['telefoneEmergencia'];
     $genero = $_POST['genero'] ?? null;
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    $senha = $_POST['senha'];
+    $hash = password_hash($senha, PASSWORD_BCRYPT);
     $CEP = 'cep';
     $rua = 'rua';
     $bairro = 'bairro';
@@ -54,14 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $emailResponsavel = $_POST['email_responsavel'] ?? null;
                         $nascimentoResponsavel = $_POST['nascimento_responsavel'] ?? null;
                         $relacaoResponsavel = $_POST['relacaoResponsavel'] ?? null;
-                        $numeroResp = $_POST['numeroResp'] ?? null;
+                        $telefoneResp = $_POST['telefoneResp'] ?? null;
 
-                        $sqlResponsavel = "INSERT INTO responsavel (nome, CPF, RG, numeroResp , email, nascimento, IDEndereco,) VALUES (?, ?, ?, ?, ?)";
+                        $sqlResponsavel = "INSERT INTO responsavel (nome, CPF, RG, telefoneResp , email, nascimento, IDEndereco) VALUES (?, ?, ?, ?, ?, ?, ?)";
                         $stmtResponsavel = $conexao->prepare($sqlResponsavel);
                         if ($stmtResponsavel === false) {
                             die("Erro na preparação da consulta do responsável: " . $conexao->error);
                         }
-                        $stmtResponsavel->bind_param("sssss", $nomeResponsavel, $cpfResponsavel, $rgResponsavel, $numeroResp, $emailResponsavel, $nascimentoResponsavel, $IDEndereco);
+                        $stmtResponsavel->bind_param("ssssssi", $nomeResponsavel, $cpfResponsavel, $rgResponsavel, $telefoneResp, $emailResponsavel, $nascimentoResponsavel, $IDEndereco);
 
                         if ($stmtResponsavel->execute()) {
                             $idResponsavel = $stmtResponsavel->insert_id;
@@ -72,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 die("Erro na preparação da consulta do paciente menor: " . $conexao->error);
                             }
 
-                            $stmtPacienteMenor->bind_param("ssssssssssiii", $relacaoResponsavel, $telefone, $telefoneEmergencia, $nascimento, $email, $senha, $nome, $RG, $CPF, $genero, $IDResponsavel, $IDEndereco, $IDPlanoSaude);
+                            $stmtPacienteMenor->bind_param("ssssssssssiii", $relacaoResponsavel, $telefone, $telefoneEmergencia, $nascimento, $email, $hash, $nome, $RG, $CPF, $genero, $IDResponsavel, $IDEndereco, $IDPlanoSaude);
 
                             if ($stmtPacienteMenor->execute()) {
                                 echo "Paciente menor de idade cadastrado com sucesso!";
@@ -91,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             die("Erro na preparação da consulta do paciente maior: " . $conexao->error);
                         }
 
-                        $stmtPacienteMaior->bind_param("sssssssssii", $genero, $nascimento, $RG, $nome, $email, $senha, $telefoneEmergencia, $telefone, $CPF, $IDEndereco, $IDPlanoSaude);
+                        $stmtPacienteMaior->bind_param("sssssssssii", $genero, $nascimento, $RG, $nome, $email, $hash, $telefoneEmergencia, $telefone, $CPF, $IDEndereco, $IDPlanoSaude);
 
                         if ($stmtPacienteMaior->execute()) {
                             echo "Paciente maior de idade cadastrado com sucesso!";

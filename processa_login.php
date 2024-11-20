@@ -1,76 +1,32 @@
 <?php
-
 require('conecta.php');
 
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+$email = $conexao->real_escape_string($_POST['email']);
+$senha = $conexao->real_escape_string($_POST['senha']);
 
-$consulta_maior = "SELECT * FROM pacientemaior WHERE email = '$email'";
-$resultado_maior = $conexao->query($consulta_maior);
+$tabelas = [
+    'pacientemaior' => 'paciente_maior.php',
+    'pacientemenor' => 'paciente_menor.php',
+    'medicos' => 'medico.php',
+    'devs' => 'index.php',
+    'recepcionistas' => 'gestor.php'
+];
 
-$consulta_menor = "SELECT * FROM pacientemenor WHERE email = '$email'";
-$resultado_menor = $conexao->query($consulta_menor);
+foreach ($tabelas as $tabela => $redirect) {
+    $query = "SELECT * FROM $tabela WHERE email = '$email'";
+    $resultado = $conexao->query($query);
 
-$consulta_medico = "SELECT * FROM medicos WHERE email = '$email'";
-$resultado_medico = $conexao->query($consulta_medico);
-
-$consulta_dev = "SELECT * FROM devs WHERE email = '$email'";
-$resultado_dev = $conexao->query($consulta_dev);
-
-$consulta_recepcionista = "SELECT * FROM recepcionistas WHERE email = '$email'";
-$resultado_recepcionista = $conexao->query($consulta_recepcionista);
-
-if ($resultado_maior->num_rows == 1) {
-    $resultado_usuario = mysqli_fetch_assoc($resultado_maior);
-    if (password_verify($senha, $resultado_usuario['senha'])) {
-        $_SESSION['id'] = $resultado_usuario['id'];
-        $_SESSION['nome'] = $resultado_usuario['nome'];
-        $_SESSION['tipo'] = 'paciente_maior';
-        header('Location: paciente_maior.php');
-    } else {
-        header('Location: paciente.html');
+    if ($resultado && $resultado->num_rows == 1) {
+        $usuario = $resultado->fetch_assoc();
+        if (password_verify($senha, $usuario['senha'])) {
+            header("Location: $redirect");
+            exit;
+        } else {
+            echo 'Senha incorreta!';
+        }
     }
-} elseif ($resultado_menor->num_rows == 1) {
-    $resultado_usuario = mysqli_fetch_assoc($resultado_menor);
-    if (password_verify($senha, $resultado_usuario['senha'])) {
-        $_SESSION['id'] = $resultado_usuario['id'];
-        $_SESSION['nome'] = $resultado_usuario['nome'];
-        $_SESSION['tipo'] = 'paciente_menor';
-        header('Location: paciente_menor.php');
-    } else {
-        header('Location: index.html');
-    }
-} elseif ($resultado_medico->num_rows == 1) {
-    $resultado_usuario = mysqli_fetch_assoc($resultado_medico);
-    if (password_verify($senha, $resultado_usuario['senha'])) {
-        $_SESSION['id'] = $resultado_usuario['id'];
-        $_SESSION['nome'] = $resultado_usuario['nome'];
-        $_SESSION['tipo'] = 'medico';
-        header('Location: medico.php');
-    } else {
-        header('Location: index.html');
-    }
-} elseif ($resultado_dev->num_rows == 1) {
-    $resultado_usuario = mysqli_fetch_assoc($resultado_dev);
-    if (password_verify($senha, $resultado_usuario['senha'])) {
-        $_SESSION['id'] = $resultado_usuario['id'];
-        $_SESSION['nome'] = $resultado_usuario['nome'];
-        $_SESSION['tipo'] = 'dev';
-        header('Location: index.php');
-    } else {
-        header('Location: index.html');
-    }
-} elseif ($resultado_recepcionista->num_rows == 1) {
-    $resultado_usuario = mysqli_fetch_assoc($resultado_recepcionista);
-    if (password_verify($senha, $resultado_usuario['senha'])) {
-        $_SESSION['id'] = $resultado_usuario['id'];
-        $_SESSION['nome'] = $resultado_usuario['nome'];
-        $_SESSION['tipo'] = 'recepcionista';
-        header('Location: consultas.html');
-    } else {
-        header('Location: index.html');
-    }
-} else {
-    header('Location: index.html');
 }
+
+header("Location: login.html?erro=Usuário não encontrado.");
+exit;
 ?>
