@@ -22,11 +22,10 @@ foreach ($tabelas as $tabela => $redirect) {
             header("Location: $redirect");
             exit;
         } else {
-            echo 'Senha incorreta!';
+            $mensagem = "Usuário ou senha incorretos!";
+            echo "<script>alert('$mensagem');window.location.href = 'login.html';</script>";
         }
     }
 }
 
-header("Location: login.html?erro=Usuário não encontrado.");
-exit;
 ?>
