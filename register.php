@@ -1,8 +1,7 @@
 <?php
-    include 'conecta.php';
-    include 'menu.php';
+include 'conecta.php';
+include 'menu.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,10 +9,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
     <title>Registre-se - SOS</title>
-    <link rel="shortcut icon" href="/assets/img/consulta.png" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <style>
@@ -47,7 +44,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <select id="genero" class="form-select" id='txtGenero' name="genero" aria-label="Gênero" required>
+                                                    <select id="genero" class="form-select" name="genero" aria-label="Gênero" required>
                                                         <option value="" disabled selected>Selecione seu gênero biológico</option>
                                                         <option value="masculino">Masculino</option>
                                                         <option value="feminino">Feminino</option>
@@ -87,6 +84,7 @@
                                                 ?>
                                             </select>
                                             <label for="txtNomePlano">Plano de Saúde</label>
+                                        </ ```php
                                         </div>
 
                                         <div class="form-floating mb-3">
@@ -100,13 +98,8 @@
                                                     <label for="txtSenha">Senha</label>
                                                 </div>
                                             </div>
-                                            <!-- <div class="col-md-6">
-                                                <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id='txtConfirmar_senha' name="confirmar_senha" type="password" placeholder="" />
-                                                    <label for="txtConfirmar_senha">Confirmar senha</label>
-                                                </div>
-                                            </div> -->
                                         </div>
+
                                         <h3 class="vaiviverDavi">Endereço</h3>
                                         <div class="form-floating mb-3">
                                             <input id='txtCep' class="form-control" name="cep" type="text" placeholder="" required/>
@@ -142,36 +135,42 @@
                                             <input id='txtEstado' class="form-control" name="estado" type="text" placeholder="" required/>
                                             <label for="txtEstado">Estado</label>
                                         </div>
-                                        
 
                                         <div class="col-md-12 additional-fields hidden" id="additionalFields">
-
                                             <h3 class="vaiviverDavi">Campo do Responsável</h3>
-                                            
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="TxtNome" type="text" placeholder="" />
-                                                <label for="TxtNome">Nome do responsável</label>
+                                                <input class="form-control" name="nome_responsavel" type="text" placeholder="" required/>
+                                                <label for="nome_responsavel">Nome do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="TxtCPF" type="text" placeholder="" />
-                                                <label for="TxtCPF">CPF do responsável</label>
+                                                <input class="form-control" name="cpf_responsavel" type="text" placeholder="" required/>
+                                                <label for="cpf_responsavel">CPF do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="TxtRG" type="text" placeholder="" />
-                                                <label for="TxtRG">RG do responsável</label>
+                                                <input class="form-control" name="rg_responsavel" type="text" placeholder="" required/>
+                                                <label for="rg_responsavel">RG do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="TxtNascimento" type="date" placeholder="" />
-                                                <label for="TxtNascimento">Data de nascimento do responsável</label>
+                                                <input class="form-control" name="nascimento_responsavel" type="date" placeholder="" required/>
+                                                <label for="nascimento_responsavel">Data de nascimento do responsável</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="TxtEmail" type="email" placeholder="" />
-                                                <label for="TxtEmail">Email do responsável</label>
+                                                <input class="form-control" name="numeroResp" type="text" placeholder="" required/>
+                                                <label for="numeroResp">Número do responsável</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" name="email_responsavel" type="email" placeholder="" required/>
+                                                <label for="email_responsavel">Email do responsável</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" name="relacaoResponsavel" type="text" placeholder="" required/>
+                                                <label for="relacaoResponsavel">Relação com o responsável</label>
                                             </div>
                                         </div>
 
                                         <div class="mt-4 mb-0">
-                                            <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Criar conta</button></div>
+                                            <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Criar conta</button ```php
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -186,7 +185,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script type="text/javascropt" src='js/cep.js'></script>
     <script src="js/checkAge.js"></script>
+    <script src="js/cep.js"></script>
 </body>
 </html>
