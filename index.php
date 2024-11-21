@@ -40,19 +40,6 @@
                                             <th>TELEFONE</th>                                        
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                            <tr>
-                                            <th>ID</th>
-                                            <th>NOME</th>
-                                            <th>CPF</th>
-                                            <th>RG</th>
-                                            <th>EMAIL</th>
-                                            <th>ESPECIALIDADE</th>
-                                            <th>NASCIMENTO</th>
-                                            <th>CRM</th>
-                                            <th>TELEFONE</th>  
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                         $sql = "SELECT * FROM medicos";
@@ -98,17 +85,6 @@
                                             <th>TELEFONE</th>                                           
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NOME</th>
-                                            <th>E-MAIL</th>
-                                            <th>CPF</th>
-                                            <th>RG</th>  
-                                            <th>NASCIMENTO</th> 
-                                            <th>TELEFONE</th> 
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                         $sql = "SELECT * FROM recepcionistas";
@@ -157,21 +133,6 @@
                                             <th>NASCIMENTO</th>                                        
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr> 
-                                            <th>ID</th>
-                                            <th>NOME</th>
-                                            <th>ID PLANO DE SAUDE</th>
-                                            <th>ID ENDEREÇO</th>
-                                            <th>E-MAIL</th>
-                                            <th>TELEFONE EMERGÊNCIA</th>
-                                            <th>TELEFONE</th>
-                                            <th>CPF</th>
-                                            <th>RG</th>   
-                                            <th>GÊNERO</th> 
-                                            <th>NASCIMENTO</th> 
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                         $sql = "SELECT * FROM pacientemaior";
@@ -226,23 +187,6 @@
                                             <th>RELAÇÃO DO RESPONSÁVEL</th>                               
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NOME</th>
-                                            <th>E-MAIL</th>
-                                            <th>TELEFONE</th>
-                                            <th>TELEFONE DE EMERGÊNCIA</th>  
-                                            <th>CPF</th>   
-                                            <th>RG</th>  
-                                            <th>GÊNERO</th>     
-                                            <th>ID RESPONSAVEL</th>  
-                                            <th>ID ENDEREÇO</th>  
-                                            <th>ID PLANO DE SAUDE</th> 
-                                            <th>NASCIMENTO</th>   
-                                            <th>RELAÇÃO DO RESPONSÁVEL</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                         $sql = "SELECT * FROM pacientemenor";
@@ -292,18 +236,6 @@
                                             <th>ID ENDEREÇO</th>                                 
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NOME</th>
-                                            <th>E-MAIL</th>
-                                            <th>TELEFONE</th>
-                                            <th>RG</th>
-                                            <th>CPF</th> 
-                                            <th>NASCIMENTO</th>
-                                            <th>ID ENDEREÇO</th> 
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                         $sql = "SELECT * FROM responsavel";
