@@ -74,7 +74,7 @@ include 'conecta.php';
 
                                         <div class="form-floating mb-3">
                                             <select id="NomePlano" class="form-select" name="NomePlano" aria-label="Plano de Saúde" required>
-                                                <option value="" disabled selected>Selecione seu Plano de Saúde</option>
+                                                <option value="" selected>Selecione seu Plano de Saúde</option>
                                                 <?php
                                                     $query = "SELECT NomePlano FROM planosaude";
                                                     $result = $conexao->query($query);

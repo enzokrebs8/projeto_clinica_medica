@@ -32,22 +32,43 @@
 
                 <div class="zuzuimperador">
                     <h2 class="calcaangelical">Agendar consulta</h2>
-                    <form action="processa_cadastro.php" method="POST">
+                    <form action="processa_consulta.php" method="POST">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" name="nome" type="text" placeholder="" required/>
+                            <label for="txtNome">Nome completo do Paciente</label>
+                        </div>
                         <div class="form-floating mb-3 ">
-                            <input class="form-control" id="inputBirthDate" type="datetime-local" placeholder="" />
+                            <input class="form-control" id="inputBirthDate" type="datetime-local" placeholder="" required/>
                             <label for="Datanascimento">Data e horário</label>
                         </div>
                         <select id="medico" class="form-select mb-3" name="medico" aria-label="Medico" required>
-                            <option value="" disabled selected>Médico</option>
-                            <option value="masculino">Menezes</option>
-                            <option value="feminino">Ramos</option>
+                            <option value="" selected>Selecione por qual médico você deseja ser atendido </option>
+                            <?php
+                                $query = "SELECT nome FROM medicos";
+                                $result = $conexao->query($query);
+
+                                while ($row = $result->fetch_assoc()) {
+                                echo '<option value="' . htmlspecialchars($row['nome']) . '">' . htmlspecialchars($row['nome']) . '</option>';
+                                }
+                            ?>
                         </select>
+
                         <select id="especialidade" class="form-select mb-3" name="especialidade" aria-label="Especialidade" required>
-                            <option value="" disabled selected>Especialidade</option>
-                            <option value="masculino">1</option>
-                            <option value="feminino">2</option>
-                            <option value="feminino">3</option>
+                            <option value="" selected>Selecione qual tipo de especialidade que necessita de atendimento </option>n>
+                            <?php
+                                $query = "SELECT Especialidade FROM medicos";
+                                $result = $conexao->query($query);
+
+                                while ($row = $result->fetch_assoc()) {
+                                echo '<option value="' . htmlspecialchars($row['Especialidade']) . '">' . htmlspecialchars($row['Especialidade']) . '</option>';
+                                }
+                            ?>
                         </select>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" name="observacao" type="text" placeholder=""/>
+                            <label for="txtObserv">Observação</label>
+                        </div>
+
                         <input class="btn btn-primary orangotango" type="submit" value="Solicitar consulta">
                     </form>
                 </div>
