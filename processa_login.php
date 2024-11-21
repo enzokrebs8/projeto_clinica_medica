@@ -12,7 +12,7 @@
         'pacientemenor' => 'paciente_menor.php',
         'medicos' => 'medico.php',
         'devs' => 'index.php',
-        'recepcionistas' => 'gestor.php'
+        'recepcionistas' => 'recepcionista.php'
     ];
 
     foreach ($tabelas as $tabela => $redirect) {

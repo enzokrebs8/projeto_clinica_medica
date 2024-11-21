@@ -1,5 +1,7 @@
 <?php
-    include 'conecta.php'
+
+include 'conecta.php'
+
 ?>
 
 <!DOCTYPE html>
@@ -8,8 +10,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paciente</title>
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -29,50 +31,40 @@
     <div class="container cirilo">
         <div class="container text-center tumbalatumba">
             <div class="row">
-
-                <div class="zuzuimperador">
-                    <h2 class="calcaangelical">Agendar consulta</h2>
-                    <form action="processa_consulta.php" method="POST">
-                        <div class="form-floating mb-3">
-                            <input class="form-control" name="nome" type="text" placeholder="" required/>
-                            <label for="txtNome">Nome completo do Paciente</label>
-                        </div>
-                        <div class="form-floating mb-3 ">
-                            <input class="form-control" id="inputBirthDate" type="datetime-local" placeholder="" required/>
-                            <label for="Datanascimento">Data e horário</label>
-                        </div>
-                        <select id="medico" class="form-select mb-3" name="medico" aria-label="Medico" required>
-                            <option value="" selected>Selecione por qual médico você deseja ser atendido </option>
-                            <?php
-                                $query = "SELECT nome FROM medicos";
-                                $result = $conexao->query($query);
-
-                                while ($row = $result->fetch_assoc()) {
-                                echo '<option value="' . htmlspecialchars($row['nome']) . '">' . htmlspecialchars($row['nome']) . '</option>';
-                                }
-                            ?>
-                        </select>
-
-                        <select id="especialidade" class="form-select mb-3" name="especialidade" aria-label="Especialidade" required>
-                            <option value="" selected>Selecione qual tipo de especialidade que necessita de atendimento </option>n>
-                            <?php
-                                $query = "SELECT Especialidade FROM medicos";
-                                $result = $conexao->query($query);
-
-                                while ($row = $result->fetch_assoc()) {
-                                echo '<option value="' . htmlspecialchars($row['Especialidade']) . '">' . htmlspecialchars($row['Especialidade']) . '</option>';
-                                }
-                            ?>
-                        </select>
-                        <div class="form-floating mb-3">
-                            <input class="form-control" name="observacao" type="text" placeholder=""/>
-                            <label for="txtObserv">Observação</label>
-                        </div>
-
-                        <input class="btn btn-primary orangotango" type="submit" value="Solicitar consulta">
-                    </form>
+                    <h2 class="calcaangelical">Consultas agendadas</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID da Consulta</th>
+                                    <th>Data/Hora</th>
+                                    <th>Especialidade</th>
+                                    <th>Nome do Paciente</th>
+                                    <th>Nome do Médico</th>
+                                    <th>Status</th>
+                                    <th>Observações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $sql = "SELECT * FROM consultaspacientemaior";
+                                    $consulta = $conexao->query($sql);
+                                    while($dados = $consulta->fetch_assoc()){
+                                        echo "<tr>";
+                                        echo "<td>".$dadoss['IDConsultasP']."</td>";
+                                        echo "<td>".$dados['data_hora']."</td>";
+                                        echo "<td>".$dados['especialidade']."</td>";
+                                        echo "<td>".$dados['nome_paciente']."</td>";
+                                        echo "<td>".$dados['medico']."</td>";
+                                        echo "<td>".$dados['status']."</td>";
+                                        echo "<td>".$dados['observacao']."</td>";
+                                        echo "</tr>";
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
