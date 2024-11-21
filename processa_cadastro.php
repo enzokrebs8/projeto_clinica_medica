@@ -71,7 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             if ($stmtPacienteMenor->execute()) {
                                 $IDPacienteMenor = $stmtPacienteMenor->insert_id;
 
-                                // Atualizar o IDPacienteMenor no registro do responsável
                                 $sqlUpdateResponsavel = "UPDATE responsavel SET IDPacienteMenor = ? WHERE IDResponsavel = ?";
                                 $stmtUpdateResponsavel = $conexao->prepare($sqlUpdateResponsavel);
                                 $stmtUpdateResponsavel->bind_param("ii", $IDPacienteMenor, $IDResponsavel);
@@ -90,7 +89,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             echo "Erro ao cadastrar o responsável: " . $stmtResponsavel->error;
                         }
                     } else {
-                        // Código para paciente maior (não alterado)
+                        $sqlPacienteMaior = "INSERT INTO pacientemaior (genero, nascimento, RG, nome, email, senha, telefoneEmergencia, telefone, CPF, IDEndereco, IDPlanoSaude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                        $stmtPacienteMaior = $conexao->prepare($sqlPacienteMaior);
+                        if ($stmtPacienteMaior === false) {
+                            die("Erro na preparação da consulta do paciente maior: " . $conexao->error);
+                        }
+
+                        $stmtPacienteMaior->bind_param("sssssssssii", $genero, $nascimento, $RG, $nome, $email, $hash, $telefoneEmergencia, $telefone, $CPF, $IDEndereco, $IDPlanoSaude);
+
+                        if ($stmtPacienteMaior->execute()) {
+                            echo "Paciente maior de idade cadastrado com sucesso!";
+                            header('Location: login.html'); 
+                            exit;
+                        } else {
+                            echo "Erro ao cadastrar o paciente maior de idade: " . $stmtPacienteMaior->error;
+                        }
                     }
                 }
             }

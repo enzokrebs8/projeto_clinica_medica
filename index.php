@@ -7,7 +7,6 @@
         header('Location: index.html');
     }
 
-
     include 'conecta.php';
     include 'menu.php';
 ?>
@@ -17,9 +16,14 @@
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">
-                                <a class="btn btn-success" href="insere_cliente.php">INSERIR NOVO MÉDICO</a>
+                                <a class="btn btn-success" href="CADASTRO_medico.php">INSERIR NOVO MÉDICO</a>
                             </li>
-                        </ol>                        
+                        </ol>       
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">
+                                <a class="btn btn-success" href="insere_recepcionista.php">INSERIR NOVO RECEPCIONISTA</a>
+                            </li>
+                        </ol>                  
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -37,22 +41,10 @@
                                             <th>ESPECIALIDADE</th>
                                             <th>NASCIMENTO</th>
                                             <th>CRM</th>
-                                            <th>TELEFONE</th>                                        
+                                            <th>TELEFONE</th>
+                                            <th>AÇÕES</th>                                 
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                            <tr>
-                                            <th>ID</th>
-                                            <th>NOME</th>
-                                            <th>CPF</th>
-                                            <th>RG</th>
-                                            <th>EMAIL</th>
-                                            <th>ESPECIALIDADE</th>
-                                            <th>NASCIMENTO</th>
-                                            <th>CRM</th>
-                                            <th>TELEFONE</th>  
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                         $sql = "SELECT * FROM medicos";
@@ -64,12 +56,13 @@
                                             echo "<td>".$dados['CPF']."</td>";
                                             echo "<td>".$dados['RG']."</td>";
                                             echo "<td>".$dados['email']."</td>";
+                                            echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>".$dados['Especialidade']."</td>";
                                             echo "<td>".$dados['CRM']."</td>";
                                             echo "<td>".$dados['telefone']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDMedico']."'>ATUALIZAR</a>                             
-                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDMedico']."'>APAGAR</a>
+                                                <a class='btn btn-danger' href='processa_delete_medico.php?id=".$dados['IDMedico']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
@@ -95,20 +88,10 @@
                                             <th>CPF</th>
                                             <th>RG</th>  
                                             <th>NASCIMENTO</th> 
-                                            <th>TELEFONE</th>                                           
+                                            <th>TELEFONE</th>
+                                            <th>AÇÕES</th>                             
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NOME</th>
-                                            <th>E-MAIL</th>
-                                            <th>CPF</th>
-                                            <th>RG</th>  
-                                            <th>NASCIMENTO</th> 
-                                            <th>TELEFONE</th> 
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                         $sql = "SELECT * FROM recepcionistas";
@@ -123,14 +106,12 @@
                                             echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>".$dados['telefone']."</td>";
                                             echo "<td>
-                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDRecepcionista']."'>ATUALIZAR</a>                             
-                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDRecepcionista']."'>APAGAR</a>
+                                                <a class='btn btn-info' href='atualiza_recepcionista.php?id=".$dados['IDRecepcionista']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-danger' href='processa_delete_recepcionista.php?id=".$dados['IDRecepcionista']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
                                     ?>
-                                        
-                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -157,21 +138,6 @@
                                             <th>NASCIMENTO</th>                                        
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr> 
-                                            <th>ID</th>
-                                            <th>NOME</th>
-                                            <th>ID PLANO DE SAUDE</th>
-                                            <th>ID ENDEREÇO</th>
-                                            <th>E-MAIL</th>
-                                            <th>TELEFONE EMERGÊNCIA</th>
-                                            <th>TELEFONE</th>
-                                            <th>CPF</th>
-                                            <th>RG</th>   
-                                            <th>GÊNERO</th> 
-                                            <th>NASCIMENTO</th> 
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                         $sql = "SELECT * FROM pacientemaior";
@@ -190,22 +156,20 @@
                                             echo "<td>".$dados['genero']."</td>";
                                             echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>
-                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDPacienteMaior']."'>ATUALIZAR</a>                             
-                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMaior']."'>APAGAR</a>
+                                                <a class='btn btn-info' href='atualiza_paciente_maior.php?id=".$dados['IDPacienteMaior']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-danger' href='processa_delete_paciente_maior.php?id=".$dados['IDPacienteMaior']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
                                     ?>
-                                        
-                                        
                                     </tbody>
                                 </table>
                             </div>
-
-                            <div class="card mb-4">
+                        </div>
+                        <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Paciente Menor
+                                Pacientes Menores
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple" class="datatable-table">
@@ -223,26 +187,10 @@
                                             <th>ID ENDEREÇO</th>  
                                             <th>ID PLANO DE SAUDE</th> 
                                             <th>NASCIMENTO</th>   
-                                            <th>RELAÇÃO DO RESPONSÁVEL</th>                               
+                                            <th>RELAÇÃO DO RESPONSÁVEL</th>
+                                            <th>AÇÕES</th>                               
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NOME</th>
-                                            <th>E-MAIL</th>
-                                            <th>TELEFONE</th>
-                                            <th>TELEFONE DE EMERGÊNCIA</th>  
-                                            <th>CPF</th>   
-                                            <th>RG</th>  
-                                            <th>GÊNERO</th>     
-                                            <th>ID RESPONSAVEL</th>  
-                                            <th>ID ENDEREÇO</th>  
-                                            <th>ID PLANO DE SAUDE</th> 
-                                            <th>NASCIMENTO</th>   
-                                            <th>RELAÇÃO DO RESPONSÁVEL</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                         $sql = "SELECT * FROM pacientemenor";
@@ -260,25 +208,26 @@
                                             echo "<td>".$dados['IDResponsavel']."</td>";
                                             echo "<td>".$dados['IDEndereco']."</td>";
                                             echo "<td>".$dados['IDPlanoSaude']."</td>";
+                                            echo "<td>".$dados['nascimento']."</td>";
+                                            echo "<td>".$dados['relacaoResponsavel']."</td>";
                                             echo "<td>
-                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDPacienteMenor']."'>ATUALIZAR</a>                             
-                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMenor']."'>APAGAR</a>
+                                                <a class='btn btn-info' href='atualiza_paciente_menor?id=".$dados['IDPacienteMenor']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-danger' href='processa_delete_paciente_menor.php?id=".$dados['IDPacienteMenor']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
-                                    ?>
-                                        
-                                        
+                                    ?>        
+                                            
                                     </tbody>
                                 </table>
                             </div>
-
-                            <div class="card mb-4">
+                        </div>   
+                        <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 Responsável
                             </div>
-                            <div class="card-body">
+                                <div class="card-body">
                                 <table id="datatablesSimple" class="datatable-table">
                                     <thead>
                                         <tr>
@@ -289,21 +238,11 @@
                                             <th>RG</th>
                                             <th>CPF</th> 
                                             <th>NASCIMENTO</th>
-                                            <th>ID ENDEREÇO</th>                                 
+                                            <th>ID ENDEREÇO</th>
+                                            <th>ID PACIENTE</th>
+                                            <th>AÇÕES</th>                                 
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NOME</th>
-                                            <th>E-MAIL</th>
-                                            <th>TELEFONE</th>
-                                            <th>RG</th>
-                                            <th>CPF</th> 
-                                            <th>NASCIMENTO</th>
-                                            <th>ID ENDEREÇO</th> 
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                         $sql = "SELECT * FROM responsavel";
@@ -318,19 +257,18 @@
                                             echo "<td>".$dados['CPF']."</td>";
                                             echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>".$dados['IDEndereco']."</td>";
+                                            echo "<td>".$dados['IDPacienteMenor']."</td>";
                                             echo "<td>
-                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDResponsavel']."'>ATUALIZAR</a>                             
-                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDResponsavel']."'>APAGAR</a>
+                                                <a class='btn btn-info' href='atualiza_responsavel.php?id=".$dados['IDResponsavel']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-danger' href='processa_delete_responsavel.php?id=".$dados['IDResponsavel']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
-                                    ?>
-                                        
-                                        
+                                    ?>        
+                                            
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                     </div>
                 </main>
