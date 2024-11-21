@@ -33,7 +33,9 @@ if ($result_solicitacao->num_rows > 0) {
     $sql_insert = "INSERT INTO $tabela_destino ( nome_paciente, cpf_p, data_hora, especialidade, medico, status_c, observacao) VALUES ('{$dados_solicitacao['nome_paciente']}', '$cpf_paciente', '{$dados_solicitacao['data_hora']}', '{$dados_solicitacao['especialidade']}', '{$dados_solicitacao['medico']}', 'Aprovada', '{$dados_solicitacao['observacao']}')";
 
     if ($conexao->query($sql_insert)) {
+        $sql_insert2 = "INSERT INTO consultasmedico ( nome_paciente, cpf_p, data_hora, especialidade, medico, status_c, observacao) VALUES ('{$dados_solicitacao['nome_paciente']}', '$cpf_paciente', '{$dados_solicitacao['data_hora']}', '{$dados_solicitacao['especialidade']}', '{$dados_solicitacao['medico']}', 'Aprovada', '{$dados_solicitacao['observacao']}')";
         $sql_delete = "DELETE FROM solicitarconsulta WHERE idSolicitacao = '$id'";
+        $conexao->query($sql_insert2);
         $conexao->query($sql_delete);
 
         header('Location: recepcionista.php');
