@@ -84,7 +84,8 @@
                                             <th>CPF</th>
                                             <th>RG</th>  
                                             <th>NASCIMENTO</th> 
-                                            <th>TELEFONE</th>                                           
+                                            <th>TELEFONE</th>
+                                            <th>AÇÕES</th>                             
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -107,8 +108,6 @@
                                             echo "</tr>";
                                         }
                                     ?>
-                                        
-                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -159,8 +158,6 @@
                                             echo "</tr>";
                                         }
                                     ?>
-                                        
-                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -168,7 +165,7 @@
                             <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Paciente Menor
+                                Pacientes Menores
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple" class="datatable-table">
@@ -186,7 +183,8 @@
                                             <th>ID ENDEREÇO</th>  
                                             <th>ID PLANO DE SAUDE</th> 
                                             <th>NASCIMENTO</th>   
-                                            <th>RELAÇÃO DO RESPONSÁVEL</th>                               
+                                            <th>RELAÇÃO DO RESPONSÁVEL</th>
+                                            <th>AÇÕES</th>                               
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -206,6 +204,8 @@
                                             echo "<td>".$dados['IDResponsavel']."</td>";
                                             echo "<td>".$dados['IDEndereco']."</td>";
                                             echo "<td>".$dados['IDPlanoSaude']."</td>";
+                                            echo "<td>".$dados['nascimento']."</td>";
+                                            echo "<td>".$dados['relacaoResponsavel']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDPacienteMenor']."'>ATUALIZAR</a>                             
                                                 <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMenor']."'>APAGAR</a>
@@ -235,7 +235,9 @@
                                             <th>RG</th>
                                             <th>CPF</th> 
                                             <th>NASCIMENTO</th>
-                                            <th>ID ENDEREÇO</th>                                 
+                                            <th>ID ENDEREÇO</th>
+                                            <th>ID PACIENTE</th>
+                                            <th>AÇÕES</th>                                 
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -252,6 +254,7 @@
                                             echo "<td>".$dados['CPF']."</td>";
                                             echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>".$dados['IDEndereco']."</td>";
+                                            echo "<td>".$dados['IDPacienteMenor']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDResponsavel']."'>ATUALIZAR</a>                             
                                                 <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDResponsavel']."'>APAGAR</a>
