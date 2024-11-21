@@ -92,8 +92,10 @@
                                             <th>ID</th>
                                             <th>NOME</th>
                                             <th>E-MAIL</th>
-                                            <th>TELEFONE</th>
-                                            <th>OPÇÕES</th>                                            
+                                            <th>CPF</th>
+                                            <th>RG</th>  
+                                            <th>NASCIMENTO</th> 
+                                            <th>TELEFONE</th>                                           
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -101,8 +103,10 @@
                                             <th>ID</th>
                                             <th>NOME</th>
                                             <th>E-MAIL</th>
-                                            <th>TELEFONE</th>
-                                            <th>OPÇÕES</th> 
+                                            <th>CPF</th>
+                                            <th>RG</th>  
+                                            <th>NASCIMENTO</th> 
+                                            <th>TELEFONE</th> 
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -114,6 +118,9 @@
                                             echo "<td>".$dados['IDRecepcionista']."</td>";
                                             echo "<td>".$dados['nome']."</td>";
                                             echo "<td>".$dados['email']."</td>";
+                                            echo "<td>".$dados['CPF']."</td>";
+                                            echo "<td>".$dados['RG']."</td>";
+                                            echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>".$dados['telefone']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDRecepcionista']."'>ATUALIZAR</a>                             
@@ -139,18 +146,30 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>NOME</th>
+                                            <th>ID PLANO DE SAUDE</th>
+                                            <th>ID ENDEREÇO</th>
                                             <th>E-MAIL</th>
+                                            <th>TELEFONE EMERGÊNCIA</th>
                                             <th>TELEFONE</th>
-                                            <th>OPÇÕES</th>                                            
+                                            <th>CPF</th>
+                                            <th>RG</th>   
+                                            <th>GÊNERO</th> 
+                                            <th>NASCIMENTO</th>                                        
                                         </tr>
                                     </thead>
                                     <tfoot>
-                                        <tr>
+                                        <tr> 
                                             <th>ID</th>
                                             <th>NOME</th>
+                                            <th>ID PLANO DE SAUDE</th>
+                                            <th>ID ENDEREÇO</th>
                                             <th>E-MAIL</th>
+                                            <th>TELEFONE EMERGÊNCIA</th>
                                             <th>TELEFONE</th>
-                                            <th>OPÇÕES</th> 
+                                            <th>CPF</th>
+                                            <th>RG</th>   
+                                            <th>GÊNERO</th> 
+                                            <th>NASCIMENTO</th> 
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -161,8 +180,15 @@
                                             echo "<tr>";
                                             echo "<td>".$dados['IDPacienteMaior']."</td>";
                                             echo "<td>".$dados['nome']."</td>";
+                                            echo "<td>".$dados['IDPlanoSaude']."</td>";
+                                            echo "<td>".$dados['IDEndereco']."</td>";
                                             echo "<td>".$dados['email']."</td>";
+                                            echo "<td>".$dados['telefoneEmergencia']."</td>";
                                             echo "<td>".$dados['telefone']."</td>";
+                                            echo "<td>".$dados['CPF']."</td>";
+                                            echo "<td>".$dados['RG']."</td>";
+                                            echo "<td>".$dados['genero']."</td>";
+                                            echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDPacienteMaior']."'>ATUALIZAR</a>                             
                                                 <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMaior']."'>APAGAR</a>
@@ -189,7 +215,15 @@
                                             <th>NOME</th>
                                             <th>E-MAIL</th>
                                             <th>TELEFONE</th>
-                                            <th>OPÇÕES</th>                                            
+                                            <th>TELEFONE DE EMERGÊNCIA</th>  
+                                            <th>CPF</th>   
+                                            <th>RG</th>  
+                                            <th>GÊNERO</th>     
+                                            <th>ID RESPONSAVEL</th>  
+                                            <th>ID ENDEREÇO</th>  
+                                            <th>ID PLANO DE SAUDE</th> 
+                                            <th>NASCIMENTO</th>   
+                                            <th>RELAÇÃO DO RESPONSÁVEL</th>                               
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -198,7 +232,15 @@
                                             <th>NOME</th>
                                             <th>E-MAIL</th>
                                             <th>TELEFONE</th>
-                                            <th>OPÇÕES</th> 
+                                            <th>TELEFONE DE EMERGÊNCIA</th>  
+                                            <th>CPF</th>   
+                                            <th>RG</th>  
+                                            <th>GÊNERO</th>     
+                                            <th>ID RESPONSAVEL</th>  
+                                            <th>ID ENDEREÇO</th>  
+                                            <th>ID PLANO DE SAUDE</th> 
+                                            <th>NASCIMENTO</th>   
+                                            <th>RELAÇÃO DO RESPONSÁVEL</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -211,6 +253,13 @@
                                             echo "<td>".$dados['nome']."</td>";
                                             echo "<td>".$dados['email']."</td>";
                                             echo "<td>".$dados['telefone']."</td>";
+                                            echo "<td>".$dados['telefoneEmergencia']."</td>";
+                                            echo "<td>".$dados['CPF']."</td>";
+                                            echo "<td>".$dados['RG']."</td>";
+                                            echo "<td>".$dados['genero']."</td>";
+                                            echo "<td>".$dados['IDResponsavel']."</td>";
+                                            echo "<td>".$dados['IDEndereco']."</td>";
+                                            echo "<td>".$dados['IDPlanoSaude']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDPacienteMenor']."'>ATUALIZAR</a>                             
                                                 <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMenor']."'>APAGAR</a>
@@ -237,7 +286,10 @@
                                             <th>NOME</th>
                                             <th>E-MAIL</th>
                                             <th>TELEFONE</th>
-                                            <th>OPÇÕES</th>                                            
+                                            <th>RG</th>
+                                            <th>CPF</th> 
+                                            <th>NASCIMENTO</th>
+                                            <th>ID ENDEREÇO</th>                                 
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -246,7 +298,10 @@
                                             <th>NOME</th>
                                             <th>E-MAIL</th>
                                             <th>TELEFONE</th>
-                                            <th>OPÇÕES</th> 
+                                            <th>RG</th>
+                                            <th>CPF</th> 
+                                            <th>NASCIMENTO</th>
+                                            <th>ID ENDEREÇO</th> 
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -259,6 +314,10 @@
                                             echo "<td>".$dados['nome']."</td>";
                                             echo "<td>".$dados['email']."</td>";
                                             echo "<td>".$dados['telefoneResp']."</td>";
+                                            echo "<td>".$dados['RG']."</td>";
+                                            echo "<td>".$dados['CPF']."</td>";
+                                            echo "<td>".$dados['nascimento']."</td>";
+                                            echo "<td>".$dados['IDEndereco']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDResponsavel']."'>ATUALIZAR</a>                             
                                                 <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDResponsavel']."'>APAGAR</a>
@@ -278,7 +337,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div class="text-muted">Copyright &copy; Clínica SOS</div>
                             <div>
                                 <a href="#">Política de Privacidade</a>
                                 &middot;
