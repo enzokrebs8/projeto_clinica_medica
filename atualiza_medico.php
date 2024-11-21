@@ -4,7 +4,7 @@
 
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM clientes WHERE id_cliente = '$id'";
+    $sql = "SELECT * FROM medicos WHERE IDMedico = '$id'";
     $consulta = $conexao->query($sql);
     $dados = $consulta->fetch_assoc();
 
@@ -14,16 +14,44 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">ATUALIZAR CLIENTE</h1>                                                                       
+                        <h1 class="mt-4">ATUALIZAR MÉDICO</h1>                                                                       
                         <div class="card mb-4">
                             <form action="processa_atualiza_cliente.php?id=<?php echo $id; ?>" method="POST">
                                 <div class="mb-3">
                                     <label class="form-label">Nome</label>
-                                    <input name="nome_novo" type="text" class="form-control" value="<?php echo $dados['nome_cliente']; ?>">                                    
+                                    <input name="nome_novo" type="text" class="form-control" value="<?php echo $dados['nome']; ?>">                                    
+                                </div>
+                                <div class="row mb-3">
+                                            <div>
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" name="nascimento" id="txtNascimento" type="date" placeholder="" required />
+                                                    <label for="txtNascimento">Data de nascimento</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <div class="mb-3">
+                                    <label class="form-label">CRM</label>
+                                    <input name="CRM_novo" type="text" class="form-control" value="<?php echo $dados['CRM']; ?>">                                    
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label">CPF</label>
+                                    <input name="CPF_novo" type="text" class="form-control" value="<?php echo $dados['CPF']; ?>">                                    
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">RG</label>
+                                    <input name="RG_novo" type="text" class="form-control" value="<?php echo $dados['RG']; ?>">                                    
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Especialidade</label>
+                                    <input name="Especialidade_nova" type="text" class="form-control" value="<?php echo $dados['Especialidade']; ?>">                                    
+                                </div>                                
+                                <div class="mb-3">
                                     <label class="form-label">Email</label>
-                                    <input name="email_novo" type="email" class="form-control" value="<?php echo $dados['email_cliente']; ?>">                                    
+                                    <input name="email_novo" type="email" class="form-control" value="<?php echo $dados['email']; ?>">                                    
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Senha</label>
+                                    <input name="senha_nova" type="senha" class="form-control" value="<?php echo $dados['senha']; ?>">                                    
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Telefone</label>
@@ -34,17 +62,8 @@
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
+                <footer class="footer text-center p-3 mt-4">
+                    <p class="text-muted small mb-0">Copyright &copy; SOS - Sistema Organizado de Saúde 2024</p>
                 </footer>
             </div>
         </div>

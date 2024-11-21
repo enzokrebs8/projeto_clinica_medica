@@ -1,15 +1,14 @@
-<?php
-include('conecta.php');
+<?php>
+    include ('conecta.php');
 
-if (isset($_POST['ok'])) {
-    $email = $mysqli->escape_string($_POST['email']);
-    $erro = [];
+    if(isset($_POST[ok])){
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $erro[] = "E-mail inválido.";
-    }
+        $email = $mysqli->escape_string($_POST['email']);
 
-    if (count($erro) == 0) {
+        if(!filter_var($email, FILTER_VALIDADE_EMAIL)){
+            $erro[] = "E-mail inválido.";
+        }
+
         $tabelas = [
             'pacientemaior',
             'pacientemenor',
@@ -17,52 +16,29 @@ if (isset($_POST['ok'])) {
             'devs',
             'recepcionistas'
         ];
-
-        $usuarioEncontrado = false;
-        $tabelaEncontrada = '';
-
-        foreach ($tabelas as $tabela) {
+    
+        foreach ($tabelas as $tabela => $redirect) {
             $query = "SELECT senha FROM $tabela WHERE email = '$email'";
             $resultado = $conexao->query($query);
-
-            if ($resultado && $resultado->num_rows > 0) {
-                $usuarioEncontrado = true;
-                $tabelaEncontrada = $tabela;
-                break;
-            }
+            $usuario = $resultado->fetch_assoc();
+            $total = $resultado->num_rows;
         }
 
-        if ($usuarioEncontrado) {
+
+        if(count($erro)) == 0{
+
             $novasenha = substr(md5(time()), 0, 6);
             $novasenha_cript = password_hash($novasenha, PASSWORD_BCRYPT);
+            
 
-            $assunto = "Recuperação de Senha - Clínica SOS";
-            $mensagem = "Soubemos que teve problemas ao logar em sua conta e precisou redefinir sua senha. Aqui está sua nova senha: $novasenha";
-            $headers = "From: no-reply@clinicasos.com.br";
+            if(mail($email, "Recuperação de Senha - Clínica SOS", "Soubemos que teve problemas ao logar em sua conta e precisou redefinir sua senha, aqui está ela: ".$novasenha)){
 
-            if (mail($email, $assunto, $mensagem, $headers)) {
-                $sql_code = "UPDATE $tabelaEncontrada SET senha = '$novasenha_cript' WHERE email = '$email'";
-                $sql_query = $mysqli->query($sql_code);
-
-                if ($sql_query) {
-                    echo "Senha redefinida com sucesso! Verifique seu email.";
-                } else {
-                    echo "Erro ao atualizar a senha no banco de dados.";
-                }
-            } else {
-                echo "Erro ao enviar o email. Tente novamente.";
+                $sql_code = "UPDATE $tabela SET senha = '$novasenha_cript' WHERE email = '$email'";
+                $sql_query = $mysqli->query($sql_code) or die($mysqli->error);
             }
-        } else {
-            echo "Email não encontrado em nenhuma conta.";
-        }
-    } else {
-        foreach ($erro as $e) {
-            echo $e . "<br>";
         }
     }
-}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -1,11 +1,35 @@
 <?php
-    session_start();
-    if((!isset($_SESSION['id']) == true) and (!isset($_SESSION['nome']) == true) and (!isset($_SESSION['email']) == true)){
-        unset($_SESSION['id']);
-        unset($_SESSION['nome']);
-        unset($_SESSION['email']);
-        header('Location: ../index.html');
-    }
+//   session_start();
+  
+  include('conecta.php');
+  
+//   if (!isset($_SESSION['cpf'])) {
+//       header('Location: index.html');
+//       exit();
+//   }
+  
+//   $cpfLogado = $_SESSION['cpf'];
+  
+//   $query = "SELECT CPF FROM medicos WHERE CPF = ?";
+//   $stmt = $conexao->prepare($query);
+//   $stmt->bind_param('s', $cpfLogado);
+//   $stmt->execute();
+//   $resultado = $stmt->get_result();
+  
+//   if ($resultado->num_rows === 0) {
+//       session_unset();
+//       session_destroy();
+//       header('Location: index.html');
+//       exit();
+//   }
+
+//     // if(($_SESSION['cpf'] !== 
+//     //     !isset($_SESSION['id']) == true) and (!isset($_SESSION['nome']) == true) and (!isset($_SESSION['email']) == true)){
+//     //     unset($_SESSION['id']);
+//     //     unset($_SESSION['nome']);
+//     //     unset($_SESSION['email']);
+//     //     header('Location: index.html');
+//     // }
 ?>
 
 
@@ -14,7 +38,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do Atendente</title>
+    <title>Médico - Consultas marcadas</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -25,14 +49,14 @@
 <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
 <nav id="sidebar-wrapper">
     <ul class="sidebar-nav">
-        <li class="sidebar-brand"><a href="#">Área do Atendente</a></li>
+        <li class="sidebar-brand"><a href="#">Consultas marcadas</a></li>
         <li class="sidebar-nav-item"><a href="index.html">Voltar ao Início</a></li>
     </ul>
 </nav>
 
 <!-- Cabeçalho Responsivo -->
 <header class="subirusdoistiuzin text-center p-3">
-    <h1>Área do Atendente</h1>
+    <h1>Consultas Marcadas com Você</h1>
 </header>
 
 <!-- Conteúdo Principal -->
@@ -40,48 +64,30 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Sobrenome</th>
-                            <th scope="col">CPF</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">Nascimento</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Dada</td>
-                            <td>Otto</td>
-                            <td>123.456.789-00</td>
-                            <td>(11) 98765-4321</td>
-                            <td>01/01/1990</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>987.654.321-00</td>
-                            <td>(22) 87654-3210</td>
-                            <td>02/02/1992</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>Bird</td>
-                            <td>159.753.486-20</td>
-                            <td>(33) 76543-2109</td>
-                            <td>03/03/1993</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Data/Hora</th>
+                        <th>Especialidade</th>
+                        <th>Nome do Paciente</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $sql = "SELECT * FROM consultasmedico";
+                        $consulta = $conexao->query($sql);
+                        while($dados = $consulta->fetch_assoc()){
+                            echo "<tr>";
+                            echo "<td>".$dados['data_hora']."</td>";
+                            echo "<td>".$dados['especialidade']."</td>";
+                            echo "<td>".$dados['nome_paciente']."</td>";
+                            echo "<td>".$dados['status']."</td>";
+                            echo "</tr>";
+                        }
+                    ?>
+                </tbody>
+            </table>
             </div>
         </div>
     </div>
@@ -89,7 +95,7 @@
 
 <!-- Rodapé Responsivo -->
 <footer class="footer text-center p-3 mt-4">
-    <p class="text-muted small mb-0">Copyright &copy; Davizin e Iago 2024</p>
+    <p class="text-muted small mb-0">Copyright &copy; SOS - Sistema Organizado de Saúde 2024</p>
 </footer>
 
 <!-- Scripts -->

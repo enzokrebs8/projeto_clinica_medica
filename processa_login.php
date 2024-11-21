@@ -1,39 +1,43 @@
 <?php
-require('conecta.php');
 
-$email = $conexao->real_escape_string($_POST['email']);
-$senha = $conexao->real_escape_string($_POST['senha']);
+    session_start();
 
-$tabelas = [
-    'pacientemaior' => 'paciente_maior.php',
-    'pacientemenor' => 'paciente_menor.php',
-    'medicos' => 'medico.php',
-    'devs' => 'index.php',
-    'recepcionistas' => 'gestor.php'
-];
+    require('conecta.php');
 
-$usuarioEncontrado = false; 
+    $email = $conexao->real_escape_string($_POST['email']);
+    $senha = $conexao->real_escape_string($_POST['senha']);
 
-foreach ($tabelas as $tabela => $redirect) {
-    echo "Consultando a tabela: $tabela\n";
-    $query = "SELECT * FROM $tabela WHERE email = '$email'";
-    $resultado = $conexao->query($query);
+    $tabelas = [
+        'pacientemaior' => 'paciente_maior.php',
+        'pacientemenor' => 'paciente_menor.php',
+        'medicos' => 'medico.php',
+        'devs' => 'index.php',
+        'recepcionistas' => 'gestor.php'
+    ];
 
-    if (!$resultado) {
-        die("Erro na consulta: " . $conexao->error);
-    }
+    foreach ($tabelas as $tabela => $redirect) {
+        $query = "SELECT * FROM $tabela WHERE email = '$email'";
+        $resultado = $conexao->query($query);
 
-    if ($resultado && $resultado->num_rows == 1) {
-        $usuario = $resultado->fetch_assoc();
-        if (password_verify($senha, $usuario['senha'])) {
-            $usuarioEncontrado = true;
-            header("Location: $redirect");
-            exit;
-        } else {
-            $mensagem = "Usuário ou senha incorretos!";
-            echo "<script>alert('$mensagem');window.location.href = 'login.html';</script>";
-            exit;
+        if (!$resultado) {
+            die("Erro na consulta: " . $conexao->error);
+        }
+
+        if ($resultado && $resultado->num_rows == 1) {
+            $usuario = $resultado->fetch_assoc();
+            if (password_verify($senha, $usuario['senha'])) {
+                $_SESSION['id'] = $usuario['id'];
+                $_SESSION['nome'] = $usuario['nome'];
+                $_SESSION['email'] = $usuario['email'];
+                $_SESSION['senha'] = $usuario['senha'];
+                $_SESSION['cpf'] = $usuario['CPF'];
+                header("Location: $redirect");
+                exit;
+            } else {
+                $mensagem = "Usuário ou senha incorretos!";
+                echo "<script>alert('$mensagem');window.location.href = 'login.html';</script>";
+                exit;
+            }
         }
     }
-}
 ?>
