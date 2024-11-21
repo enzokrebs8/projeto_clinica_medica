@@ -23,10 +23,10 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                Médicos
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple" class="datatable-table">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -67,6 +67,199 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Recepscionistas
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="datatable-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NOME</th>
+                                            <th>E-MAIL</th>
+                                            <th>TELEFONE</th>
+                                            <th>OPÇÕES</th>                                            
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NOME</th>
+                                            <th>E-MAIL</th>
+                                            <th>TELEFONE</th>
+                                            <th>OPÇÕES</th> 
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php
+                                        $sql = "SELECT * FROM recepcionistas";
+                                        $consulta = $conexao->query($sql);
+                                        while($dados = $consulta->fetch_assoc()){
+                                            echo "<tr>";
+                                            echo "<td>".$dados['IDRecepcionista']."</td>";
+                                            echo "<td>".$dados['nome']."</td>";
+                                            echo "<td>".$dados['email']."</td>";
+                                            echo "<td>".$dados['telefone']."</td>";
+                                            echo "<td>
+                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDRecepcionista']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDRecepcionista']."'>APAGAR</a>
+                                            </td>";
+                                            echo "</tr>";
+                                        }
+                                    ?>
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Pacientes Maiores
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="datatable-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NOME</th>
+                                            <th>E-MAIL</th>
+                                            <th>TELEFONE</th>
+                                            <th>OPÇÕES</th>                                            
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NOME</th>
+                                            <th>E-MAIL</th>
+                                            <th>TELEFONE</th>
+                                            <th>OPÇÕES</th> 
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php
+                                        $sql = "SELECT * FROM pacientemaior";
+                                        $consulta = $conexao->query($sql);
+                                        while($dados = $consulta->fetch_assoc()){
+                                            echo "<tr>";
+                                            echo "<td>".$dados['IDPacienteMaior']."</td>";
+                                            echo "<td>".$dados['nome']."</td>";
+                                            echo "<td>".$dados['email']."</td>";
+                                            echo "<td>".$dados['telefone']."</td>";
+                                            echo "<td>
+                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDPacienteMaior']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMaior']."'>APAGAR</a>
+                                            </td>";
+                                            echo "</tr>";
+                                        }
+                                    ?>
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Paciente Menor
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="datatable-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NOME</th>
+                                            <th>E-MAIL</th>
+                                            <th>TELEFONE</th>
+                                            <th>OPÇÕES</th>                                            
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NOME</th>
+                                            <th>E-MAIL</th>
+                                            <th>TELEFONE</th>
+                                            <th>OPÇÕES</th> 
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php
+                                        $sql = "SELECT * FROM pacientemenor";
+                                        $consulta = $conexao->query($sql);
+                                        while($dados = $consulta->fetch_assoc()){
+                                            echo "<tr>";
+                                            echo "<td>".$dados['IDPacienteMenor']."</td>";
+                                            echo "<td>".$dados['nome']."</td>";
+                                            echo "<td>".$dados['email']."</td>";
+                                            echo "<td>".$dados['telefone']."</td>";
+                                            echo "<td>
+                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDPacienteMenor']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMenor']."'>APAGAR</a>
+                                            </td>";
+                                            echo "</tr>";
+                                        }
+                                    ?>
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Responsável
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="datatable-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NOME</th>
+                                            <th>E-MAIL</th>
+                                            <th>TELEFONE</th>
+                                            <th>OPÇÕES</th>                                            
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NOME</th>
+                                            <th>E-MAIL</th>
+                                            <th>TELEFONE</th>
+                                            <th>OPÇÕES</th> 
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php
+                                        $sql = "SELECT * FROM responsavel";
+                                        $consulta = $conexao->query($sql);
+                                        while($dados = $consulta->fetch_assoc()){
+                                            echo "<tr>";
+                                            echo "<td>".$dados['IDResponsavel']."</td>";
+                                            echo "<td>".$dados['nome']."</td>";
+                                            echo "<td>".$dados['email']."</td>";
+                                            echo "<td>".$dados['telefoneResp']."</td>";
+                                            echo "<td>
+                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDResponsavel']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDResponsavel']."'>APAGAR</a>
+                                            </td>";
+                                            echo "</tr>";
+                                        }
+                                    ?>
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                     </div>
                 </main>
