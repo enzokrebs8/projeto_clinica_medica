@@ -49,5 +49,8 @@
             </table>
         </div>
     </div>
+    <div class="cansei">
+            <a href="agenda.html" class="sos">Consultar Agenda</a>
+    </div>
 </body>
 </html>
