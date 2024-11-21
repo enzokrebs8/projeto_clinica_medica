@@ -35,14 +35,6 @@ include 'conecta.php';
                                             <input class="form-control" name="nome" type="text" placeholder="" required/>
                                             <label for="txtNome">Nome completo</label>
                                         </div>
-                                        <div class="row mb-3">
-                                            <div>
-                                                <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" name="nascimento" id="txtNascimento" type="date" placeholder="" required />
-                                                    <label for="txtNascimento">Data de nascimento</label>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id='txtCpf' name="CPF" type="text" placeholder="" required/>
                                             <label for="CPF">CPF</label>
@@ -52,7 +44,7 @@ include 'conecta.php';
                                             <label for="txtEmail">Endereço de Email</label>
                                         </div>
                                         <div class="row mb-3">
-                                            <div class="col-md-6">
+                                            <div>
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id='txtSenha' name="senha" type="password" placeholder="" required/>
                                                     <label for="txtSenha">Senha</label>

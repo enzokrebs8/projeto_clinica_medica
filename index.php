@@ -1,10 +1,24 @@
 <?php
+    
     session_start();
-    if((!isset($_SESSION['id']) == true) and (!isset($_SESSION['nome']) == true) and (!isset($_SESSION['email']) == true)){
-        unset($_SESSION['id']);
-        unset($_SESSION['nome']);
-        unset($_SESSION['email']);
-        header('Location: index.html');
+    
+    if (!isset($_SESSION['cpf'])) {
+        header('Location: login.html'); // Redireciona para o login se não estiver autenticado
+        exit;
+    }
+    
+    $CPF = $_SESSION['cpf'];
+    $cpf_n = preg_replace('/[^0-9]/', '', $CPF);
+    $query = "SELECT * FROM devs WHERE CPF = ?";
+    $stmt = $conexao->prepare($query);
+    $stmt->bind_param("s", $cpf_n);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows == 0) {
+        session_destroy();
+        header('Location: login.html');
+        exit;
     }
 
     include 'conecta.php';

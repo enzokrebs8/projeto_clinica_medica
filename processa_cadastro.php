@@ -2,14 +2,15 @@
 include('conecta.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = $_POST['nome'] ?? null;
-    $CPF = $_POST['CPF'] ?? null;
+    $nome = $_POST['nome'] 
+    $CPF = $_POST['CPF'] 
+    $cpf_n = preg_replace('/[^0-9]/', '', $CPF);
     $RG = $_POST['RG'];
-    $nascimento = $_POST['nascimento'] ?? null;
-    $telefone = $_POST['telefone'] ?? null;
+    $nascimento = $_POST['nascimento']
+    $telefone = $_POST['telefone'] 
     $email = $_POST['email'];
     $telefoneEmergencia = $_POST['telefoneEmergencia'];
-    $genero = $_POST['genero'] ?? null;
+    $genero = $_POST['genero']
     $senha = $_POST['senha'];
     $hash = password_hash($senha, PASSWORD_BCRYPT);
     $CEP = 'cep';
@@ -51,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if ($idade < 18) {
                         $nomeResponsavel = $_POST['nome_responsavel'] ?? null;
                         $cpfResponsavel = $_POST['cpf_responsavel'] ?? null;
+                        $cpf_rn = preg_replace('/[^0-9]/', '', $cpfResponsavel) ?? null;
                         $rgResponsavel = $_POST['rg_responsavel'] ?? null;
                         $emailResponsavel = $_POST['email_responsavel'] ?? null;
                         $nascimentoResponsavel = $_POST['nascimento_responsavel'] ?? null;
@@ -59,14 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         $sqlResponsavel = "INSERT INTO responsavel (nome, CPF, RG, telefoneResp, email, nascimento, IDEndereco) VALUES (?, ?, ?, ?, ?, ?, ?)";
                         $stmtResponsavel = $conexao->prepare($sqlResponsavel);
-                        $stmtResponsavel->bind_param("ssssssi", $nomeResponsavel, $cpfResponsavel, $rgResponsavel, $telefoneResp, $emailResponsavel, $nascimentoResponsavel, $IDEndereco);
+                        $stmtResponsavel->bind_param("ssssssi", $nomeResponsavel, $cpf_rn, $rgResponsavel, $telefoneResp, $emailResponsavel, $nascimentoResponsavel, $IDEndereco);
 
                         if ($stmtResponsavel->execute()) {
                             $IDResponsavel = $stmtResponsavel->insert_id;
 
                             $sqlPacienteMenor = "INSERT INTO pacientemenor (relacaoResponsavel, telefone, telefoneEmergencia, nascimento, email, senha, nome, RG, CPF, genero, IDResponsavel, IDEndereco, IDPlanoSaude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                             $stmtPacienteMenor = $conexao->prepare($sqlPacienteMenor);
-                            $stmtPacienteMenor->bind_param("ssssssssssiii", $relacaoResponsavel, $telefone, $telefoneEmergencia, $nascimento, $email, $hash, $nome, $RG, $CPF, $genero, $IDResponsavel, $IDEndereco, $IDPlanoSaude);
+                            $stmtPacienteMenor->bind_param("ssssssssssiii", $relacaoResponsavel, $telefone, $telefoneEmergencia, $nascimento, $email, $hash, $nome, $RG, $cpf_n, $genero, $IDResponsavel, $IDEndereco, $IDPlanoSaude);
 
                             if ($stmtPacienteMenor->execute()) {
                                 $IDPacienteMenor = $stmtPacienteMenor->insert_id;
@@ -95,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             die("Erro na preparação da consulta do paciente maior: " . $conexao->error);
                         }
 
-                        $stmtPacienteMaior->bind_param("sssssssssii", $genero, $nascimento, $RG, $nome, $email, $hash, $telefoneEmergencia, $telefone, $CPF, $IDEndereco, $IDPlanoSaude);
+                        $stmtPacienteMaior->bind_param("sssssssssii", $genero, $nascimento, $RG, $nome, $email, $hash, $telefoneEmergencia, $telefone, $cpf_n, $IDEndereco, $IDPlanoSaude);
 
                         if ($stmtPacienteMaior->execute()) {
                             echo "Paciente maior de idade cadastrado com sucesso!";

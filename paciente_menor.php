@@ -30,31 +30,39 @@
     <div class="container cirilo">
         <div class="container text-center tumbalatumba">
             <div class="row">
-                    <h2 class="calcaangelical">Consultas agendadas</h2>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Data/Hora</th>
-                                <th scope="col">Médico</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>17/03/2025 - 21:99</td>
-                                <td>Menezes</td>
-                                <td>Aceito</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <h2 class="calcaangelical">Consultas agendadas</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID da Consulta</th>
+                                    <th>Data/Hora</th>
+                                    <th>Especialidade</th>
+                                    <th>Nome do Paciente</th>
+                                    <th>Nome do Médico</th>
+                                    <th>Status</th>
+                                    <th>Observações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $sql = "SELECT * FROM consultaspacientemenor";
+                                    $consulta = $conexao->query($sql);
+                                    while($dados = $consulta->fetch_assoc()){
+                                        echo "<tr>";
+                                        echo "<td>".$dadoss['IDConsultasP']."</td>";
+                                        echo "<td>".$dados['data_hora']."</td>";
+                                        echo "<td>".$dados['especialidade']."</td>";
+                                        echo "<td>".$dados['nome_paciente']."</td>";
+                                        echo "<td>".$dados['medico']."</td>";
+                                        echo "<td>".$dados['status_c']."</td>";
+                                        echo "<td>".$dados['observacao']."</td>";
+                                        echo "</tr>";
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

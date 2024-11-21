@@ -56,7 +56,7 @@ include 'conecta.php'
                                         echo "<td>".$dados['especialidade']."</td>";
                                         echo "<td>".$dados['nome_paciente']."</td>";
                                         echo "<td>".$dados['medico']."</td>";
-                                        echo "<td>".$dados['status']."</td>";
+                                        echo "<td>".$dados['status_c']."</td>";
                                         echo "<td>".$dados['observacao']."</td>";
                                         echo "</tr>";
                                     }

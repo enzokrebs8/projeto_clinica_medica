@@ -28,6 +28,7 @@
                         <th>Nome do Médico</th>
                         <th>Status</th>
                         <th>Observações</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,7 +43,7 @@
                             echo "<td>".$dados['cpf_p']."</td>";
                             echo "<td>".$dados['especialidade']."</td>";
                             echo "<td>".$dados['medico']."</td>";
-                            echo "<td>".$dados['status']."</td>";
+                            echo "<td>".$dados['status_c']."</td>";
                             echo "<td>".$dados['observacao']."</td>";
                             echo "<td>
                                 <a class='btn btn-info' href='recepcionista_aceitar.php?id=".$dados['idSolicitacao']."'>Aprovar</a>

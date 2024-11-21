@@ -1,6 +1,7 @@
 <?php
     require('conecta.php');
 
+    $id = $_GET['id'];
     $CEP = 'cep';
     $rua = 'rua';
     $bairro = 'bairro';

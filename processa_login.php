@@ -13,6 +13,7 @@
         'medicos' => 'medico.php',
         'devs' => 'index.php',
         'recepcionistas' => 'recepcionista.php'
+        'responsavel' => 'solicitar_consultas.php'
     ];
 
     foreach ($tabelas as $tabela => $redirect) {

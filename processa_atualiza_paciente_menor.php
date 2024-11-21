@@ -1,8 +1,10 @@
 <?php
     require('conecta.php');
 
+    $id = $_GET['id'];
     $nome_novo = $_POST['nome'];
     $CPF_novo = $_POST['CPF'];
+    $cpf_n = preg_replace('/[^0-9]/', '', $CPF_novo);
     $RG_novo = $_POST['RG'];
     $nascimento_novo = $_POST['nascimento'];
     $telefone_novo = $_POST['telefone'];
@@ -16,7 +18,7 @@
     $IDResponsavel_novo = $_POST['IDResponsavel'];
     $relacaoResponsavel_novo = $_POST['relacaoResponsavel'];
     
-    $consulta = "UPDATE pacientemenor SET nome = '$nome_novo', email = '$email_novo', senha = '$hash', telefone='$telefone_novo', telefoneEmergencia='$telefoneEmergencia_novo', RG='$RG_novo', CPF='$CPF_novo', nascimento='$nascimento_novo', IDEndereco='$IDEndereco_novo', IDPlanoSaude='$IDPlanoSaude_novo', IDResponsavel='$IDResponsavel_novo', relacaoResponsavel='$relacaoResponsavel_novo' WHERE IDPacienteMenor = '$id'";
+    $consulta = "UPDATE pacientemenor SET nome = '$nome_novo', email = '$email_novo', senha = '$hash', telefone='$telefone_novo', telefoneEmergencia='$telefoneEmergencia_novo', RG='$RG_novo', CPF='$cpf_n', nascimento='$nascimento_novo', IDEndereco='$IDEndereco_novo', IDPlanoSaude='$IDPlanoSaude_novo', IDResponsavel='$IDResponsavel_novo', relacaoResponsavel='$relacaoResponsavel_novo' WHERE IDPacienteMenor = '$id'";
 
     $conexao->query($consulta);
 
