@@ -31,20 +31,26 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>NOME</th>
-                                            <th>E-MAIL</th>
                                             <th>CPF</th>
-                                            <th>TELEFONE</th>
-                                            <th>OPÇÕES</th>                                            
+                                            <th>RG</th>
+                                            <th>EMAIL</th>
+                                            <th>ESPECIALIDADE</th>
+                                            <th>NASCIMENTO</th>
+                                            <th>CRM</th>
+                                            <th>TELEFONE</th>                                        
                                         </tr>
                                     </thead>
                                     <tfoot>
-                                        <tr>
+                                            <tr>
                                             <th>ID</th>
                                             <th>NOME</th>
-                                            <th>E-MAIL</th>
                                             <th>CPF</th>
-                                            <th>TELEFONE</th>
-                                            <th>OPÇÕES</th> 
+                                            <th>RG</th>
+                                            <th>EMAIL</th>
+                                            <th>ESPECIALIDADE</th>
+                                            <th>NASCIMENTO</th>
+                                            <th>CRM</th>
+                                            <th>TELEFONE</th>  
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -55,8 +61,11 @@
                                             echo "<tr>";
                                             echo "<td>".$dados['IDMedico']."</td>";
                                             echo "<td>".$dados['nome']."</td>";
-                                            echo "<td>".$dados['email']."</td>";
                                             echo "<td>".$dados['CPF']."</td>";
+                                            echo "<td>".$dados['RG']."</td>";
+                                            echo "<td>".$dados['email']."</td>";
+                                            echo "<td>".$dados['Especialidade']."</td>";
+                                            echo "<td>".$dados['CRM']."</td>";
                                             echo "<td>".$dados['telefone']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDMedico']."'>ATUALIZAR</a>                             
@@ -74,7 +83,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Recepscionistas
+                                Recepcionistas
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple" class="datatable-table">
@@ -271,9 +280,9 @@
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Your Website 2023</div>
                             <div>
-                                <a href="#">Privacy Policy</a>
+                                <a href="#">Política de Privacidade</a>
                                 &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                                <a href="#">Termos &amp; Condições</a>
                             </div>
                         </div>
                     </div>
