@@ -17,9 +17,24 @@
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">
-                                <a class="btn btn-success" href="insere_cliente.php">INSERIR NOVO MÉDICO</a>
+                                <a class="btn btn-success" href="insere_medico.php">INSERIR NOVO MÉDICO</a>
                             </li>
-                        </ol>                        
+                        </ol>       
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">
+                                <a class="btn btn-success" href="insere_recepcionista.php">INSERIR NOVO RECEPCIONISTA</a>
+                            </li>
+                        </ol> 
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">
+                                <a class="btn btn-success" href="insere_paciente_maior.php">INSERIR NOVO PACIENTE MAIOR</a>
+                            </li>
+                        </ol> 
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">
+                                <a class="btn btn-success" href="insere_paciente_menor.php">INSERIR NOVO PACIENTE MENOR</a>
+                            </li>
+                        </ol>                  
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
