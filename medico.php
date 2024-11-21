@@ -48,9 +48,10 @@
 <!-- Menu Toggle Responsivo -->
 <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
 <nav id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-        <li class="sidebar-brand"><a href="#">Consultas marcadas</a></li>
-        <li class="sidebar-nav-item"><a href="index.html">Voltar ao Início</a></li>
+<ul class="sidebar-nav">
+        <li class="sidebar-brand"><a>Área do Médico</a></li>
+        <li class="sidebar-nav-item"><a href="index.html">Voltar ao Inicio</a></li>
+        <li class="sidebar-nav-item"><a href="medico.php">Tela de Consultas</a></li>
     </ul>
 </nav>
 

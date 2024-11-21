@@ -1,9 +1,13 @@
 <?php
-    
+
     session_start();
+    include 'menu.php';
+    include 'conecta.php';
+
+    
     
     if (!isset($_SESSION['cpf'])) {
-        header('Location: login.html'); // Redireciona para o login se não estiver autenticado
+        header('Location: login.html');
         exit;
     }
     
@@ -21,8 +25,7 @@
         exit;
     }
 
-    include 'conecta.php';
-    include 'menu.php';
+
 ?>
             <div id="layoutSidenav_content">
                 <main>
@@ -289,7 +292,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Clínica SOS</div>
+                            <div class="text-muted">Copyright &copy; SOS - Sistema Organizado de Saúde 2024</div>
                             <div>
                                 <a href="#">Política de Privacidade</a>
                                 &middot;

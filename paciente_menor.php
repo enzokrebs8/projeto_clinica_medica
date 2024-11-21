@@ -16,9 +16,10 @@
 
 <a class="menu-toggle rounded" href="#"><i class="fa-solid fa-bars" style="color: #ffffff;"></i></a>
 <nav id="sidebar-wrapper">
-    <ul class="sidebar-nav">
+<ul class="sidebar-nav">
         <li class="sidebar-brand"><a>Área do Paciente</a></li>
         <li class="sidebar-nav-item"><a href="index.html">Voltar ao Inicio</a></li>
+        <li class="sidebar-nav-item"><a href="paciente_maior.php">Tela de Consultas</a></li>
     </ul>
 </nav>
 

@@ -17,9 +17,11 @@ include 'conecta.php'
 
 <a class="menu-toggle rounded" href="#"><i class="fa-solid fa-bars" style="color: #ffffff;"></i></a>
 <nav id="sidebar-wrapper">
-    <ul class="sidebar-nav">
+<ul class="sidebar-nav">
         <li class="sidebar-brand"><a>Área do Paciente</a></li>
         <li class="sidebar-nav-item"><a href="index.html">Voltar ao Inicio</a></li>
+        <li class="sidebar-nav-item"><a href="solicitar_consultas.php">Tela de Solicitação de Consultas</a></li>
+        <li class="sidebar-nav-item"><a href="paciente_maior.php">Tela de Consultas</a></li>
     </ul>
 </nav>
 
@@ -51,7 +53,7 @@ include 'conecta.php'
                                     $consulta = $conexao->query($sql);
                                     while($dados = $consulta->fetch_assoc()){
                                         echo "<tr>";
-                                        echo "<td>".$dadoss['IDConsultasP']."</td>";
+                                        echo "<td>".$dados['IDConsultasP']."</td>";
                                         echo "<td>".$dados['data_hora']."</td>";
                                         echo "<td>".$dados['especialidade']."</td>";
                                         echo "<td>".$dados['nome_paciente']."</td>";
@@ -64,6 +66,7 @@ include 'conecta.php'
                             </tbody>
                         </table>
                     </div>
+                        <a href="solicitar_consultas.php" class="sos">Solicitar Consulta</a>
                 </div>
             </div>
         </div>
