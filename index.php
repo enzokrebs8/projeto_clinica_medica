@@ -23,16 +23,6 @@
                             <li class="breadcrumb-item active">
                                 <a class="btn btn-success" href="insere_recepcionista.php">INSERIR NOVO RECEPCIONISTA</a>
                             </li>
-                        </ol> 
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">
-                                <a class="btn btn-success" href="insere_paciente_maior.php">INSERIR NOVO PACIENTE MAIOR</a>
-                            </li>
-                        </ol> 
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">
-                                <a class="btn btn-success" href="insere_paciente_menor.php">INSERIR NOVO PACIENTE MENOR</a>
-                            </li>
                         </ol>                  
                         <div class="card mb-4">
                             <div class="card-header">
@@ -72,7 +62,7 @@
                                             echo "<td>".$dados['telefone']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDMedico']."'>ATUALIZAR</a>                             
-                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDMedico']."'>APAGAR</a>
+                                                <a class='btn btn-danger' href='processa_delete_medico.php?id=".$dados['IDMedico']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
@@ -117,7 +107,7 @@
                                             echo "<td>".$dados['telefone']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_recepcionista.php?id=".$dados['IDRecepcionista']."'>ATUALIZAR</a>                             
-                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDRecepcionista']."'>APAGAR</a>
+                                                <a class='btn btn-danger' href='processa_delete_recepcionista.php?id=".$dados['IDRecepcionista']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
@@ -167,7 +157,7 @@
                                             echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_paciente_maior.php?id=".$dados['IDPacienteMaior']."'>ATUALIZAR</a>                             
-                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMaior']."'>APAGAR</a>
+                                                <a class='btn btn-danger' href='processa_delete_paciente_maior.php?id=".$dados['IDPacienteMaior']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
@@ -175,8 +165,8 @@
                                     </tbody>
                                 </table>
                             </div>
-
-                            <div class="card mb-4">
+                        </div>
+                        <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 Pacientes Menores
@@ -222,23 +212,22 @@
                                             echo "<td>".$dados['relacaoResponsavel']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_paciente_menor?id=".$dados['IDPacienteMenor']."'>ATUALIZAR</a>                             
-                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMenor']."'>APAGAR</a>
+                                                <a class='btn btn-danger' href='processa_delete_paciente_menor.php?id=".$dados['IDPacienteMenor']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
-                                    ?>
-                                        
-                                        
+                                    ?>        
+                                            
                                     </tbody>
                                 </table>
                             </div>
-
-                            <div class="card mb-4">
+                        </div>   
+                        <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 Responsável
                             </div>
-                            <div class="card-body">
+                                <div class="card-body">
                                 <table id="datatablesSimple" class="datatable-table">
                                     <thead>
                                         <tr>
@@ -271,17 +260,15 @@
                                             echo "<td>".$dados['IDPacienteMenor']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_responsavel.php?id=".$dados['IDResponsavel']."'>ATUALIZAR</a>                             
-                                                <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDResponsavel']."'>APAGAR</a>
+                                                <a class='btn btn-danger' href='processa_delete_responsavel.php?id=".$dados['IDResponsavel']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
-                                    ?>
-                                        
-                                        
+                                    ?>        
+                                            
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                     </div>
                 </main>

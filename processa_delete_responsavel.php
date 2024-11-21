@@ -2,7 +2,7 @@
 
     require('conecta.php');
 
-   $id = $_GET['id'];
+    $id = $_GET['id'];
 
     $consulta = "DELETE from responsavel where IDResponsavel = '$id'";
 
