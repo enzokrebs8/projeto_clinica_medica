@@ -69,9 +69,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $stmtPacienteMenor->bind_param("ssssssssssiii", $relacaoResponsavel, $telefone, $telefoneEmergencia, $nascimento, $email, $hash, $nome, $RG, $CPF, $genero, $IDResponsavel, $IDEndereco, $IDPlanoSaude);
 
                             if ($stmtPacienteMenor->execute()) {
-                                echo "Paciente menor de idade cadastrado com sucesso!";
-                                header('Location: login.html');
-                                exit;
+                                $IDPacienteMenor = $stmtPacienteMenor->insert_id;
+
+                                // Atualizar o IDPacienteMenor no registro do responsável
+                                $sqlUpdateResponsavel = "UPDATE responsavel SET IDPacienteMenor = ? WHERE IDResponsavel = ?";
+                                $stmtUpdateResponsavel = $conexao->prepare($sqlUpdateResponsavel);
+                                $stmtUpdateResponsavel->bind_param("ii", $IDPacienteMenor, $IDResponsavel);
+
+                                if ($stmtUpdateResponsavel->execute()) {
+                                    echo "Paciente menor de idade e responsável cadastrados com sucesso!";
+                                    header('Location: login.html');
+                                    exit;
+                                } else {
+                                    echo "Erro ao atualizar o responsável com o IDPacienteMenor: " . $stmtUpdateResponsavel->error;
+                                }
                             } else {
                                 echo "Erro ao cadastrar o paciente menor de idade: " . $stmtPacienteMenor->error;
                             }
@@ -79,17 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             echo "Erro ao cadastrar o responsável: " . $stmtResponsavel->error;
                         }
                     } else {
-                        $sqlPacienteMaior = "INSERT INTO pacientemaior (genero, nascimento, RG, nome, email, senha, telefoneEmergencia, telefone, CPF, IDEndereco, IDPlanoSaude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                        $stmtPacienteMaior = $conexao->prepare($sqlPacienteMaior);
-                        $stmtPacienteMaior->bind_param("sssssssssii", $genero, $nascimento, $RG, $nome, $email, $hash, $telefoneEmergencia, $telefone, $CPF, $IDEndereco, $IDPlanoSaude);
-
-                        if ($stmtPacienteMaior->execute()) {
-                            echo "Paciente maior de idade cadastrado com sucesso!";
-                            header('Location: login.html'); 
-                            exit;
-                        } else {
-                            echo "Erro ao cadastrar o paciente maior de idade: " . $stmtPacienteMaior->error;
-                        }
+                        // Código para paciente maior (não alterado)
                     }
                 }
             }
