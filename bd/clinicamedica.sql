@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Tempo de geração: 21-Nov-2024 às 09:21
--- Versão do servidor: 8.0.31
--- versão do PHP: 8.0.26
+-- Host: 127.0.0.1
+-- Tempo de geração: 21/11/2024 às 12:47
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,82 +26,101 @@ USE `clinicamedica`;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `consultasmedico`
+-- Estrutura para tabela `consultasmedico`
 --
 
-DROP TABLE IF EXISTS `consultasmedico`;
-CREATE TABLE IF NOT EXISTS `consultasmedico` (
-  `idConsultasM` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `consultasmedico` (
+  `idConsultasM` int(11) NOT NULL,
   `data_hora` datetime NOT NULL,
-  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `nome_paciente` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `status` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`idConsultasM`)
+  `especialidade` varchar(255) NOT NULL,
+  `nome_paciente` varchar(255) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `consultaspacientemaior`
+-- Estrutura para tabela `consultaspacientemaior`
 --
 
-DROP TABLE IF EXISTS `consultaspacientemaior`;
-CREATE TABLE IF NOT EXISTS `consultaspacientemaior` (
-  `IDConsultasP` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `consultaspacientemaior` (
+  `IDConsultasP` int(11) NOT NULL,
   `data_hora` datetime NOT NULL,
-  `nome_paciente` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `cpf_p` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
-  `medico` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `status_c` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `observacao` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`IDConsultasP`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `nome_paciente` varchar(255) NOT NULL,
+  `cpf_p` varchar(14) NOT NULL,
+  `medico` varchar(255) NOT NULL,
+  `especialidade` varchar(255) NOT NULL,
+  `status_c` varchar(20) NOT NULL,
+  `observacao` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `consultaspacientemaior`
+-- Despejando dados para a tabela `consultaspacientemaior`
 --
 
 INSERT INTO `consultaspacientemaior` (`IDConsultasP`, `data_hora`, `nome_paciente`, `cpf_p`, `medico`, `especialidade`, `status_c`, `observacao`) VALUES
-(1, '2024-11-24 15:30:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'asd');
+(1, '2024-11-24 15:30:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'asd'),
+(2, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Dr. Roberto Souza', 'Psiquiatra', 'Aprovada', 'Maluco'),
+(3, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada'),
+(4, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada'),
+(5, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada'),
+(6, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada'),
+(7, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada'),
+(8, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada'),
+(9, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada'),
+(10, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada'),
+(11, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada'),
+(12, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada'),
+(13, '0000-00-00 00:00:00', 'Enzo Krebs Silva', '46404867826', 'Enzo Krebs Silva', 'Neurologista', 'Aprovada', 'Dedicada');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `consultaspacientemenor`
+-- Estrutura para tabela `consultaspacientemenor`
 --
 
-DROP TABLE IF EXISTS `consultaspacientemenor`;
-CREATE TABLE IF NOT EXISTS `consultaspacientemenor` (
-  `IDConsultasP` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `consultaspacientemenor` (
+  `IDConsultasP` int(11) NOT NULL,
   `data_hora` datetime NOT NULL,
-  `nome_paciente` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `cpf_p` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
-  `medico` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `status_c` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `observacao` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`IDConsultasP`)
+  `nome_paciente` varchar(255) NOT NULL,
+  `cpf_p` varchar(14) NOT NULL,
+  `medico` varchar(255) NOT NULL,
+  `especialidade` varchar(255) NOT NULL,
+  `status_c` varchar(20) NOT NULL,
+  `observacao` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `consultaspacientemenor`
+--
+
+INSERT INTO `consultaspacientemenor` (`IDConsultasP`, `data_hora`, `nome_paciente`, `cpf_p`, `medico`, `especialidade`, `status_c`, `observacao`) VALUES
+(1, '2024-11-21 08:30:00', 'João Silva', '123.456.789-00', 'Dr. Carlos Souza', 'Pediatria', 'Confirmada', 'Consulta de rotina'),
+(2, '2024-11-21 09:00:00', 'Maria Oliveira', '987.654.321-00', 'Dr. Ana Lima', 'Pediatria', 'Confirmada', 'Verificação do crescimento'),
+(3, '2024-11-21 09:30:00', 'Pedro Costa', '111.222.333-44', 'Dr. Roberto Santos', 'Neurologia', 'Cancelada', 'Paciente não compareceu'),
+(4, '2024-11-21 10:00:00', 'Juliana Pereira', '444.555.666-77', 'Dr. Luciana Martins', 'Endocrinologia', 'Concluída', 'Tratamento de disfunção hormonal'),
+(5, '2024-11-21 10:30:00', 'Lucas Almeida', '777.888.999-00', 'Dr. Felipe Almeida', 'Cardiologia', 'Confirmada', 'Consulta para acompanhamento de cardiopatia'),
+(6, '2024-11-21 11:00:00', 'Beatriz Santos', '222.333.444-55', 'Dr. Carla Gomes', 'Oftalmologia', 'Pendente', 'Aguardando confirmação de agenda'),
+(7, '2024-11-21 11:30:00', 'Rafael Souza', '555.666.777-88', 'Dr. Felipe Andrade', 'Ortopedia', 'Confirmada', 'Exame de fratura de braço'),
+(8, '2024-11-21 12:00:00', 'Isabela Lima', '888.999.000-11', 'Dr. Mariana Costa', 'Dermatologia', 'Concluída', 'Tratamento de acne grave'),
+(9, '2024-11-21 13:00:00', 'Henrique Costa', '333.444.555-66', 'Dr. João Silva', 'Oftalmologia', 'Cancelada', 'Consulta remarcada para outra data'),
+(10, '2024-11-21 14:00:00', 'Carla Rodrigues', '666.777.888-99', 'Dr. Gabriel Rocha', 'Pediatria', 'Confirmada', 'Acompanhamento de vacinação');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `devs`
+-- Estrutura para tabela `devs`
 --
 
-DROP TABLE IF EXISTS `devs`;
-CREATE TABLE IF NOT EXISTS `devs` (
-  `nome` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `CPF` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`CPF`),
-  UNIQUE KEY `email` (`email`)
+CREATE TABLE `devs` (
+  `nome` varchar(255) NOT NULL,
+  `CPF` varchar(14) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `devs`
+-- Despejando dados para a tabela `devs`
 --
 
 INSERT INTO `devs` (`nome`, `CPF`, `email`, `senha`) VALUES
@@ -110,24 +129,22 @@ INSERT INTO `devs` (`nome`, `CPF`, `email`, `senha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `endereco`
+-- Estrutura para tabela `endereco`
 --
 
-DROP TABLE IF EXISTS `endereco`;
-CREATE TABLE IF NOT EXISTS `endereco` (
-  `IDEndereco` int NOT NULL AUTO_INCREMENT,
-  `CEP` varchar(9) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `complemento` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `bairro` varchar(51) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `estado` varchar(16) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `cidade` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `numero` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `rua` varchar(70) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`IDEndereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `endereco` (
+  `IDEndereco` int(11) NOT NULL,
+  `CEP` varchar(9) DEFAULT NULL,
+  `complemento` varchar(255) DEFAULT NULL,
+  `bairro` varchar(51) DEFAULT NULL,
+  `estado` varchar(16) DEFAULT NULL,
+  `cidade` varchar(30) DEFAULT NULL,
+  `numero` varchar(10) DEFAULT NULL,
+  `rua` varchar(70) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `endereco`
+-- Despejando dados para a tabela `endereco`
 --
 
 INSERT INTO `endereco` (`IDEndereco`, `CEP`, `complemento`, `bairro`, `estado`, `cidade`, `numero`, `rua`) VALUES
@@ -173,26 +190,24 @@ INSERT INTO `endereco` (`IDEndereco`, `CEP`, `complemento`, `bairro`, `estado`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `medicos`
+-- Estrutura para tabela `medicos`
 --
 
-DROP TABLE IF EXISTS `medicos`;
-CREATE TABLE IF NOT EXISTS `medicos` (
-  `IDMedico` int NOT NULL AUTO_INCREMENT,
-  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `senha` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Especialidade` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+CREATE TABLE `medicos` (
+  `IDMedico` int(11) NOT NULL,
+  `CPF` varchar(14) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `senha` varchar(255) NOT NULL,
+  `RG` varchar(12) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `Especialidade` varchar(50) DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `CRM` varchar(9) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`IDMedico`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `CRM` varchar(9) DEFAULT NULL,
+  `telefone` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `medicos`
+-- Despejando dados para a tabela `medicos`
 --
 
 INSERT INTO `medicos` (`IDMedico`, `CPF`, `email`, `senha`, `RG`, `nome`, `Especialidade`, `nascimento`, `CRM`, `telefone`) VALUES
@@ -213,30 +228,26 @@ INSERT INTO `medicos` (`IDMedico`, `CPF`, `email`, `senha`, `RG`, `nome`, `Espec
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pacientemaior`
+-- Estrutura para tabela `pacientemaior`
 --
 
-DROP TABLE IF EXISTS `pacientemaior`;
-CREATE TABLE IF NOT EXISTS `pacientemaior` (
-  `genero` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+CREATE TABLE `pacientemaior` (
+  `genero` varchar(20) DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `telefoneEmergencia` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IDPacienteMaior` int NOT NULL AUTO_INCREMENT,
-  `IDEndereco` int DEFAULT NULL,
-  `IDPlanoSaude` int DEFAULT NULL,
-  PRIMARY KEY (`IDPacienteMaior`),
-  KEY `IDPlanoSaude` (`IDPlanoSaude`),
-  KEY `IDEndereco` (`IDEndereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `RG` varchar(12) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `senha` varchar(255) NOT NULL,
+  `telefoneEmergencia` varchar(15) DEFAULT NULL,
+  `telefone` varchar(15) DEFAULT NULL,
+  `CPF` varchar(14) DEFAULT NULL,
+  `IDPacienteMaior` int(11) NOT NULL,
+  `IDEndereco` int(11) DEFAULT NULL,
+  `IDPlanoSaude` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `pacientemaior`
+-- Despejando dados para a tabela `pacientemaior`
 --
 
 INSERT INTO `pacientemaior` (`genero`, `nascimento`, `RG`, `nome`, `email`, `senha`, `telefoneEmergencia`, `telefone`, `CPF`, `IDPacienteMaior`, `IDEndereco`, `IDPlanoSaude`) VALUES
@@ -254,33 +265,28 @@ INSERT INTO `pacientemaior` (`genero`, `nascimento`, `RG`, `nome`, `email`, `sen
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pacientemenor`
+-- Estrutura para tabela `pacientemenor`
 --
 
-DROP TABLE IF EXISTS `pacientemenor`;
-CREATE TABLE IF NOT EXISTS `pacientemenor` (
-  `IDPacienteMenor` int NOT NULL AUTO_INCREMENT,
-  `relacaoResponsavel` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `telefone` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `telefoneEmergencia` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+CREATE TABLE `pacientemenor` (
+  `IDPacienteMenor` int(11) NOT NULL,
+  `relacaoResponsavel` varchar(100) DEFAULT NULL,
+  `telefone` varchar(15) NOT NULL,
+  `telefoneEmergencia` varchar(15) DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `genero` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IDResponsavel` int DEFAULT NULL,
-  `IDEndereco` int DEFAULT NULL,
-  `IDPlanoSaude` int DEFAULT NULL,
-  PRIMARY KEY (`IDPacienteMenor`),
-  KEY `IDPlanoSaude` (`IDPlanoSaude`),
-  KEY `IDResponsavel` (`IDResponsavel`),
-  KEY `IDEndereco` (`IDEndereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `email` varchar(100) DEFAULT NULL,
+  `senha` varchar(255) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `RG` varchar(12) DEFAULT NULL,
+  `CPF` varchar(14) DEFAULT NULL,
+  `genero` varchar(20) DEFAULT NULL,
+  `IDResponsavel` int(11) DEFAULT NULL,
+  `IDEndereco` int(11) DEFAULT NULL,
+  `IDPlanoSaude` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `pacientemenor`
+-- Despejando dados para a tabela `pacientemenor`
 --
 
 INSERT INTO `pacientemenor` (`IDPacienteMenor`, `relacaoResponsavel`, `telefone`, `telefoneEmergencia`, `nascimento`, `email`, `senha`, `nome`, `RG`, `CPF`, `genero`, `IDResponsavel`, `IDEndereco`, `IDPlanoSaude`) VALUES
@@ -301,19 +307,17 @@ INSERT INTO `pacientemenor` (`IDPacienteMenor`, `relacaoResponsavel`, `telefone`
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `planosaude`
+-- Estrutura para tabela `planosaude`
 --
 
-DROP TABLE IF EXISTS `planosaude`;
-CREATE TABLE IF NOT EXISTS `planosaude` (
-  `IDPlanoSaude` int NOT NULL AUTO_INCREMENT,
-  `ContatoCentralPlano` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `NomePlano` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`IDPlanoSaude`)
+CREATE TABLE `planosaude` (
+  `IDPlanoSaude` int(11) NOT NULL,
+  `ContatoCentralPlano` varchar(255) DEFAULT NULL,
+  `NomePlano` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `planosaude`
+-- Despejando dados para a tabela `planosaude`
 --
 
 INSERT INTO `planosaude` (`IDPlanoSaude`, `ContatoCentralPlano`, `NomePlano`) VALUES
@@ -333,24 +337,22 @@ INSERT INTO `planosaude` (`IDPlanoSaude`, `ContatoCentralPlano`, `NomePlano`) VA
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `recepcionistas`
+-- Estrutura para tabela `recepcionistas`
 --
 
-DROP TABLE IF EXISTS `recepcionistas`;
-CREATE TABLE IF NOT EXISTS `recepcionistas` (
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `senha` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
+CREATE TABLE `recepcionistas` (
+  `email` varchar(100) DEFAULT NULL,
+  `senha` varchar(255) NOT NULL,
+  `CPF` varchar(14) DEFAULT NULL,
+  `telefone` varchar(15) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `RG` varchar(12) DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `IDRecepcionista` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`IDRecepcionista`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `IDRecepcionista` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `recepcionistas`
+-- Despejando dados para a tabela `recepcionistas`
 --
 
 INSERT INTO `recepcionistas` (`email`, `senha`, `CPF`, `telefone`, `nome`, `RG`, `nascimento`, `IDRecepcionista`) VALUES
@@ -377,28 +379,24 @@ INSERT INTO `recepcionistas` (`email`, `senha`, `CPF`, `telefone`, `nome`, `RG`,
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `responsavel`
+-- Estrutura para tabela `responsavel`
 --
 
-DROP TABLE IF EXISTS `responsavel`;
-CREATE TABLE IF NOT EXISTS `responsavel` (
-  `IDResponsavel` int NOT NULL AUTO_INCREMENT,
-  `CPF` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
-  `telefoneResp` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
+CREATE TABLE `responsavel` (
+  `IDResponsavel` int(11) NOT NULL,
+  `CPF` varchar(14) NOT NULL,
+  `telefoneResp` varchar(15) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `senha` varchar(255) NOT NULL,
+  `RG` varchar(12) DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `IDEndereco` int DEFAULT NULL,
-  `IDPacienteMenor` int DEFAULT NULL,
-  PRIMARY KEY (`IDResponsavel`),
-  KEY `IDEndereco` (`IDEndereco`),
-  KEY `IDPacienteMenor` (`IDPacienteMenor`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `IDEndereco` int(11) DEFAULT NULL,
+  `IDPacienteMenor` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `responsavel`
+-- Despejando dados para a tabela `responsavel`
 --
 
 INSERT INTO `responsavel` (`IDResponsavel`, `CPF`, `telefoneResp`, `nome`, `email`, `senha`, `RG`, `nascimento`, `IDEndereco`, `IDPacienteMenor`) VALUES
@@ -419,47 +417,173 @@ INSERT INTO `responsavel` (`IDResponsavel`, `CPF`, `telefoneResp`, `nome`, `emai
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `solicitarconsulta`
+-- Estrutura para tabela `solicitarconsulta`
 --
 
-DROP TABLE IF EXISTS `solicitarconsulta`;
-CREATE TABLE IF NOT EXISTS `solicitarconsulta` (
-  `idSolicitacao` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `solicitarconsulta` (
+  `idSolicitacao` int(11) NOT NULL,
   `data_hora` datetime NOT NULL,
-  `nome_paciente` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `cpf_p` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
-  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `medico` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `status_c` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `observacao` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`idSolicitacao`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `nome_paciente` varchar(255) NOT NULL,
+  `CPF` varchar(14) NOT NULL,
+  `especialidade` varchar(255) NOT NULL,
+  `medico` varchar(255) NOT NULL,
+  `status_c` varchar(20) NOT NULL,
+  `observacao` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Restrições para despejos de tabelas
+-- Índices para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `pacientemaior`
+-- Índices de tabela `consultasmedico`
+--
+ALTER TABLE `consultasmedico`
+  ADD PRIMARY KEY (`idConsultasM`);
+
+--
+-- Índices de tabela `consultaspacientemaior`
+--
+ALTER TABLE `consultaspacientemaior`
+  ADD PRIMARY KEY (`IDConsultasP`);
+
+--
+-- Índices de tabela `consultaspacientemenor`
+--
+ALTER TABLE `consultaspacientemenor`
+  ADD PRIMARY KEY (`IDConsultasP`);
+
+--
+-- Índices de tabela `devs`
+--
+ALTER TABLE `devs`
+  ADD PRIMARY KEY (`CPF`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Índices de tabela `endereco`
+--
+ALTER TABLE `endereco`
+  ADD PRIMARY KEY (`IDEndereco`);
+
+--
+-- Índices de tabela `medicos`
+--
+ALTER TABLE `medicos`
+  ADD PRIMARY KEY (`IDMedico`);
+
+--
+-- Índices de tabela `pacientemaior`
 --
 ALTER TABLE `pacientemaior`
-  ADD CONSTRAINT `pacientemaior_ibfk_1` FOREIGN KEY (`IDPlanoSaude`) REFERENCES `planosaude` (`IDPlanoSaude`),
-  ADD CONSTRAINT `pacientemaior_ibfk_2` FOREIGN KEY (`IDEndereco`) REFERENCES `endereco` (`IDEndereco`);
+  ADD PRIMARY KEY (`IDPacienteMaior`),
+  ADD KEY `IDPlanoSaude` (`IDPlanoSaude`),
+  ADD KEY `IDEndereco` (`IDEndereco`);
 
 --
--- Limitadores para a tabela `pacientemenor`
+-- Índices de tabela `pacientemenor`
 --
 ALTER TABLE `pacientemenor`
-  ADD CONSTRAINT `pacientemenor_ibfk_1` FOREIGN KEY (`IDPlanoSaude`) REFERENCES `planosaude` (`IDPlanoSaude`),
-  ADD CONSTRAINT `pacientemenor_ibfk_2` FOREIGN KEY (`IDResponsavel`) REFERENCES `responsavel` (`IDResponsavel`),
-  ADD CONSTRAINT `pacientemenor_ibfk_3` FOREIGN KEY (`IDEndereco`) REFERENCES `endereco` (`IDEndereco`);
+  ADD PRIMARY KEY (`IDPacienteMenor`),
+  ADD KEY `IDPlanoSaude` (`IDPlanoSaude`),
+  ADD KEY `IDResponsavel` (`IDResponsavel`),
+  ADD KEY `IDEndereco` (`IDEndereco`);
 
 --
--- Limitadores para a tabela `responsavel`
+-- Índices de tabela `planosaude`
+--
+ALTER TABLE `planosaude`
+  ADD PRIMARY KEY (`IDPlanoSaude`);
+
+--
+-- Índices de tabela `recepcionistas`
+--
+ALTER TABLE `recepcionistas`
+  ADD PRIMARY KEY (`IDRecepcionista`);
+
+--
+-- Índices de tabela `responsavel`
 --
 ALTER TABLE `responsavel`
-  ADD CONSTRAINT `responsavel_ibfk_1` FOREIGN KEY (`IDEndereco`) REFERENCES `endereco` (`IDEndereco`),
-  ADD CONSTRAINT `responsavel_ibfk_2` FOREIGN KEY (`IDPacienteMenor`) REFERENCES `pacientemenor` (`IDPacienteMenor`) ON DELETE CASCADE;
+  ADD PRIMARY KEY (`IDResponsavel`),
+  ADD KEY `IDEndereco` (`IDEndereco`),
+  ADD KEY `IDPacienteMenor` (`IDPacienteMenor`);
+
+--
+-- Índices de tabela `solicitarconsulta`
+--
+ALTER TABLE `solicitarconsulta`
+  ADD PRIMARY KEY (`idSolicitacao`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `consultasmedico`
+--
+ALTER TABLE `consultasmedico`
+  MODIFY `idConsultasM` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `consultaspacientemaior`
+--
+ALTER TABLE `consultaspacientemaior`
+  MODIFY `IDConsultasP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de tabela `consultaspacientemenor`
+--
+ALTER TABLE `consultaspacientemenor`
+  MODIFY `IDConsultasP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `endereco`
+--
+ALTER TABLE `endereco`
+  MODIFY `IDEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
+--
+-- AUTO_INCREMENT de tabela `medicos`
+--
+ALTER TABLE `medicos`
+  MODIFY `IDMedico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de tabela `pacientemaior`
+--
+ALTER TABLE `pacientemaior`
+  MODIFY `IDPacienteMaior` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+
+--
+-- AUTO_INCREMENT de tabela `pacientemenor`
+--
+ALTER TABLE `pacientemenor`
+  MODIFY `IDPacienteMenor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- AUTO_INCREMENT de tabela `planosaude`
+--
+ALTER TABLE `planosaude`
+  MODIFY `IDPlanoSaude` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de tabela `recepcionistas`
+--
+ALTER TABLE `recepcionistas`
+  MODIFY `IDRecepcionista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de tabela `responsavel`
+--
+ALTER TABLE `responsavel`
+  MODIFY `IDResponsavel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT de tabela `solicitarconsulta`
+--
+ALTER TABLE `solicitarconsulta`
+  MODIFY `idSolicitacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
