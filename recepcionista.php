@@ -32,11 +32,11 @@
                 </thead>
                 <tbody>
                     <?php
-                        $sql = "SELECT * FROM solicitarconsulta";
+                        $sql = "SELECT * FROM `solicitarconsulta`";
                         $consulta = $conexao->query($sql);
                         while($dados = $consulta->fetch_assoc()){
                             echo "<tr>";
-                            echo "<td>".$dadoss['idSolicitacao']."</td>";
+                            echo "<td>".$dados['idSolicitacao']."</td>";
                             echo "<td>".$dados['data_hora']."</td>";
                             echo "<td>".$dados['nome_paciente']."</td>";
                             echo "<td>".$dados['cpf_p']."</td>";
