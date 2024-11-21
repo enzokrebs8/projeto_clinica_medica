@@ -32,6 +32,7 @@
                                             <th>ID</th>
                                             <th>NOME</th>
                                             <th>E-MAIL</th>
+                                            <th>CPF</th>
                                             <th>TELEFONE</th>
                                             <th>OPÇÕES</th>                                            
                                         </tr>
@@ -41,6 +42,7 @@
                                             <th>ID</th>
                                             <th>NOME</th>
                                             <th>E-MAIL</th>
+                                            <th>CPF</th>
                                             <th>TELEFONE</th>
                                             <th>OPÇÕES</th> 
                                         </tr>
@@ -54,6 +56,7 @@
                                             echo "<td>".$dados['IDMedico']."</td>";
                                             echo "<td>".$dados['nome']."</td>";
                                             echo "<td>".$dados['email']."</td>";
+                                            echo "<td>".$dados['CPF']."</td>";
                                             echo "<td>".$dados['telefone']."</td>";
                                             echo "<td>
                                                 <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDMedico']."'>ATUALIZAR</a>                             
