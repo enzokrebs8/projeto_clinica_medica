@@ -4,7 +4,7 @@
 
    $id = $_GET['id'];
 
-    $consulta = "DELETE from pacientemenor where idPacienteMenor = '$id'";
+    $consulta = "DELETE from endereco where IDEndereco = '$id'";
 
     $conexao->query($consulta);
 

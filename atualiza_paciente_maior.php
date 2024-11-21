@@ -48,7 +48,11 @@
                                 <div class="mb-3">
                                     <label class="form-label">Telefone</label>
                                     <input name="telefone_novo" type="text" class="form-control" value="<?php echo $dados['telefone']; ?>">                                    
-                                </div> 
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">ID do Plano de Saúde</label>
+                                    <input name="IDPlanoSaude_novo" type="text" class="form-control" value="<?php echo $dados['IDPlanoSaude']; ?>">                                    
+                                </div>  
                                 <div class="mb-3">
                                     <label class="form-label">ID do Endereco</label>
                                     <input name="IDEndereco_novo" type="text" class="form-control" value="<?php echo $dados['IDEndereco']; ?>">                                    

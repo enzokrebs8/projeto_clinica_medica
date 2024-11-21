@@ -166,7 +166,7 @@
                                             echo "<td>".$dados['genero']."</td>";
                                             echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>
-                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDPacienteMaior']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-info' href='atualiza_paciente_maior.php?id=".$dados['IDPacienteMaior']."'>ATUALIZAR</a>                             
                                                 <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMaior']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
@@ -221,7 +221,7 @@
                                             echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>".$dados['relacaoResponsavel']."</td>";
                                             echo "<td>
-                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDPacienteMenor']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-info' href='atualiza_paciente_menor?id=".$dados['IDPacienteMenor']."'>ATUALIZAR</a>                             
                                                 <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDPacienteMenor']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
@@ -270,7 +270,7 @@
                                             echo "<td>".$dados['IDEndereco']."</td>";
                                             echo "<td>".$dados['IDPacienteMenor']."</td>";
                                             echo "<td>
-                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDResponsavel']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-info' href='atualiza_responsavel.php?id=".$dados['IDResponsavel']."'>ATUALIZAR</a>                             
                                                 <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDResponsavel']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";

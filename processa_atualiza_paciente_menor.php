@@ -13,8 +13,10 @@
     $hash = password_hash($senha, PASSWORD_BCRYPT);
     $IDEndereco_novo = $_POST['IDEndereco'];
     $IDPlanoSaude_novo = $_POST['IDPlanoSaude'];
+    $IDResponsavel_novo = $_POST['IDResponsavel'];
+    $relacaoResponsavel_novo = $_POST['relacaoResponsavel'];
     
-    $consulta = "UPDATE pacientemaior SET nome = '$nome_novo', email = '$email_novo', senha = '$hash', telefone='$telefone_novo', telefoneEmergencia='$telefoneEmergencia_novo', RG='$RG_novo', CPF='$CPF_novo', nascimento='$nascimento_novo', IDEndereco='$IDEndereco_novo', IDPlanoSaude='$IDPlanoSaude_novo' WHERE IDPacienteMaior = '$id'";
+    $consulta = "UPDATE pacientemenor SET nome = '$nome_novo', email = '$email_novo', senha = '$hash', telefone='$telefone_novo', telefoneEmergencia='$telefoneEmergencia_novo', RG='$RG_novo', CPF='$CPF_novo', nascimento='$nascimento_novo', IDEndereco='$IDEndereco_novo', IDPlanoSaude='$IDPlanoSaude_novo', IDResponsavel='$IDResponsavel_novo', relacaoResponsavel='$relacaoResponsavel_novo' WHERE IDPacienteMenor = '$id'";
 
     $conexao->query($consulta);
 

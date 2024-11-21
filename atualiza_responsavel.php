@@ -50,12 +50,12 @@
                                     <input name="telefone_novo" type="text" class="form-control" value="<?php echo $dados['telefoneResp']; ?>">                                    
                                 </div> 
                                 <div class="mb-3">
-                                    <label class="form-label">Telefone</label>
+                                    <label class="form-label">ID do Endereço</label>
                                     <input name="idendereco_novo" type="text" class="form-control" value="<?php echo $dados['IDEndereco']; ?>">                                    
                                 </div> 
                                 <div class="mb-3">
-                                    <label class="form-label">Telefone</label>
-                                    <input name="idpaciente_novo" type="text" class="form-control" value="<?php echo $dados['IDPacienteMenor']; ?>">                                    
+                                    <label class="form-label">ID do Paciente Menor</label>
+                                    <input name="IDPacienteMenor_novo" type="text" class="form-control" value="<?php echo $dados['IDPacienteMenor']; ?>">                                    
                                 </div>                                
                                 <button type="submit" class="btn btn-primary">ATUALIZAR</button>
                             </form>

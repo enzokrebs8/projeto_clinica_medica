@@ -36,6 +36,10 @@
                                 <div class="mb-3">
                                     <label class="form-label">RG</label>
                                     <input name="RG_novo" type="text" class="form-control" value="<?php echo $dados['RG']; ?>">                                    
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">RG</label>
+                                    <input name="genero_novo" type="text" class="form-control" value="<?php echo $dados['genero']; ?>">                                    
                                 </div>                              
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
@@ -48,7 +52,23 @@
                                 <div class="mb-3">
                                     <label class="form-label">Telefone</label>
                                     <input name="telefone_novo" type="text" class="form-control" value="<?php echo $dados['telefone']; ?>">                                    
-                                </div>                                
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">ID do Plano de Saúde</label>
+                                    <input name="IDPlanoSaude_novo" type="text" class="form-control" value="<?php echo $dados['IDPlanoSaude']; ?>">                                    
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">ID do Responsável</label>
+                                    <input name="IDResponsavel_novo" type="text" class="form-control" value="<?php echo $dados['IDResponsavel']; ?>">                                    
+                                </div> 
+                                <div class="mb-3">
+                                    <label class="form-label">Relação com o Responsável</label>
+                                    <input name="relacaoResponsavel_novo" type="text" class="form-control" value="<?php echo $dados['relcaoResponsavel']; ?>">                                    
+                                </div> 
+                                <div class="mb-3">
+                                    <label class="form-label">ID do Endereco</label>
+                                    <input name="IDEndereco_novo" type="text" class="form-control" value="<?php echo $dados['IDEndereco']; ?>">                                    
+                                </div>                                 
                                 <button type="submit" class="btn btn-primary">ATUALIZAR</button>
                             </form>
                         </div>
