@@ -37,7 +37,8 @@
                                             <th>ESPECIALIDADE</th>
                                             <th>NASCIMENTO</th>
                                             <th>CRM</th>
-                                            <th>TELEFONE</th>                                        
+                                            <th>TELEFONE</th>
+                                            <th>AÇÕES</th>                                 
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,6 +52,7 @@
                                             echo "<td>".$dados['CPF']."</td>";
                                             echo "<td>".$dados['RG']."</td>";
                                             echo "<td>".$dados['email']."</td>";
+                                            echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>".$dados['Especialidade']."</td>";
                                             echo "<td>".$dados['CRM']."</td>";
                                             echo "<td>".$dados['telefone']."</td>";
