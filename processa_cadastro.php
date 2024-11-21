@@ -25,11 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmtEndereco->bind_param("sssssss", $CEP, $complemento, $bairro, $estado, $cidade, $numero, $rua);
 
     if ($stmtEndereco->execute()) {
-    $IDEnderecoQuery = "SELECT IDEndereco FROM endereco WHERE CEP = ? AND numero = ?";
-    $stmtID = $conexao->prepare($IDEnderecoQuery);
-    $stmtID->bind_param("ss", $CEP, $numero);
-    $stmtID->execute();
-    $resultadoIDEndereco = $stmtID->get_result();
+        $IDEnderecoQuery = "SELECT IDEndereco FROM endereco WHERE CEP = ? AND numero = ?";
+        $stmtID = $conexao->prepare($IDEnderecoQuery);
+        $stmtID->bind_param("ss", $CEP, $numero);
+        $stmtID->execute();
+        $resultadoIDEndereco = $stmtID->get_result();
 
         if ($resultadoIDEndereco && $resultadoIDEndereco->num_rows > 0) {
             $IDEndereco = $resultadoIDEndereco->fetch_assoc()['IDEndereco'];
@@ -57,22 +57,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $relacaoResponsavel = $_POST['relacaoResponsavel'] ?? null;
                         $telefoneResp = $_POST['telefoneResp'] ?? null;
 
-                        $sqlResponsavel = "INSERT INTO responsavel (nome, CPF, RG, telefoneResp , email, nascimento, IDEndereco) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                        $sqlResponsavel = "INSERT INTO responsavel (nome, CPF, RG, telefoneResp, email, nascimento, IDEndereco) VALUES (?, ?, ?, ?, ?, ?, ?)";
                         $stmtResponsavel = $conexao->prepare($sqlResponsavel);
-                        if ($stmtResponsavel === false) {
-                            die("Erro na preparação da consulta do responsável: " . $conexao->error);
-                        }
                         $stmtResponsavel->bind_param("ssssssi", $nomeResponsavel, $cpfResponsavel, $rgResponsavel, $telefoneResp, $emailResponsavel, $nascimentoResponsavel, $IDEndereco);
 
                         if ($stmtResponsavel->execute()) {
-                            $idResponsavel = $stmtResponsavel->insert_id;
+                            $IDResponsavel = $stmtResponsavel->insert_id;
 
                             $sqlPacienteMenor = "INSERT INTO pacientemenor (relacaoResponsavel, telefone, telefoneEmergencia, nascimento, email, senha, nome, RG, CPF, genero, IDResponsavel, IDEndereco, IDPlanoSaude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                             $stmtPacienteMenor = $conexao->prepare($sqlPacienteMenor);
-                            if ($stmtPacienteMenor === false) {
-                                die("Erro na preparação da consulta do paciente menor: " . $conexao->error);
-                            }
-
                             $stmtPacienteMenor->bind_param("ssssssssssiii", $relacaoResponsavel, $telefone, $telefoneEmergencia, $nascimento, $email, $hash, $nome, $RG, $CPF, $genero, $IDResponsavel, $IDEndereco, $IDPlanoSaude);
 
                             if ($stmtPacienteMenor->execute()) {
@@ -82,16 +75,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             } else {
                                 echo "Erro ao cadastrar o paciente menor de idade: " . $stmtPacienteMenor->error;
                             }
-                            } else {
-                                echo "Erro ao cadastrar o responsável: " . $stmtResponsavel->error;
-                            }
+                        } else {
+                            echo "Erro ao cadastrar o responsável: " . $stmtResponsavel->error;
+                        }
                     } else {
                         $sqlPacienteMaior = "INSERT INTO pacientemaior (genero, nascimento, RG, nome, email, senha, telefoneEmergencia, telefone, CPF, IDEndereco, IDPlanoSaude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                         $stmtPacienteMaior = $conexao->prepare($sqlPacienteMaior);
-                        if ($stmtPacienteMaior === false) {
-                            die("Erro na preparação da consulta do paciente maior: " . $conexao->error);
-                        }
-
                         $stmtPacienteMaior->bind_param("sssssssssii", $genero, $nascimento, $RG, $nome, $email, $hash, $telefoneEmergencia, $telefone, $CPF, $IDEndereco, $IDPlanoSaude);
 
                         if ($stmtPacienteMaior->execute()) {
