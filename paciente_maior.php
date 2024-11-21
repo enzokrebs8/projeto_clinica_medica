@@ -22,6 +22,7 @@ include 'conecta.php'
         <li class="sidebar-nav-item"><a href="index.html">Voltar ao Inicio</a></li>
         <li class="sidebar-nav-item"><a href="solicitar_consultas.php">Tela de Solicitação de Consultas</a></li>
         <li class="sidebar-nav-item"><a href="paciente_maior.php">Tela de Consultas</a></li>
+        <li class="sidebar-nav-item"><a href="logout.php">Logout</a></li>
     </ul>
 </nav>
 
