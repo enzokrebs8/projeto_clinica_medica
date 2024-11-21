@@ -16,7 +16,7 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">ATUALIZAR RECEPCIONISTA</h1>                                                                       
                         <div class="card mb-4">
-                            <form action="processa_atualiza_cliente.php?id=<?php echo $id; ?>" method="POST">
+                            <form action="processa_atualiza_recepcionista.php?id=<?php echo $id; ?>" method="POST">
                                 <div class="mb-3">
                                     <label class="form-label">Nome</label>
                                     <input name="nome_novo" type="text" class="form-control" value="<?php echo $dados['nome']; ?>">                                    
@@ -24,7 +24,7 @@
                                 <div class="row mb-3">
                                     <div>
                                         <div class="form-floating mb-3 mb-md-0">
-                                            <input class="form-control" name="nascimento" id="txtNascimento" type="date" placeholder="" required />
+                                            <input class="form-control" name="nascimento" value="<?php echo $dados['nascimento']; ?>" type="date" />
                                             <label for="txtNascimento">Data de nascimento</label>
                                         </div>
                                     </div>
@@ -48,7 +48,11 @@
                                 <div class="mb-3">
                                     <label class="form-label">Telefone</label>
                                     <input name="telefone_novo" type="text" class="form-control" value="<?php echo $dados['telefone']; ?>">                                    
-                                </div>                                
+                                </div> 
+                                <div class="mb-3">
+                                    <label class="form-label">ID do Endereco</label>
+                                    <input name="IDEndereco_novo" type="text" class="form-control" value="<?php echo $dados['IDEndereco']; ?>">                                    
+                                </div>                                 
                                 <button type="submit" class="btn btn-primary">ATUALIZAR</button>
                             </form>
                         </div>

@@ -4,7 +4,7 @@
 
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM medicos WHERE IDMedico = '$id'";
+    $sql = "SELECT * FROM recepcionistas WHERE IDRecepcionista = '$id'";
     $consulta = $conexao->query($sql);
     $dados = $consulta->fetch_assoc();
 
@@ -14,9 +14,9 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">ATUALIZAR MÉDICO</h1>                                                                       
+                        <h1 class="mt-4">ATUALIZAR RESPONSAVEL</h1>                                                                       
                         <div class="card mb-4">
-                            <form action="processa_atualiza_cliente.php?id=<?php echo $id; ?>" method="POST">
+                            <form action="processa_atualiza_recepcionista.php?id=<?php echo $id; ?>" method="POST">
                                 <div class="mb-3">
                                     <label class="form-label">Nome</label>
                                     <input name="nome_novo" type="text" class="form-control" value="<?php echo $dados['nome']; ?>">                                    
@@ -30,21 +30,13 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">CRM</label>
-                                    <input name="CRM_novo" type="text" class="form-control" value="<?php echo $dados['CRM']; ?>">                                    
-                                </div>
-                                <div class="mb-3">
                                     <label class="form-label">CPF</label>
                                     <input name="CPF_novo" type="text" class="form-control" value="<?php echo $dados['CPF']; ?>">                                    
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">RG</label>
                                     <input name="RG_novo" type="text" class="form-control" value="<?php echo $dados['RG']; ?>">                                    
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Especialidade</label>
-                                    <input name="Especialidade_nova" type="text" class="form-control" value="<?php echo $dados['Especialidade']; ?>">                                    
-                                </div>                                
+                                </div>                              
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
                                     <input name="email_novo" type="email" class="form-control" value="<?php echo $dados['email']; ?>">                                    
@@ -55,7 +47,15 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Telefone</label>
-                                    <input name="telefone_novo" type="text" class="form-control" value="<?php echo $dados['telefone']; ?>">                                    
+                                    <input name="telefone_novo" type="text" class="form-control" value="<?php echo $dados['telefoneResp']; ?>">                                    
+                                </div> 
+                                <div class="mb-3">
+                                    <label class="form-label">Telefone</label>
+                                    <input name="idendereco_novo" type="text" class="form-control" value="<?php echo $dados['IDEndereco']; ?>">                                    
+                                </div> 
+                                <div class="mb-3">
+                                    <label class="form-label">Telefone</label>
+                                    <input name="idpaciente_novo" type="text" class="form-control" value="<?php echo $dados['IDPacienteMenor']; ?>">                                    
                                 </div>                                
                                 <button type="submit" class="btn btn-primary">ATUALIZAR</button>
                             </form>

@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Médico de idade cadastrado com sucesso!";
         header('Location: index.php'); 
         exit;
-    } else {
+    } else {    
         echo "Erro ao cadastrar médico: " . $stmtMedico->error;
     }
 }

@@ -7,7 +7,6 @@
         header('Location: index.html');
     }
 
-
     include 'conecta.php';
     include 'menu.php';
 ?>
@@ -17,7 +16,7 @@
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">
-                                <a class="btn btn-success" href="insere_medico.php">INSERIR NOVO MÉDICO</a>
+                                <a class="btn btn-success" href="CADASTRO_medico.php">INSERIR NOVO MÉDICO</a>
                             </li>
                         </ol>       
                         <ol class="breadcrumb mb-4">
@@ -117,7 +116,7 @@
                                             echo "<td>".$dados['nascimento']."</td>";
                                             echo "<td>".$dados['telefone']."</td>";
                                             echo "<td>
-                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDRecepcionista']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-info' href='atualiza_recepcionista.php?id=".$dados['IDRecepcionista']."'>ATUALIZAR</a>                             
                                                 <a class='btn btn-danger' href='processa_delete_cliente.php?id=".$dados['IDRecepcionista']."'>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
