@@ -20,6 +20,7 @@
         <li class="sidebar-brand"><a>Área do Paciente</a></li>
         <li class="sidebar-nav-item"><a href="index.html">Voltar ao Inicio</a></li>
         <li class="sidebar-nav-item"><a href="paciente_maior.php">Tela de Consultas</a></li>
+        <li class="sidebar-nav-item"><a href="logout.php">Logout</a></li>
     </ul>
 </nav>
 

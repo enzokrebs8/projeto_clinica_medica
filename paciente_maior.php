@@ -1,6 +1,6 @@
 <?php
-
-include 'conecta.php'
+    session_start();
+    include 'conecta.php';
 
 ?>
 
@@ -22,6 +22,7 @@ include 'conecta.php'
         <li class="sidebar-nav-item"><a href="index.html">Voltar ao Inicio</a></li>
         <li class="sidebar-nav-item"><a href="solicitar_consultas.php">Tela de Solicitação de Consultas</a></li>
         <li class="sidebar-nav-item"><a href="paciente_maior.php">Tela de Consultas</a></li>
+        <li class="sidebar-nav-item"><a href="logout.php">Logout</a></li>
     </ul>
 </nav>
 
@@ -48,9 +49,14 @@ include 'conecta.php'
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    $sql = "SELECT * FROM consultaspacientemaior";
-                                    $consulta = $conexao->query($sql);
+                                <?php 
+                                    $cpfLogado = $_SESSION['cpf'];
+                                    $query = "SELECT * FROM consultaspacientemaior WHERE CPF = ?";
+                                    $stmt = $conexao->prepare($query);
+                                    $stmt->bind_param('s', $cpfLogado);
+                                    $stmt->execute();
+                                    $resultado = $stmt->get_result();
+
                                     while($dados = $consulta->fetch_assoc()){
                                         echo "<tr>";
                                         echo "<td>".$dados['IDConsultasP']."</td>";

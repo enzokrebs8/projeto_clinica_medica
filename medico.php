@@ -1,35 +1,28 @@
 <?php
-//   session_start();
+  session_start();
   
   include('conecta.php');
   
-//   if (!isset($_SESSION['cpf'])) {
-//       header('Location: index.html');
-//       exit();
-//   }
+  if (!isset($_SESSION['cpf'])) {
+      header('Location: index.html');
+      exit();
+  }
   
-//   $cpfLogado = $_SESSION['cpf'];
+  $cpfLogado = $_SESSION['cpf'];
   
-//   $query = "SELECT CPF FROM medicos WHERE CPF = ?";
-//   $stmt = $conexao->prepare($query);
-//   $stmt->bind_param('s', $cpfLogado);
-//   $stmt->execute();
-//   $resultado = $stmt->get_result();
+  $query = "SELECT CPF FROM medicos WHERE CPF = ?";
+  $stmt = $conexao->prepare($query);
+  $stmt->bind_param('s', $cpfLogado);
+  $stmt->execute();
+  $resultado = $stmt->get_result();
   
-//   if ($resultado->num_rows === 0) {
-//       session_unset();
-//       session_destroy();
-//       header('Location: index.html');
-//       exit();
-//   }
+  if ($resultado->num_rows === 0) {
+      session_unset();
+      session_destroy();
+      header('Location: index.html');
+      exit();
+  }
 
-//     // if(($_SESSION['cpf'] !== 
-//     //     !isset($_SESSION['id']) == true) and (!isset($_SESSION['nome']) == true) and (!isset($_SESSION['email']) == true)){
-//     //     unset($_SESSION['id']);
-//     //     unset($_SESSION['nome']);
-//     //     unset($_SESSION['email']);
-//     //     header('Location: index.html');
-//     // }
 ?>
 
 
@@ -52,6 +45,7 @@
         <li class="sidebar-brand"><a>Área do Médico</a></li>
         <li class="sidebar-nav-item"><a href="index.html">Voltar ao Inicio</a></li>
         <li class="sidebar-nav-item"><a href="medico.php">Tela de Consultas</a></li>
+        <li class="sidebar-nav-item"><a href="logout.php">Logout</a></li>
     </ul>
 </nav>
 
