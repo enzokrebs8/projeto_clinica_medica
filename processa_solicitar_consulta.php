@@ -28,7 +28,7 @@ $observacao = $_POST['observacao'];
 $sql_insert = "INSERT INTO solicitarconsulta (nome_paciente, cpf_p, data_hora, medico, especialidade, observacao) VALUES ('$nome_paciente', '$cpf', '$data_hora', '$medico', '$especialidade', '$observacao')";
 
 if ($conexao->query($sql_insert)) {
-    header('Location: sucesso.php');
+    header('Location: solicitar_consultas.php');
 } else {
     echo "Erro ao solicitar consulta: " . $conexao->error;
 }

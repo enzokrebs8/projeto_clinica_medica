@@ -77,7 +77,7 @@
                             echo "<td>".$dados['data_hora']."</td>";
                             echo "<td>".$dados['especialidade']."</td>";
                             echo "<td>".$dados['nome_paciente']."</td>";
-                            echo "<td>".$dados['status']."</td>";
+                            echo "<td>".$dados['status_c']."</td>";
                             echo "</tr>";
                         }
                     ?>

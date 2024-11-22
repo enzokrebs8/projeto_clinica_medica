@@ -20,8 +20,8 @@ if ($result->num_rows > 0) {
     $status = 'Aceito';
     $observacao = $dados['observacao'];
 
-    $sql_paciente_maior = "SELECT data_nascimento FROM pacientemaior WHERE CPF = ?";
-    $sql_paciente_menor = "SELECT data_nascimento FROM pacientemenor WHERE CPF = ?";
+    $sql_paciente_maior = "SELECT nascimento FROM pacientemaior WHERE CPF = ?";
+    $sql_paciente_menor = "SELECT nascimento FROM pacientemenor WHERE CPF = ?";
     
     $stmt_maior = $conexao->prepare($sql_paciente_maior);
     $stmt_maior->bind_param("s", $cpf_paciente);
@@ -43,12 +43,12 @@ if ($result->num_rows > 0) {
         die("Paciente não encontrado nas tabelas de pacientes.");
     }
 
-    $sql_insert_paciente = "INSERT INTO $tabela_destino (nome_paciente, cpf_p, data_hora, especialidade, medico, status, observacao) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql_insert_paciente = "INSERT INTO $tabela_destino (nome_paciente, cpf_p, data_hora, especialidade, medico, status_c, observacao) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt_insert_paciente = $conexao->prepare($sql_insert_paciente);
     $stmt_insert_paciente->bind_param("sssssss", $nome_paciente, $cpf_paciente, $data_hora, $especialidade, $medico, $status, $observacao);
     $stmt_insert_paciente->execute();
 
-    $sql_insert_medico = "INSERT INTO consultasmedico (nome_paciente, cpf_p, data_hora, especialidade, medico, status, observacao) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql_insert_medico = "INSERT INTO consultasmedico (nome_paciente, cpf_p, data_hora, especialidade, medico, status_c, observacao) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt_insert_medico = $conexao->prepare($sql_insert_medico);
     $stmt_insert_medico->bind_param("sssssss", $nome_paciente, $cpf_paciente, $data_hora, $especialidade, $medico, $status, $observacao);
     $stmt_insert_medico->execute();
