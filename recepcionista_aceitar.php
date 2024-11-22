@@ -3,46 +3,64 @@ require('conecta.php');
 
 $id = $_GET['id'];
 
-$sql_solicitacao = "SELECT * FROM solicitarconsulta WHERE idSolicitacao = '$id'";
-$result_solicitacao = $conexao->query($sql_solicitacao);
+$sql = "SELECT * FROM solicitarconsulta WHERE idSolicitacao = ?";
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-if ($result_solicitacao->num_rows > 0) {
-    $dados_solicitacao = $result_solicitacao->fetch_assoc();
-    $cpf_paciente = $dados_solicitacao['cpf_p'];
+if ($result->num_rows > 0) {
+    $dados = $result->fetch_assoc();
 
-    $sql_maior = "SELECT nascimento FROM pacientemaior WHERE CPF = '$cpf_paciente'";
-    $sql_menor = "SELECT nascimento FROM pacientemenor WHERE CPF = '$cpf_paciente'";
+    $nome_paciente = $dados['nome_paciente'];
+    $cpf_paciente = $dados['cpf_p'];
+    $data_hora = $dados['data_hora'];
+    $especialidade = $dados['especialidade'];
+    $medico = $dados['medico'];
+    $status = 'Aceito';
+    $observacao = $dados['observacao'];
+
+    $sql_paciente_maior = "SELECT data_nascimento FROM pacientemaior WHERE CPF = ?";
+    $sql_paciente_menor = "SELECT data_nascimento FROM pacientemenor WHERE CPF = ?";
     
-    $result_maior = $conexao->query($sql_maior);
-    $result_menor = $conexao->query($sql_menor);
+    $stmt_maior = $conexao->prepare($sql_paciente_maior);
+    $stmt_maior->bind_param("s", $cpf_paciente);
+    $stmt_maior->execute();
+    $result_maior = $stmt_maior->get_result();
+
+    $stmt_menor = $conexao->prepare($sql_paciente_menor);
+    $stmt_menor->bind_param("s", $cpf_paciente);
+    $stmt_menor->execute();
+    $result_menor = $stmt_menor->get_result();
 
     if ($result_maior->num_rows > 0) {
         $dados_paciente = $result_maior->fetch_assoc();
+        $tabela_destino = 'consultaspacientemaior';
     } elseif ($result_menor->num_rows > 0) {
         $dados_paciente = $result_menor->fetch_assoc();
+        $tabela_destino = 'consultaspacientemenor';
     } else {
-        die("Paciente não encontrado nas tabelas.");
+        die("Paciente não encontrado nas tabelas de pacientes.");
     }
 
-    $data_atual = new DateTime();
-    $data_nascimento = new DateTime($dados_paciente['nascimento']);
-    $idade = $data_atual->diff($data_nascimento)->y;
+    $sql_insert_paciente = "INSERT INTO $tabela_destino (nome_paciente, cpf_p, data_hora, especialidade, medico, status, observacao) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt_insert_paciente = $conexao->prepare($sql_insert_paciente);
+    $stmt_insert_paciente->bind_param("sssssss", $nome_paciente, $cpf_paciente, $data_hora, $especialidade, $medico, $status, $observacao);
+    $stmt_insert_paciente->execute();
 
-    $tabela_destino = ($idade >= 18) ? 'consultaspacientemaior' : 'consultaspacientemenor';
+    $sql_insert_medico = "INSERT INTO consultasmedico (nome_paciente, cpf_p, data_hora, especialidade, medico, status, observacao) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt_insert_medico = $conexao->prepare($sql_insert_medico);
+    $stmt_insert_medico->bind_param("sssssss", $nome_paciente, $cpf_paciente, $data_hora, $especialidade, $medico, $status, $observacao);
+    $stmt_insert_medico->execute();
 
-    $sql_insert = "INSERT INTO $tabela_destino ( nome_paciente, cpf_p, data_hora, especialidade, medico, status_c, observacao) VALUES ('{$dados_solicitacao['nome_paciente']}', '$cpf_paciente', '{$dados_solicitacao['data_hora']}', '{$dados_solicitacao['especialidade']}', '{$dados_solicitacao['medico']}', 'Aprovada', '{$dados_solicitacao['observacao']}')";
+    $sql_delete = "DELETE FROM solicitarconsulta WHERE idSolicitacao = ?";
+    $stmt_delete = $conexao->prepare($sql_delete);
+    $stmt_delete->bind_param("i", $id);
+    $stmt_delete->execute();
 
-    if ($conexao->query($sql_insert)) {
-        $sql_insert2 = "INSERT INTO consultasmedico ( nome_paciente, cpf_p, data_hora, especialidade, medico, status_c, observacao) VALUES ('{$dados_solicitacao['nome_paciente']}', '$cpf_paciente', '{$dados_solicitacao['data_hora']}', '{$dados_solicitacao['especialidade']}', '{$dados_solicitacao['medico']}', 'Aprovada', '{$dados_solicitacao['observacao']}')";
-        $sql_delete = "DELETE FROM solicitarconsulta WHERE idSolicitacao = '$id'";
-        $conexao->query($sql_insert2);
-        $conexao->query($sql_delete);
-
-        header('Location: recepcionista.php');
-    } else {
-        echo "Erro ao mover a consulta: " . $conexao->error;
-    }
+    header("Location: recepcionista.php");
+    exit;
 } else {
-    echo "Solicitação não encontrada.";
+    die("Solicitação de consulta não encontrada.");
 }
 ?>
