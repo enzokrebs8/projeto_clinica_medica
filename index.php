@@ -40,6 +40,8 @@
                 </li>
             </ul>
         </nav>
+        <div class="é">
+            <div>
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Gerenciar Tabelas</h1>
