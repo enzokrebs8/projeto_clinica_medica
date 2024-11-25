@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+include('conecta.php');
+
+if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'pacientemenor') {
+    header('Location: login.html');
+    exit();
+}
+
 
 ?>
 

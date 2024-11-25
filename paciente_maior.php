@@ -2,6 +2,11 @@
     session_start();
     include 'conecta.php';
 
+    if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'pacientemaior') {
+        header('Location: login.html');
+        exit();
+    }
+    
 ?>
 
 <!DOCTYPE html>

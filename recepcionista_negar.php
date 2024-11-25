@@ -1,13 +1,11 @@
 <?php
-    require('conecta.php');
+require('conecta.php');
 
-    $id = $_GET['id'];
-    $status = $_POST['status_c'];
-    $observacao = $_POST['observacao'];
+$id = $_GET['id'];
+$observacao = $_GET['observacao'];
 
-    $consulta = "UPDATE solicitarconsulta SET status_c = 'Negada' WHERE idSolicitacao = '$idsolicit'";
-    $conexao->query($consulta);
+$consulta = "UPDATE solicitarconsulta SET status_c = 'Negada', observacao = '$observacao' WHERE idSolicitacao = '$id'";
+$conexao->query($consulta);
 
-    header('Location:recepcionista.php')
-
+header('Location: recepcionista.php');
 ?>

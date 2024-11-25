@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefoneEmergencia = $_POST['telefoneEmergencia'];
     $genero = $_POST['genero']
     $senha = $_POST['senha'];
+    $senhaResp = $_POST['senhaResp']
     $hash = password_hash($senha, PASSWORD_BCRYPT);
     $CEP = 'cep';
     $rua = 'rua';
@@ -59,9 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $relacaoResponsavel = $_POST['relacaoResponsavel'] ?? null;
                         $telefoneResp = $_POST['telefoneResp'] ?? null;
 
-                        $sqlResponsavel = "INSERT INTO responsavel (nome, CPF, RG, telefoneResp, email, nascimento, IDEndereco) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                        $sqlResponsavel = "INSERT INTO responsavel (nome, senha, CPF, RG, telefoneResp, email, nascimento, IDEndereco) VALUES (?, ?, ?, ?, ?, ?, ?)";
                         $stmtResponsavel = $conexao->prepare($sqlResponsavel);
-                        $stmtResponsavel->bind_param("ssssssi", $nomeResponsavel, $cpf_rn, $rgResponsavel, $telefoneResp, $emailResponsavel, $nascimentoResponsavel, $IDEndereco);
+                        $stmtResponsavel->bind_param("ssssssi", $nomeResponsavel, $senhaResp, $cpf_rn, $rgResponsavel, $telefoneResp, $emailResponsavel, $nascimentoResponsavel, $IDEndereco);
 
                         if ($stmtResponsavel->execute()) {
                             $IDResponsavel = $stmtResponsavel->insert_id;

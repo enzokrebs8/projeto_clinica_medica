@@ -92,7 +92,7 @@ include 'conecta.php';
                                             <label for="txtEmail">Endereço de Email</label>
                                         </div>
                                         <div class="row mb-3">
-                                            <div class="col-md-6">
+                                            <div>
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id='txtSenha' name="senha" type="password" placeholder="" required/>
                                                     <label for="txtSenha">Senha</label>
@@ -162,6 +162,14 @@ include 'conecta.php';
                                                 <input class="form-control" name="email_responsavel" type="email" placeholder="" required/>
                                                 <label for="email_responsavel">Email do responsável</label>
                                             </div>
+                                            <div class="row mb-3">
+                                            <div>
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id='txtSenha' name="senhaResp" type="password" placeholder="" required/>
+                                                    <label for="txtSenha">Senha do Responsável</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" name="relacaoResponsavel" type="text" placeholder="" required/>
                                                 <label for="relacaoResponsavel">Relação do responsável com o menor (ex: Pai, Mãe, etc)</label>
@@ -175,6 +183,7 @@ include 'conecta.php';
                                 </div>
                                 <div class="card-footer text-center py-3">
                                     <div class="small"><a href="login.html">Já tem uma conta? Vá para o login</a></div>
+                                    <div class="small"><a href="index.html">Voltar ao início</a></div>
                                 </div>
                             </div>
                         </div>

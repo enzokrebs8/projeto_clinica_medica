@@ -1,5 +1,11 @@
 <?php
-    include 'conecta.php';
+    session_start();
+    include('conecta.php');
+    
+    if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'recepcionistas') {
+        header('Location: login.html');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +17,17 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script>
+    function negateRequest(id) {
+        var observacao = prompt("Por favor, insira as observações para a negação:");
+
+        if (observacao !== null && observacao.trim() !== "") {
+            window.location.href = 'recepcionista_negar.php?id=' + id + '&observacao=' + encodeURIComponent(observacao);
+        } else {
+            alert("As observações são necessárias para negar a solicitação.");
+        }
+    }
+</script>
 </head>
 
 <body class="soninho">
@@ -47,7 +64,7 @@
                             echo "<td>".$dados['observacao']."</td>";
                             echo "<td>
                                 <a class='btn btn-info' href='recepcionista_aceitar.php?id=".$dados['idSolicitacao']."'>Aprovar</a>
-                                <a class='btn btn-danger' href='recepcionista_negar.php?id=".$dados['idSolicitacao']."'>Negar</a>
+                                <a class='btn btn-danger' href='#' onclick='negateRequest(".$dados['idSolicitacao'].")'>Negar</a>
                             </td>";
                             echo "</tr>";
                         }

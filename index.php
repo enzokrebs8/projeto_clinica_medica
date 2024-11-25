@@ -1,29 +1,12 @@
 <?php
-
     session_start();
-    include 'menu.php';
-    include 'conecta.php';
+include('conecta.php');
+include 'menu.php';
 
-    
-    
-    if (!isset($_SESSION['cpf'])) {
-        header('Location: login.html');
-        exit;
-    }
-    
-    $CPF = $_SESSION['cpf'];
-    $cpf_n = preg_replace('/[^0-9]/', '', $CPF);
-    $query = "SELECT * FROM devs WHERE CPF = ?";
-    $stmt = $conexao->prepare($query);
-    $stmt->bind_param("s", $cpf_n);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if ($result->num_rows == 0) {
-        session_destroy();
-        header('Location: login.html');
-        exit;
-    }
+if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
+    header('Location: login.html');
+    exit();
+}
 
 
 ?>

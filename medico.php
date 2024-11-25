@@ -1,28 +1,13 @@
 <?php
-  session_start();
-  
-  include('conecta.php');
-  
-  if (!isset($_SESSION['cpf'])) {
-      header('Location: index.html');
-      exit();
-  }
-  
-  $cpfLogado = $_SESSION['cpf'];
-  
-  $query = "SELECT CPF FROM medicos WHERE CPF = ?";
-  $stmt = $conexao->prepare($query);
-  $stmt->bind_param('s', $cpfLogado);
-  $stmt->execute();
-  $resultado = $stmt->get_result();
-  
-  if ($resultado->num_rows === 0) {
-      session_unset();
-      session_destroy();
-      header('Location: index.html');
-      exit();
-  }
 
+ session_start();
+ include('conecta.php');
+
+ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'medicos') {
+     header('Location: login.html');
+     exit();
+ }
+ 
 ?>
 
 
