@@ -91,10 +91,6 @@
   }
 }
 
-.é{
-  padding-top: 120px;
-}
-
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -636,6 +632,7 @@ progress {
 .container-lg,
 .container-md,
 .container-sm {
+  padding-top: 120px;
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   width: 100%;

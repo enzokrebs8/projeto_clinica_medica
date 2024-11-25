@@ -40,9 +40,9 @@
                 </li>
             </ul>
         </nav>
-        <div class="é">
+        <div class="aiai">
             <div>
-                <main>
+                <main class="aiai">
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Gerenciar Tabelas</h1>
                         <ol class="breadcrumb mb-4">
@@ -338,7 +338,6 @@
                                             echo "</tr>";
                                         }
                                     ?>        
-                                            
                                     </tbody>
                                 </table>
                             </div>
@@ -349,23 +348,11 @@
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; SOS - Sistema Organizado de Saúde 2024</div>
-                            <div>
-                                <a href="#">Política de Privacidade</a>
-                                &middot;
-                                <a href="#">Termos &amp; Condições</a>
-                            </div>
                         </div>
                     </div>
                 </footer>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/js_adm/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/js_adm/datatables-simple-demo.js"></script>
     </body>
 </html>
 
