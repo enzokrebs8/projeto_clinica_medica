@@ -29,7 +29,14 @@
     }
 </script>
 </head>
-
+<a class="menu-toggle rounded" href="#"><i class="fa-solid fa-bars" style="color: #ffffff;"></i></a>
+<nav id="sidebar-wrapper">
+<ul class="sidebar-nav">
+        <li class="sidebar-brand"><a>Gestão de Consultas</a></li>
+        <li class="sidebar-nav-item"><a href="index.html">Voltar ao Inicio</a></li>
+        <li class="sidebar-nav-item"><a href="logout.php">Logout</a></li>
+    </ul>
+</nav>
 <body class="soninho">
     <div class="container cirilo">
         <h1>Gestão de Consultas</h1> 
@@ -76,5 +83,7 @@
     <div class="cansei">
             <a href="agenda.html" class="sos">Consultar Agenda</a>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>

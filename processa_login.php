@@ -10,7 +10,8 @@ $tabelas = [
     'pacientemenor' => 'paciente_menor.php',
     'medicos' => 'medico.php',
     'devs' => 'index.php',
-    'recepcionistas' => 'recepcionista.php'
+    'recepcionistas' => 'recepcionista.php',
+    'responsavel' => 'solicitar_consultas.php'
 ];
 
 foreach ($tabelas as $tabela => $redirect) {

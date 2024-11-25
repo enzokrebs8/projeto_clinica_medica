@@ -34,7 +34,7 @@
                             <a>Logado como <?php echo $_SESSION['nome']; ?></a>
                         </li>
                         <li>
-                            <a class="btn btn-danger" href="loguot.php">Logout</a>
+                            <a class="btn btn-danger" href="logout.php">Logout</a>
                         </li>
                     </ul>
                 </li>

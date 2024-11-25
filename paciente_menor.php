@@ -55,19 +55,33 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'pacientemenor') {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    $sql = "SELECT * FROM consultaspacientemenor";
-                                    $consulta = $conexao->query($sql);
-                                    while($dados = $consulta->fetch_assoc()){
-                                        echo "<tr>";
-                                        echo "<td>".$dados['IDConsultasP']."</td>";
-                                        echo "<td>".$dados['data_hora']."</td>";
-                                        echo "<td>".$dados['especialidade']."</td>";
-                                        echo "<td>".$dados['nome_paciente']."</td>";
-                                        echo "<td>".$dados['medico']."</td>";
-                                        echo "<td>".$dados['status_c']."</td>";
-                                        echo "<td>".$dados['observacao']."</td>";
-                                        echo "</tr>";
+                            <?php 
+                                    $cpfLogado = $_SESSION['cpf'];
+                                    $query = "SELECT * FROM consultaspacientemenor WHERE cpf_p = ?";
+                                    $stmt = $conexao->prepare($query);
+                                    
+                                    if ($stmt === false) {
+                                        die("Erro na preparação da consulta: " . $conexao->error);
+                                    }
+
+                                    $stmt->bind_param('s', $cpfLogado);
+                                    $stmt->execute();
+                                    $resultado = $stmt->get_result();
+
+                                    if ($resultado->num_rows === 0) {
+                                        echo "<tr><td colspan='7'>Nenhuma consulta encontrada.</td></tr>";
+                                    } else {
+                                        while ($dados = $resultado->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>".$dados['IDConsultasP']."</td>";
+                                            echo "<td>".$dados['data_hora']."</td>";
+                                            echo "<td>".$dados['especialidade']."</td>";
+                                            echo "<td>".$dados['nome_paciente']."</td>";
+                                            echo "<td>".$dados['medico']."</td>";
+                                            echo "<td>".$dados['status_c']."</td>";
+                                            echo "<td>".$dados['observacao']."</td>";
+                                            echo "</tr>";
+                                        }
                                     }
                                 ?>
                             </tbody>
