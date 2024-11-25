@@ -46,6 +46,9 @@
                         <center>
                             <div class="mb-4 row">
                                 <div class=" col-sm">
+                                    <a class="btn btn-success" href="cadastro_dev.php">INSERIR NOVO DEV</a>
+                                </div>
+                                <div class=" col-sm">
                                     <a class="btn btn-success" href="cadastro_medico.php">INSERIR NOVO MÉDICO</a>
                                 </div>
                                 <div class=" col-sm">
