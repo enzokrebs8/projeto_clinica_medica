@@ -74,7 +74,7 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
                                             <label for="txtEmail">Endereço de Email</label>
                                         </div>
                                         <div class="row mb-3">
-                                            <div class="col-md-6">
+                                            <div>
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id='txtSenha' name="senha" type="password" placeholder="" required/>
                                                     <label for="txtSenha">Senha</label>
