@@ -1,19 +1,49 @@
 <?php
     session_start();
-include('conecta.php');
-include 'menu.php';
+    include('conecta.php');
 
-if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
-    header('Location: login.html');
-    exit();
-}
+    if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
+        header('Location: login.html');
+        exit();
+    }
 
 
 ?>
-            <div id="layoutSidenav_content">
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head class="">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Painel do Desenvolvedor</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/style_adm.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="navbar sticky-top sb-topnav navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="index.php">Painel do Desenvolvedor</a>
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a>Logado como <?php echo $_SESSION['nome']; ?></a>
+                        </li>
+                        <li>
+                            <a class="btn btn-danger" href="loguot.php">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="body" id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">Gerenciar Tabelas</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">
                                 <a class="btn btn-success" href="cadastro_medico.php">INSERIR NOVO MÉDICO</a>
@@ -337,3 +367,5 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
         <script src="js/js_adm/datatables-simple-demo.js"></script>
     </body>
 </html>
+
+        
