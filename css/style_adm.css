@@ -6806,6 +6806,7 @@ textarea.form-control-lg {
   right: 0;
   left: 0;
   z-index: 1030;
+  background-color: rgba(29,128,159);
 }
 
 .fixed-bottom {
@@ -11242,3 +11243,12 @@ body {
   border-radius: 0.375rem !important;
 }
 
+.bg-tamonois {
+  --bs-bg-opacity: 1;
+  background-color: rgba(29,128,159);
+}
+
+.text-bg-tamonois {
+  color: #fff !important;
+  background-color: rgba(29,128,159);
+}

@@ -28,9 +28,20 @@ $observacao = $_POST['observacao'];
 $sql_insert = "INSERT INTO solicitarconsulta (nome_paciente, cpf_p, data_hora, medico, especialidade, observacao) VALUES ('$nome_paciente', '$cpf', '$data_hora', '$medico', '$especialidade', '$observacao')";
 
 if ($conexao->query($sql_insert)) {
-    header('Location: solicitar_consultas.php');
+    session_start();
+    if (isset($_SESSION['tipo'])) {
+        if ($_SESSION['tipo'] == 'pacientemaior') {
+            header('Location: paciente_maior.php');
+        } elseif ($_SESSION['tipo'] == 'responsavel') {
+            header('Location: solicitar_consultas.php'); 
+        } else {
+            header('Location: index.php');
+        }
+    } else {
+        header('Location: login.html');
+    }
+    exit;
 } else {
     echo "Erro ao solicitar consulta: " . $conexao->error;
 }
-
 ?>

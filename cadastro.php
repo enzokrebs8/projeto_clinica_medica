@@ -183,7 +183,7 @@ include 'conecta.php';
                                 </div>
                                 <div class="card-footer text-center py-3">
                                     <div class="small"><a href="login.html">Já tem uma conta? Vá para o login</a></div>
-                                    <div class="small"><a href="index.html">Voltar ao início</a></div>
+                                    <div href="logout.php" class="small"><a href="index.html">Voltar ao início</a></div>
                                 </div>
                             </div>
                         </div>

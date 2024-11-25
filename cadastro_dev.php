@@ -62,6 +62,10 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
                                             <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Cadastrar</button</div>
                                         </div>
                                     </form>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="index.php">Voltar ao menu do Dev</a></div>
+                                        <div href="logout.php" class="small"><a href="index.html">Deslogar e voltar ao início</a></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -70,6 +74,9 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
             </main>
         </div>
     </div>
+    <footer style="background-color: white;" class="footer text-center p-3 mt-4">
+        <p class="text-muted small mb-0">Copyright &copy; SOS - Sistema Organizado de Saúde 2024</p>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>

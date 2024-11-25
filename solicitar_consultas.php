@@ -54,18 +54,6 @@
                             <input class="form-control" name="data_hora" id="txtNascimento" type="datetime-local" placeholder="" required />
                             <label for="txtDataHora">Data e Hora da Consulta</label>
                         </div>
-                        <select id="medico" class="form-select mb-3" name="medico" aria-label="Medico" required>
-                            <option value="" selected>Selecione por qual médico você deseja ser atendido </option>
-                            <?php
-                                $query = "SELECT nome FROM medicos";
-                                $result = $conexao->query($query);
-
-                                while ($row = $result->fetch_assoc()) {
-                                echo '<option value="' . htmlspecialchars($row['nome']) . '">' . htmlspecialchars($row['nome']) . '</option>';
-                                }
-                            ?>
-                        </select>
-
                         <select id="especialidade" class="form-select mb-3" name="especialidade" aria-label="Especialidade" required>
                             <option value="" selected>Selecione qual tipo de especialidade que necessita de atendimento </option>n>
                             <?php
@@ -74,6 +62,17 @@
 
                                 while ($row = $result->fetch_assoc()) {
                                 echo '<option value="' . htmlspecialchars($row['Especialidade']) . '">' . htmlspecialchars($row['Especialidade']) . '</option>';
+                                }
+                            ?>
+                        </select>
+                        <select id="medico" class="form-select mb-3" name="medico" aria-label="Medico" required>
+                            <option value="" selected>Selecione por qual médico você deseja ser atendido </option>
+                            <?php
+                                $query = "SELECT nome FROM medicos";
+                                $result = $conexao->query($query);
+
+                                while ($row = $result->fetch_assoc()) {
+                                echo '<option value="' . htmlspecialchars($row['nome']) . '">' . htmlspecialchars($row['nome']) . '</option>';
                                 }
                             ?>
                         </select>

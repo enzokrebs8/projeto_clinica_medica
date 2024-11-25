@@ -78,6 +78,10 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
                                             <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Cadastrar Recepcionista</button</div>
                                         </div>
                                     </form>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="index.php">Voltar ao menu do Dev</a></div>
+                                        <div href="logout.php" class="small"><a href="index.html">Deslogar e voltar ao início</a></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

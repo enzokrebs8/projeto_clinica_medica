@@ -91,7 +91,61 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'pacientemenor') {
             </div>
         </div>
     </div>
+    <div class="container cirilo">
+        <div class="container text-center tumbalatumba">
+            <div class="row">
+                    <h2 class="calcaangelical">Consultas Solicitadas</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID da Consulta</th>
+                                    <th>Data/Hora</th>
+                                    <th>Especialidade</th>
+                                    <th>Nome do Paciente</th>
+                                    <th>Nome do Médico</th>
+                                    <th>Status</th>
+                                    <th>Observações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                    $cpfLogado = $_SESSION['cpf'];
+                                    $query = "SELECT * FROM solicitarconsulta WHERE cpf_p = ?";
+                                    $stmt = $conexao->prepare($query);
+                                    
+                                    if ($stmt === false) {
+                                        die("Erro na preparação da consulta: " . $conexao->error);
+                                    }
 
+                                    $stmt->bind_param('s', $cpfLogado);
+                                    $stmt->execute();
+                                    $resultado = $stmt->get_result();
+
+                                    if ($resultado->num_rows === 0) {
+                                        echo "<tr><td colspan='7'>Nenhuma consulta encontrada.</td></tr>";
+                                    } else {
+                                        while ($dados = $resultado->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>".$dados['idSolicitacao']."</td>";
+                                            echo "<td>".$dados['data_hora']."</td>";
+                                            echo "<td>".$dados['especialidade']."</td>";
+                                            echo "<td>".$dados['nome_paciente']."</td>";
+                                            echo "<td>".$dados['medico']."</td>";
+                                            echo "<td>".$dados['status_c']."</td>";
+                                            echo "<td>".$dados['observacao']."</td>";
+                                            echo "</tr>";
+                                        }
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                        <a href="solicitar_consultas.php" class="sos">Solicitar Consulta</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="footer text-center">
         <p class="text-muted small mb-0">Copyright &copy; Davizin e Iago 2024</p>
     </footer>

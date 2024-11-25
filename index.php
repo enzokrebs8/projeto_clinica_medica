@@ -24,7 +24,7 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <nav class="navbar sticky-top sb-topnav navbar-expand navbar-dark bg-dark">
+        <nav class="navbar fixed-top sb-topnav navbar-expand bg-tamonois">
             <a class="navbar-brand ps-3" href="index.php">Painel do Desenvolvedor</a>
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
