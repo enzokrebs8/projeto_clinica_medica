@@ -4,7 +4,7 @@
 
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM recepcionistas WHERE IDRecepcionista = '$id'";
+    $sql = "SELECT * FROM responsavel WHERE IDResponsavel = '$id'";
     $consulta = $conexao->query($sql);
     $dados = $consulta->fetch_assoc();
 
@@ -16,7 +16,7 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">ATUALIZAR RESPONSAVEL</h1>                                                                       
                         <div class="card mb-4">
-                            <form action="processa_atualiza_recepcionista.php?id=<?php echo $id; ?>" method="POST">
+                            <form action="processa_atualiza_responsavel.php?id=<?php echo $id; ?>" method="POST">
                                 <div class="mb-3">
                                     <label class="form-label">Nome</label>
                                     <input name="nome_novo" type="text" class="form-control" value="<?php echo $dados['nome']; ?>">                                    
@@ -24,7 +24,7 @@
                                 <div class="row mb-3">
                                     <div>
                                         <div class="form-floating mb-3 mb-md-0">
-                                            <input class="form-control" name="nascimento" value="<?php echo $dados['nascimento']; ?>" type="date" />
+                                            <input class="form-control" name="nascimento_novo" value="<?php echo $dados['nascimento']; ?>" type="date" />
                                             <label for="txtNascimento">Data de nascimento</label>
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                                 </div> 
                                 <div class="mb-3">
                                     <label class="form-label">ID do Endereço</label>
-                                    <input name="idendereco_novo" type="text" class="form-control" value="<?php echo $dados['IDEndereco']; ?>">                                    
+                                    <input name="IDEndereco_novo" type="text" class="form-control" value="<?php echo $dados['IDEndereco']; ?>">                                    
                                 </div> 
                                 <div class="mb-3">
                                     <label class="form-label">ID do Paciente Menor</label>

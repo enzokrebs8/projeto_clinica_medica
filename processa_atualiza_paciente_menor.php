@@ -2,17 +2,17 @@
     require('conecta.php');
 
     $id = $_GET['id'];
-    $nome_novo = $_POST['nome'];
-    $CPF_novo = $_POST['CPF'];
+    $nome_novo = $_POST['nom_novo'];
+    $CPF_novo = $_POST['CPF_novo'];
     $cpf_n = preg_replace('/[^0-9]/', '', $CPF_novo);
-    $RG_novo = $_POST['RG'];
-    $nascimento_novo = $_POST['nascimento'];
-    $telefone_novo = $_POST['telefone'];
-    $email_novo = $_POST['email'];
-    $telefoneEmergencia_novo = $_POST['telefoneEmergencia'];
-    $genero = $_POST['genero'];
-    $senha = $_POST['senha'];
+    $RG_novo = $_POST['RG_novo'];
+    $nascimento_novo = $_POST['nascimento_novo'];
+    $telefone_novo = $_POST['telefoneResp_novo'];
+    $email_novo = $_POST['email_novo'];
+    $genero = $_POST['genero_novo'];
+    $senha = $_POST['senha_nova'];
     $hash = password_hash($senha, PASSWORD_BCRYPT);
+    $telefoneEmergencia_novo = $_POST['telefoneEmergencia'];
     $IDEndereco_novo = $_POST['IDEndereco'];
     $IDPlanoSaude_novo = $_POST['IDPlanoSaude'];
     $IDResponsavel_novo = $_POST['IDResponsavel'];

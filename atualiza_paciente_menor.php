@@ -4,7 +4,7 @@
 
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM recepcionistas WHERE IDRecepcionista = '$id'";
+    $sql = "SELECT * FROM pacientemenro WHERE IDPacienteMenor = '$id'";
     $consulta = $conexao->query($sql);
     $dados = $consulta->fetch_assoc();
 
@@ -16,7 +16,7 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">ATUALIZAR RECEPCIONISTA</h1>                                                                       
                         <div class="card mb-4">
-                            <form action="processa_atualiza_recepcionista.php?id=<?php echo $id; ?>" method="POST">
+                            <form action="processa_atualiza_paciente_menor.php?id=<?php echo $id; ?>" method="POST">
                                 <div class="mb-3">
                                     <label class="form-label">Nome</label>
                                     <input name="nome_novo" type="text" class="form-control" value="<?php echo $dados['nome']; ?>">                                    
@@ -52,6 +52,10 @@
                                 <div class="mb-3">
                                     <label class="form-label">Telefone</label>
                                     <input name="telefone_novo" type="text" class="form-control" value="<?php echo $dados['telefone']; ?>">                                    
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Telefone de Emergência</label>
+                                    <input name="telefoneEmergencia_novo" type="text" class="form-control" value="<?php echo $dados['telefoneEmergencia']; ?>">                                    
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">ID do Plano de Saúde</label>

@@ -2,18 +2,19 @@
 include('conecta.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = $_POST['nome'] 
-    $CPF = $_POST['CPF'] 
+    $nome = $_POST['nome'];
+    $CPF = $_POST['CPF'];
     $cpf_n = preg_replace('/[^0-9]/', '', $CPF);
     $RG = $_POST['RG'];
-    $nascimento = $_POST['nascimento']
-    $telefone = $_POST['telefone'] 
+    $nascimento = $_POST['nascimento'];
+    $telefone = $_POST['telefone'];
     $email = $_POST['email'];
     $telefoneEmergencia = $_POST['telefoneEmergencia'];
-    $genero = $_POST['genero']
+    $genero = $_POST['genero'];
     $senha = $_POST['senha'];
-    $senhaResp = $_POST['senhaResp']
+    $senhaResp = $_POST['senhaResp'];
     $hash = password_hash($senha, PASSWORD_BCRYPT);
+    $hashResp = password_hash($senhaResp, PASSWORD_BCRYPT);
     $CEP = 'cep';
     $rua = 'rua';
     $bairro = 'bairro';
@@ -60,9 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $relacaoResponsavel = $_POST['relacaoResponsavel'] ?? null;
                         $telefoneResp = $_POST['telefoneResp'] ?? null;
 
-                        $sqlResponsavel = "INSERT INTO responsavel (nome, senha, CPF, RG, telefoneResp, email, nascimento, IDEndereco) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                        $sqlResponsavel = "INSERT INTO responsavel (nome, senha, CPF, RG, telefoneResp, email, nascimento, IDEndereco) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                         $stmtResponsavel = $conexao->prepare($sqlResponsavel);
-                        $stmtResponsavel->bind_param("ssssssi", $nomeResponsavel, $senhaResp, $cpf_rn, $rgResponsavel, $telefoneResp, $emailResponsavel, $nascimentoResponsavel, $IDEndereco);
+                        $stmtResponsavel->bind_param("sssssssi", $nomeResponsavel, $hashResp, $cpf_rn, $rgResponsavel, $telefoneResp, $emailResponsavel, $nascimentoResponsavel, $IDEndereco);
 
                         if ($stmtResponsavel->execute()) {
                             $IDResponsavel = $stmtResponsavel->insert_id;
