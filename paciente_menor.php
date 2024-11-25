@@ -60,7 +60,7 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'pacientemenor') {
                                     $consulta = $conexao->query($sql);
                                     while($dados = $consulta->fetch_assoc()){
                                         echo "<tr>";
-                                        echo "<td>".$dadoss['IDConsultasP']."</td>";
+                                        echo "<td>".$dados['IDConsultasP']."</td>";
                                         echo "<td>".$dados['data_hora']."</td>";
                                         echo "<td>".$dados['especialidade']."</td>";
                                         echo "<td>".$dados['nome_paciente']."</td>";

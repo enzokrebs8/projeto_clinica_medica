@@ -2,6 +2,12 @@
 
 include 'conecta.php';
 
+session_start();
+if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
+    header('Location: login.html');
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +36,7 @@ include 'conecta.php';
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header"><h3 class="text-center font-weight-light my-4">Cadastrar Recepcionista</h3></div>
                                 <div class="card-body">
-                                    <form action="processa_cadastro_medico.php" method="POST">
+                                    <form action="processa_cadastro_recepcionista.php" method="POST">
                                         <div class="form-floating mb-3">
                                             <input class="form-control" name="nome" type="text" placeholder="" required/>
                                             <label for="txtNome">Nome completo</label>

@@ -16,14 +16,56 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">
-                                <a class="btn btn-success" href="CADASTRO_medico.php">INSERIR NOVO MÉDICO</a>
+                                <a class="btn btn-success" href="cadastro_medico.php">INSERIR NOVO MÉDICO</a>
                             </li>
                         </ol>       
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">
-                                <a class="btn btn-success" href="insere_recepcionista.php">INSERIR NOVO RECEPCIONISTA</a>
+                                <a class="btn btn-success" href="cadastro_recepcionista.php">INSERIR NOVO RECEPCIONISTA</a>
                             </li>
-                        </ol>                  
+                        </ol>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">
+                                <a class="btn btn-success" href="insere_plano_saúde.php">INSERIR NOVO PLANO DE SAÚDE</a>
+                            </li>
+                        </ol>   
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Planos de Saúde
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="datatable-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NOME DO PLANO</th>
+                                            <th>CONTATO</th>
+                                            <th>AÇÕES</th>                                 
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        $sql = "SELECT * FROM planosaude";
+                                        $consulta = $conexao->query($sql);
+                                        while($dados = $consulta->fetch_assoc()){
+                                            echo "<tr>";
+                                            echo "<td>".$dados['IDPlanoSaude']."</td>";
+                                            echo "<td>".$dados['NomePlano']."</td>";
+                                            echo "<td>".$dados['ContatoCentralPlano']."</td>";
+                                            echo "<td>
+                                                <a class='btn btn-info' href='atualiza_medico.php?id=".$dados['IDPlanoSaude']."'>ATUALIZAR</a>                             
+                                                <a class='btn btn-danger' href='processa_delete_medico.php?id=".$dados['IDPlanoSaude']."'>APAGAR</a>
+                                            </td>";
+                                            echo "</tr>";
+                                        }
+                                    ?>
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>               
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>

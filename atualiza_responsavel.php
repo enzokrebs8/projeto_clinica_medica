@@ -8,7 +8,11 @@
     $consulta = $conexao->query($sql);
     $dados = $consulta->fetch_assoc();
 
-    
+    session_start();
+    if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
+        header('Location: login.html');
+        exit();
+    }
 
 ?>
             <div id="layoutSidenav_content">

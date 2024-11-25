@@ -4,12 +4,16 @@
 
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM pacientemenro WHERE IDPacienteMenor = '$id'";
+    $sql = "SELECT * FROM pacientemenor WHERE IDPacienteMenor = '$id'";
     $consulta = $conexao->query($sql);
-    $dados = $consulta->fetch_assoc();
+    $dados = $consulta->fetch_assoc();    
 
+    session_start();
+    if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
+        header('Location: login.html');
+        exit();
+    }
     
-
 ?>
             <div id="layoutSidenav_content">
                 <main>
@@ -38,7 +42,7 @@
                                     <input name="RG_novo" type="text" class="form-control" value="<?php echo $dados['RG']; ?>">                                    
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">RG</label>
+                                    <label class="form-label">Gênero Biológico</label>
                                     <input name="genero_novo" type="text" class="form-control" value="<?php echo $dados['genero']; ?>">                                    
                                 </div>                              
                                 <div class="mb-3">
@@ -67,7 +71,7 @@
                                 </div> 
                                 <div class="mb-3">
                                     <label class="form-label">Relação com o Responsável</label>
-                                    <input name="relacaoResponsavel_novo" type="text" class="form-control" value="<?php echo $dados['relcaoResponsavel']; ?>">                                    
+                                    <input name="relacaoResponsavel_novo" type="text" class="form-control" value="<?php echo $dados['relacaoResponsavel']; ?>">                                    
                                 </div> 
                                 <div class="mb-3">
                                     <label class="form-label">ID do Endereco</label>

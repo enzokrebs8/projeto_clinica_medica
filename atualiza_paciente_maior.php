@@ -8,7 +8,12 @@
     $consulta = $conexao->query($sql);
     $dados = $consulta->fetch_assoc();
 
-    
+    session_start();
+    if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
+        header('Location: login.html');
+        exit();
+    }
+
 
 ?>
             <div id="layoutSidenav_content">
@@ -36,7 +41,11 @@
                                 <div class="mb-3">
                                     <label class="form-label">RG</label>
                                     <input name="RG_novo" type="text" class="form-control" value="<?php echo $dados['RG']; ?>">                                    
-                                </div>                              
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Gênero Biológico</label>
+                                    <input name="genero_novo" type="text" class="form-control" value="<?php echo $dados['genero']; ?>">                                    
+                                </div>                               
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
                                     <input name="email_novo" type="email" class="form-control" value="<?php echo $dados['email']; ?>">                                    
