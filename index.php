@@ -40,10 +40,8 @@
                 </li>
             </ul>
         </nav>
-        <div class="aiai">
-            <div>
                 <main class="aiai">
-                    <div class="container-fluid px-4">
+                    <div class="tupagoprave">
                         <h1 class="mt-4">Gerenciar Tabelas</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">
@@ -351,8 +349,6 @@
                         </div>
                     </div>
                 </footer>
-            </div>
-        </div>
     </body>
 </html>
 
