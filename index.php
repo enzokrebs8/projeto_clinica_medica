@@ -23,7 +23,7 @@
         <link href="css/style_adm.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="sb-nav-fixed">
+    <body>
         <nav class="navbar sticky-top sb-topnav navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand ps-3" href="index.php">Painel do Desenvolvedor</a>
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -41,23 +41,22 @@
             </ul>
         </nav>
                 <main class="aiai">
-                    <div class="tupagoprave">
-                        <h1 class="mt-4">Gerenciar Tabelas</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">
-                                <a class="btn btn-success" href="cadastro_medico.php">INSERIR NOVO MÉDICO</a>
-                            </li>
-                        </ol>       
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">
-                                <a class="btn btn-success" href="cadastro_recepcionista.php">INSERIR NOVO RECEPCIONISTA</a>
-                            </li>
-                        </ol>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">
-                                <a class="btn btn-success" href="insere_plano_saúde.php">INSERIR NOVO PLANO DE SAÚDE</a>
-                            </li>
-                        </ol>   
+                    <div class="container-fluid px-4">
+                        <center><h1>Gerenciar Tabelas</h1></center>
+                        <center>
+                            <div class="mb-4 row">
+                                <div class=" col-sm">
+                                    <a class="btn btn-success" href="cadastro_medico.php">INSERIR NOVO MÉDICO</a>
+                                </div>
+                                <div class=" col-sm">
+                                    <a class="btn btn-success" href="cadastro_recepcionista.php">INSERIR NOVO RECEPCIONISTA</a>
+                                </div>
+                                <div class="col-sm">
+                                    <a class="btn btn-success" href="insere_plano_saúde.php">INSERIR NOVO PLANO DE SAÚDE</a>
+                                </div>
+                            </div>
+                        </center>
+                        
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -109,8 +108,8 @@
                                             <th>CPF</th>
                                             <th>RG</th>
                                             <th>EMAIL</th>
-                                            <th>ESPECIALIDADE</th>
                                             <th>NASCIMENTO</th>
+                                            <th>ESPECIALIDADE</th>
                                             <th>CRM</th>
                                             <th>TELEFONE</th>
                                             <th>AÇÕES</th>                                 
@@ -350,6 +349,13 @@
                     </div>
                 </footer>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
 </html>
 
         
