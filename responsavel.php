@@ -1,12 +1,14 @@
 <?php
-    include 'conecta.php';
-    
-    // session_start();
-    // if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'pacientemaior') {
-    //     header('Location: login.html');
-    //     exit();
-    // }
-    
+
+include('conecta.php');
+
+session_start();
+if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'responsavel') {
+    header('Location: login.html');
+    exit();
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -23,10 +25,9 @@
 <a class="menu-toggle rounded" href="#"><i class="fa-solid fa-bars" style="color: #ffffff;"></i></a>
 <nav id="sidebar-wrapper">
 <ul class="sidebar-nav">
-        <li class="sidebar-brand"><a>Área do Paciente</a></li>
+        <li class="sidebar-brand"><a>Área do Responsável</a></li>
         <li class="sidebar-nav-item"><a href="index.html">Voltar ao Inicio</a></li>
-        <li class="sidebar-nav-item"><a href="solicitar_consultas.php">Tela de Solicitação de Consultas</a></li>
-        <li class="sidebar-nav-item"><a href="paciente_maior.php">Tela de Consultas</a></li>
+        <li class="sidebar-nav-item"><a href="solicitar_consiltas.php">Solicitar uma Consulta</a></li>
         <li class="sidebar-nav-item"><a href="logout.php">Logout</a></li>
     </ul>
 </nav>
@@ -39,7 +40,7 @@
     <div class="container cirilo">
         <div class="container text-center tumbalatumba">
             <div class="row">
-                    <h2 class="calcaangelical">Consultas agendadas</h2>
+            <h2 class="calcaangelical">Consultas agendadas</h2>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
@@ -54,16 +55,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
-                                    $cpfLogado = $_SESSION['cpf'];
-                                    $query = "SELECT * FROM consultaspacientemaior WHERE cpf_p = ?";
+                            <?php 
+                                    $IDResp = $_SESSION['id'];
+                                    echo $IDResp;
+                                    $queryMenor = "SELECT IDPacienteMenor FROM responsavel WHERE IDResponsavel = '$IDResp'";
+                                    $IDMenor = $conexao->query($queryMenor);
+
+                                    $query = "SELECT * FROM consultaspacientemenor WHERE IDPacienteMenor = ?";
                                     $stmt = $conexao->prepare($query);
                                     
                                     if ($stmt === false) {
                                         die("Erro na preparação da consulta: " . $conexao->error);
                                     }
 
-                                    $stmt->bind_param('s', $cpfLogado);
+                                    $stmt->bind_param('s', $IDMenor);
                                     $stmt->execute();
                                     $resultado = $stmt->get_result();
 
@@ -109,15 +114,19 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                    $cpfLogado = $_SESSION['cpf'];
-                                    $query = "SELECT * FROM solicitarconsulta WHERE cpf_p = ?";
+                                    $IDResp = $_SESSION['id'];
+                                    echo $IDResp;
+                                    $queryMenor = "SELECT IDPacienteMenor FROM responsavel WHERE IDResponsavel = '$IDResp'";
+                                    $IDMenor = $conexao->query($queryMenor);
+
+                                    $query = "SELECT * FROM solicitarconsulta WHERE IDPacienteMenor = ?";
                                     $stmt = $conexao->prepare($query);
                                     
                                     if ($stmt === false) {
                                         die("Erro na preparação da consulta: " . $conexao->error);
                                     }
 
-                                    $stmt->bind_param('s', $cpfLogado);
+                                    $stmt->bind_param('s', $IDMenor);
                                     $stmt->execute();
                                     $resultado = $stmt->get_result();
 
@@ -145,7 +154,6 @@
             </div>
         </div>
     </div>
-
     <footer class="footer text-center">
         <p class="text-muted small mb-0">Copyright &copy; SOS - Sistema Organizado de Saúde 2024</p>
     </footer>

@@ -32,6 +32,7 @@
                 $_SESSION['email'] = $usuario['email'];
                 $_SESSION['senha'] = $usuario['senha'];
                 $_SESSION['cpf'] = $usuario['CPF'];
+                $_SESSION['tipo'] = $tabela;
                 header("Location: $redirect");
                 exit;
             } else {

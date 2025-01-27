@@ -1,7 +1,8 @@
 <?php
-    // session_start();
+    
     include('conecta.php');
 
+    session_start();
     if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
         header('Location: login.html');
         exit();
@@ -32,7 +33,7 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li>
-                            <a>Logado como <?php echo $_SESSION['nome']; ?></a>
+                            <a>Logado como: <br> <?php echo $_SESSION['nome']; ?></a>
                         </li>
                         <li>
                             <a class="btn btn-danger" href="logout.php">Logout</a>
@@ -41,6 +42,9 @@
                 </li>
             </ul>
         </nav>
+        <br>
+        <br>
+        <br>
                 <main class="aiai">
                     <div class="container-fluid px-4">
                         <center><h1>Gerenciar Tabelas</h1></center>

@@ -92,8 +92,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">ID do Endereco</label>
                                     <input name="IDEndereco_novo" type="text" class="form-control" value="<?php echo $dados['IDEndereco']; ?>">                                    
-                                </div> 
-                                <input type="hidden" name='id' value="<?php echo $id?>">                                   
+                                </div>                                  
                                 <button type="submit" class="btn btn-primary">ATUALIZAR</button>
                             </form>
                         </div>

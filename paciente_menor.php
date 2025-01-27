@@ -2,11 +2,11 @@
 
 include('conecta.php');
 
-// session_start();
-// if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'pacientemenor') {
-//     header('Location: login.html');
-//     exit();
-// }
+session_start();
+if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'pacientemenor') {
+    header('Location: login.html');
+    exit();
+}
 
 
 ?>
@@ -27,7 +27,6 @@ include('conecta.php');
 <ul class="sidebar-nav">
         <li class="sidebar-brand"><a>Área do Paciente</a></li>
         <li class="sidebar-nav-item"><a href="index.html">Voltar ao Inicio</a></li>
-        <li class="sidebar-nav-item"><a href="paciente_maior.php">Tela de Consultas</a></li>
         <li class="sidebar-nav-item"><a href="logout.php">Logout</a></li>
     </ul>
 </nav>
@@ -141,13 +140,13 @@ include('conecta.php');
                             </tbody>
                         </table>
                     </div>
-                        <a href="solicitar_consultas.php" class="sos">Solicitar Consulta</a>
+                        <!-- <a href="solicitar_consultas.php" class="sos">Solicitar Consulta</a> -->
                 </div>
             </div>
         </div>
     </div>
     <footer class="footer text-center">
-        <p class="text-muted small mb-0">Copyright &copy; Davizin e Iago 2024</p>
+        <p class="text-muted small mb-0">Copyright &copy; SOS - Sistema Organizado de Saúde 2024</p>
     </footer>
 </body>
 
