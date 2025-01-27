@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 25-Nov-2024 às 08:05
+-- Tempo de geração: 27-Jan-2025 às 22:47
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.0.26
 
@@ -33,12 +33,12 @@ DROP TABLE IF EXISTS `consultasmedico`;
 CREATE TABLE IF NOT EXISTS `consultasmedico` (
   `idConsultasM` int NOT NULL AUTO_INCREMENT,
   `data_hora` datetime NOT NULL,
-  `medico` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `nome_paciente` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `cpf_p` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
+  `medico` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `especialidade` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_paciente` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `cpf_p` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `status_c` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `observacao` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `observacao` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`idConsultasM`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -59,10 +59,10 @@ DROP TABLE IF EXISTS `consultaspacientemaior`;
 CREATE TABLE IF NOT EXISTS `consultaspacientemaior` (
   `IDConsultasP` int NOT NULL AUTO_INCREMENT,
   `data_hora` datetime NOT NULL,
-  `nome_paciente` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `cpf_p` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
-  `medico` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_paciente` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `cpf_p` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `medico` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `especialidade` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `status_c` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `observacao` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`IDConsultasP`)
@@ -87,10 +87,10 @@ DROP TABLE IF EXISTS `consultaspacientemenor`;
 CREATE TABLE IF NOT EXISTS `consultaspacientemenor` (
   `IDConsultasP` int NOT NULL AUTO_INCREMENT,
   `data_hora` datetime NOT NULL,
-  `nome_paciente` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `cpf_p` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
-  `medico` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_paciente` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `cpf_p` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `medico` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `especialidade` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `status_c` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `observacao` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`IDConsultasP`)
@@ -104,9 +104,9 @@ CREATE TABLE IF NOT EXISTS `consultaspacientemenor` (
 
 DROP TABLE IF EXISTS `devs`;
 CREATE TABLE IF NOT EXISTS `devs` (
-  `nome` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `CPF` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`CPF`),
   UNIQUE KEY `email` (`email`),
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `devs` (
 --
 
 INSERT INTO `devs` (`nome`, `CPF`, `email`, `senha`) VALUES
-('Enzo Krebs Silva', '46404867826', 'enzokrebs8@gmail.com', '$2y$10$rZ1BCmPC0EcyUrIzWfuqT.ZJgkryg04caKWnzwHkZ/DvLOh8Z4S1G');
+('Enzo Krebs Silva', '48408887876', 'enzokrebs8@gmail.com', '$2y$10$rwhU9sqGgdPmxncuHd9URuhWalynjLWzCRmuOvxZrQsdPATmWVGe2');
 
 -- --------------------------------------------------------
 
@@ -129,13 +129,13 @@ INSERT INTO `devs` (`nome`, `CPF`, `email`, `senha`) VALUES
 DROP TABLE IF EXISTS `endereco`;
 CREATE TABLE IF NOT EXISTS `endereco` (
   `IDEndereco` int NOT NULL AUTO_INCREMENT,
-  `CEP` varchar(9) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `complemento` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `bairro` varchar(51) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `estado` varchar(16) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `cidade` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `numero` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `rua` varchar(70) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CEP` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `complemento` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `bairro` varchar(51) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `estado` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `cidade` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `numero` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `rua` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`IDEndereco`)
 ) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -195,15 +195,15 @@ INSERT INTO `endereco` (`IDEndereco`, `CEP`, `complemento`, `bairro`, `estado`, 
 DROP TABLE IF EXISTS `medicos`;
 CREATE TABLE IF NOT EXISTS `medicos` (
   `IDMedico` int NOT NULL AUTO_INCREMENT,
-  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `senha` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Especialidade` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CPF` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `RG` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Especialidade` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `CRM` varchar(9) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CRM` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`IDMedico`),
   UNIQUE KEY `unique_cpf` (`CPF`),
   UNIQUE KEY `unique_rg` (`RG`)
@@ -214,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `medicos` (
 --
 
 INSERT INTO `medicos` (`IDMedico`, `CPF`, `email`, `senha`, `RG`, `nome`, `Especialidade`, `nascimento`, `CRM`, `telefone`) VALUES
-(4, '464.048.678-26', 'medicoenzo@email.com', '$2y$10$6wQOkqaSyJ4v1gTMrNzSmu4UkGYOWlbA.bCnzgW22K6qCyvMiYgDO', '123456789101', 'Enzo Krebs Silva', 'Neurologista', '2000-11-24', '123123123', '(11) 93357-2695'),
+(4, '46404867826', 'medicoenzo@gmail.com', '$2y$10$1JNVqivQ7qVsGXuZK6Nwz.0nO3kypQWGD0olk0bxFCTcUhUyWhKra', '123456789101', 'Enzo Krebs Silva', 'Neurologista', '1982-11-24', '123123123', '(11) 93357-2695'),
 (5, '123.456.789-11', 'dr.joao@email.com', 'senha123', 'RG1234599', 'Dr. João Pedro', 'Cardiologista', '1980-04-20', 'CRM123456', '(11) 91111-1112'),
 (6, '234.567.890-22', 'dr.ana@email.com', 'senha123', 'RG2345600', 'Dra. Ana Paula', 'Dermatologista', '1975-05-15', 'CRM234567', '(11) 92222-2223'),
 (7, '345.678.901-33', 'dr.carlos@email.com', 'senha123', 'RG3456701', 'Dr. Carlos Mendes', 'Neurologista', '1990-06-25', 'CRM345678', '(11) 93333-3334'),
@@ -236,15 +236,15 @@ INSERT INTO `medicos` (`IDMedico`, `CPF`, `email`, `senha`, `RG`, `nome`, `Espec
 
 DROP TABLE IF EXISTS `pacientemaior`;
 CREATE TABLE IF NOT EXISTS `pacientemaior` (
-  `genero` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `genero` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `RG` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `telefoneEmergencia` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefoneEmergencia` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CPF` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `IDPacienteMaior` int NOT NULL AUTO_INCREMENT,
   `IDEndereco` int DEFAULT NULL,
   `IDPlanoSaude` int DEFAULT NULL,
@@ -260,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `pacientemaior` (
 --
 
 INSERT INTO `pacientemaior` (`genero`, `nascimento`, `RG`, `nome`, `email`, `senha`, `telefoneEmergencia`, `telefone`, `CPF`, `IDPacienteMaior`, `IDEndereco`, `IDPlanoSaude`) VALUES
-('masculino', '2000-11-24', '123456789101', 'Enzo Krebs Silva', 'enzokrebs@gmail.com', '$2y$10$RRfDeNs4O9I91SQk9cjTD.icX1NZLZUfScEFpwO2Rl1qmmaVqGc.m', '11 40028923', '(11) 93357-2695', '46404867826', 7, 41, 8),
+('masculino', '2000-11-24', '123456789101', 'Enzo Krebs Silva', 'enzokrebs@gmail.com', '$2y$10$NpvnRHMHuhSBJG0.YzObCucOcVGnmsulug9YI8a6DEsZM33dfSv8K', '(11) 93357-2695', '(11) 93357-2695', '46404867826', 7, 41, 8),
 ('feminino', '1992-02-15', 'RG8901232', 'Juliana Melo', 'juliana.melo@email.com', 'senha123', '(11) 92222-6789', '(11) 92222-5678', '890.123.456-78', 9, 12, 2),
 ('masculino', '1990-03-10', 'RG9012343', 'Alex Santos', 'alex.santos@email.com', 'senha123', '(11) 93333-7890', '(11) 93333-1234', '901.234.567-89', 10, 13, 3),
 ('masculino', '1990-04-20', 'RG9123454', 'Carlos Oliveira', 'carlos.oliveira@email.com', 'senha123', '(11) 94444-2345', '(11) 94444-6789', '912.345.678-90', 11, 14, 4),
@@ -279,16 +279,16 @@ INSERT INTO `pacientemaior` (`genero`, `nascimento`, `RG`, `nome`, `email`, `sen
 DROP TABLE IF EXISTS `pacientemenor`;
 CREATE TABLE IF NOT EXISTS `pacientemenor` (
   `IDPacienteMenor` int NOT NULL AUTO_INCREMENT,
-  `relacaoResponsavel` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `telefone` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `telefoneEmergencia` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `relacaoResponsavel` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `telefoneEmergencia` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `genero` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `RG` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CPF` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `genero` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `IDResponsavel` int DEFAULT NULL,
   `IDEndereco` int DEFAULT NULL,
   `IDPlanoSaude` int DEFAULT NULL,
@@ -317,7 +317,7 @@ INSERT INTO `pacientemenor` (`IDPacienteMenor`, `relacaoResponsavel`, `telefone`
 (41, 'Tio', '(11) 98888-0000', '(11) 97777-1111', '2014-04-19', 'luiz@email.com', 'senha357', 'Luiz Carlos', 'RG8901264', '890.123.456-28', 'masculino', 27, 8, 8),
 (42, 'Mãe', '(11) 99999-1111', '(11) 98888-2222', '2015-05-25', 'carolyn@email.com', 'senha468', 'Carolyn Martins', 'RG9012375', '901.234.567-29', 'feminino', 23, 9, 9),
 (43, 'Pai', '(11) 90000-2222', '(11) 99999-3333', '2016-06-05', 'gustavo@email.com', 'senha579', 'Gustavo Rocha', 'RG0123486', '012.345.678-30', 'masculino', 24, 10, 10),
-(44, 'Eu mais velho', '(11) 93357-2695', '11 40028923', '2007-11-24', 'menorenzo@email.com', '$2y$10$sdCSi3JZQ8Yaao4SsImy5ec0SYcmRAyW35ER3hZTzHMdE/A5ZfjT2', 'Enzo Krebs Silva', '4253453456', '48408887876', 'masculino', 33, 72, 9);
+(44, 'Eu', '11 40028922', '11 40028922', '2007-11-24', 'menorenzo@gmail.com', '$2y$10$uUI9f6krFPEcVncd8OtxxOxL98wYLiKCcgBVK6GNt4Ay1.volslOa', 'Enzo Krebs', '4253453456', '48408887876', 'masculino', 33, 72, 5);
 
 -- --------------------------------------------------------
 
@@ -328,10 +328,10 @@ INSERT INTO `pacientemenor` (`IDPacienteMenor`, `relacaoResponsavel`, `telefone`
 DROP TABLE IF EXISTS `planosaude`;
 CREATE TABLE IF NOT EXISTS `planosaude` (
   `IDPlanoSaude` int NOT NULL AUTO_INCREMENT,
-  `ContatoCentralPlano` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `NomePlano` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `ContatoCentralPlano` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NomePlano` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`IDPlanoSaude`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `planosaude`
@@ -359,24 +359,24 @@ INSERT INTO `planosaude` (`IDPlanoSaude`, `ContatoCentralPlano`, `NomePlano`) VA
 
 DROP TABLE IF EXISTS `recepcionistas`;
 CREATE TABLE IF NOT EXISTS `recepcionistas` (
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `senha` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `CPF` varchar(14) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `telefone` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `CPF` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `RG` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
   `IDRecepcionista` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`IDRecepcionista`),
   UNIQUE KEY `unique_cpf` (`CPF`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `recepcionistas`
 --
 
 INSERT INTO `recepcionistas` (`email`, `senha`, `CPF`, `telefone`, `nome`, `RG`, `nascimento`, `IDRecepcionista`) VALUES
-('julia.mendes@gmail.com', '', '34567890123', '(11)91234-5678', 'Julia Mendes', 'SP6543210', '1985-05-14', 1),
+('julia.mendes@gmail.com', '$2y$10$J.pu9takRarvSwfeaEr3vuCTshheY8uYWhL.h9ry9ST/qDveU/qne', '34567890123', '(11)91234-5678', 'Julia Mendes', '6543210', '1989-05-06', 1),
 ('bruno.silva@yahoo.com', '', '56789012345', '(21)93456-1234', 'Bruno Silva', 'RJ5432167', '1988-11-19', 2),
 ('clara.almeida@hotmail.com', '', '12345098765', '(31)97865-4321', 'Clara Almeida', 'MG6789012', '1990-02-28', 3),
 ('henrique.souza@gmail.com', '', '09876543210', '(21)91234-5678', 'Henrique Souza', 'SP3456789', '1992-08-12', 4),
@@ -395,7 +395,7 @@ INSERT INTO `recepcionistas` (`email`, `senha`, `CPF`, `telefone`, `nome`, `RG`,
 ('gustavo.nunes@email.com', 'senha123', '890.123.456-78', '(11) 98888-8889', 'Gustavo Ribeiro Nunes', 'RG8901234', '1991-08-09', 18),
 ('patricia.fernandes@email.com', 'senha123', '901.234.567-89', '(11) 99999-9990', 'Patrícia Gomes Fernandes', 'RG9012345', '1989-09-20', 19),
 ('roberta.alves@email.com', 'senha123', '012.345.678-90', '(11) 90000-0001', 'Roberta Souza Alves', 'RG0123456', '1997-10-02', 20),
-('recepcionistaenzo@gmail.com', '$2y$10$3oA6WDU0svNuM6xrjwU/auTRGkebdoF1uH7aF6jfyokXZJ8Rcx5RO', '46404867821', '11 40028922', 'Enzo Krebs Silva', '123456789101', '2000-11-24', 21);
+('recepcionistaenzo@gmail.com', '$2y$10$iI9IhqrZ97sd1kdiJR.mwu19JyrJiiHuyAUKeS77fU6o0s2Y5zcIW', '46404867821', '11 40028922', 'Enzo Krebs Silva', '123456789101', '2000-04-22', 21);
 
 -- --------------------------------------------------------
 
@@ -406,12 +406,12 @@ INSERT INTO `recepcionistas` (`email`, `senha`, `CPF`, `telefone`, `nome`, `RG`,
 DROP TABLE IF EXISTS `responsavel`;
 CREATE TABLE IF NOT EXISTS `responsavel` (
   `IDResponsavel` int NOT NULL AUTO_INCREMENT,
-  `CPF` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
+  `CPF` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `telefoneResp` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nome` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `RG` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `RG` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `nascimento` date DEFAULT NULL,
   `IDEndereco` int DEFAULT NULL,
   `IDPacienteMenor` int DEFAULT NULL,
@@ -435,7 +435,7 @@ INSERT INTO `responsavel` (`IDResponsavel`, `CPF`, `telefoneResp`, `nome`, `emai
 (30, '890.123.456-77', '(11) 98888-8888', 'Amanda Santos', 'amanda.santos@email.com', 'senha1234', 'RG8901234', '1995-08-20', 8, NULL),
 (31, '901.234.567-88', '(11) 99999-9999', 'Pedro Lima', 'pedro.lima@email.com', 'senha1234', 'RG9012345', '1982-09-25', 9, NULL),
 (32, '012.345.678-99', '(11) 90000-0000', 'Larissa Nunes', 'larissa.nunes@email.com', 'senha1234', 'RG0123456', '1997-10-30', 10, NULL),
-(33, '09093094203', '11 40028922', 'Enzo Responsável', 'responsavelenzo@gmail.com', '24112007', '34536456456', '1975-11-24', 72, 44);
+(33, '09093094203', '11 40028922', 'Enzo Responsável', 'responsavelenzo@gmail.com', '$2y$10$oKGXvf.GhRJxvRVMQn8sMuI7pL601EMNwGOaSA85lhCH1u5dPdx9e', '34536456456', '1975-11-24', 72, 44);
 
 -- --------------------------------------------------------
 
@@ -447,40 +447,26 @@ DROP TABLE IF EXISTS `solicitarconsulta`;
 CREATE TABLE IF NOT EXISTS `solicitarconsulta` (
   `idSolicitacao` int NOT NULL AUTO_INCREMENT,
   `data_hora` datetime NOT NULL,
-  `nome_paciente` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `cpf_p` varchar(14) COLLATE utf8mb4_general_ci NOT NULL,
-  `especialidade` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `medico` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `nome_paciente` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `cpf_p` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `especialidade` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `medico` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `status_c` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `observacao` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `observacao` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`idSolicitacao`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `solicitarconsulta`
 --
 
 INSERT INTO `solicitarconsulta` (`idSolicitacao`, `data_hora`, `nome_paciente`, `cpf_p`, `especialidade`, `medico`, `status_c`, `observacao`) VALUES
-(3, '2027-11-26 14:30:00', 'Enzo Krebs Silva', '46404867826', 'Ginecologista', 'Dr. Sandro Ribeiro', 'Negada', 'Agenda ocupada');
+(3, '2027-11-26 14:30:00', 'Enzo Krebs Silva', '46404867826', 'Ginecologista', 'Dr. Sandro Ribeiro', 'Negada', 'Agenda ocupada'),
+(4, '2025-06-27 07:00:00', 'Enzo Krebs Silva', '46404867826', 'Oftalmologista', 'Dr. Roberto Souza', '', 'Acompanhamento de Luxação');
 
 --
 -- Restrições para despejos de tabelas
 --
-
---
--- Limitadores para a tabela `pacientemaior`
---
-ALTER TABLE `pacientemaior`
-  ADD CONSTRAINT `pacientemaior_ibfk_1` FOREIGN KEY (`IDPlanoSaude`) REFERENCES `planosaude` (`IDPlanoSaude`),
-  ADD CONSTRAINT `pacientemaior_ibfk_2` FOREIGN KEY (`IDEndereco`) REFERENCES `endereco` (`IDEndereco`);
-
---
--- Limitadores para a tabela `pacientemenor`
---
-ALTER TABLE `pacientemenor`
-  ADD CONSTRAINT `pacientemenor_ibfk_1` FOREIGN KEY (`IDPlanoSaude`) REFERENCES `planosaude` (`IDPlanoSaude`),
-  ADD CONSTRAINT `pacientemenor_ibfk_2` FOREIGN KEY (`IDResponsavel`) REFERENCES `responsavel` (`IDResponsavel`),
-  ADD CONSTRAINT `pacientemenor_ibfk_3` FOREIGN KEY (`IDEndereco`) REFERENCES `endereco` (`IDEndereco`);
 
 --
 -- Limitadores para a tabela `responsavel`

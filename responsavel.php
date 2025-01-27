@@ -16,7 +16,7 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'responsavel') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paciente</title>
+    <title>Responsável</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -33,7 +33,7 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'responsavel') {
 </nav>
 
 <header class="subirusdoistiuzin">
-    <h1>Área do Paciente</h1>
+    <h1>Área do Responsável</h1>
 </header>
 
 <body class="soninho">
