@@ -5,27 +5,31 @@ require('conecta.php');
 $email = $conexao->real_escape_string($_POST['email']);
 $senha = $conexao->real_escape_string($_POST['senha']);
 
-$tabelas = [
-    'pacientemaior' => 'paciente_maior.php',
-    'pacientemenor' => 'paciente_menor.php',
-    'medicos' => 'medico.php',
-    'devs' => 'index.php',
-    'recepcionistas' => 'recepcionista.php',
-    'responsavel' => 'solicitar_consultas.php'
+$dadosTabelas = [
+    'pacientemaior' => ['id' => 'IDPacienteMaior', 'redirect' => 'paciente_maior.php'],
+    'pacientemenor' => ['id' => 'IDPacienteMenor', 'redirect' => 'paciente_menor.php'],
+    'medicos' => ['id' => 'IDMedico', 'redirect' => 'medico.php'],
+    'devs' => ['id' => 'CPF', 'redirect' => 'index.php'],
+    'recepcionistas' => ['id' => 'IDRecepcionista', 'redirect' => 'recepcionista.php'],
+    'responsavel' => ['id' => 'IDResponsavel', 'redirect' => 'responsavel.php']
 ];
 
-foreach ($tabelas as $tabela => $redirect) {
+$mensagemErro = "Usuário ou senha incorretos!";
+foreach ($dadosTabelas as $tabela => $dados) {
+    $campoID = $dados['id'];
+    $redirect = $dados['redirect'];
+
     $query = "SELECT * FROM $tabela WHERE email = '$email'";
     $resultado = $conexao->query($query);
 
     if ($resultado && $resultado->num_rows == 1) {
         $usuario = $resultado->fetch_assoc();
         if (password_verify($senha, $usuario['senha'])) {
-            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['id'] = $usuario[$campoID];
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['senha'] = $usuario['senha'];
-            $_SESSION['cpf'] = $usuario['CPF'];
+            $_SESSION['cpf'] = isset($usuario['CPF']) ? $usuario['CPF'] : null; // Verifica se CPF existe na tabela
             $_SESSION['tipo'] = $tabela;
             header("Location: $redirect");
             exit;

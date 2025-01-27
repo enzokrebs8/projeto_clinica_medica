@@ -40,7 +40,7 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'responsavel') {
     <div class="container cirilo">
         <div class="container text-center tumbalatumba">
             <div class="row">
-            <h2 class="calcaangelical">Consultas Agendadas</h2>
+            <h2 class="calcaangelical">Consultas agendadas</h2>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
