@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    // session_start();
     include('conecta.php');
 
     if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'devs') {
@@ -19,6 +19,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Painel do Desenvolvedor</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/style_adm.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>

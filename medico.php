@@ -1,8 +1,8 @@
 <?php
 
- session_start();
  include('conecta.php');
-
+ 
+ session_start();
  if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'medicos') {
      header('Location: login.html');
      exit();
