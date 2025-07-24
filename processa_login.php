@@ -29,7 +29,7 @@ foreach ($dadosTabelas as $tabela => $dados) {
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['senha'] = $usuario['senha'];
-            $_SESSION['cpf'] = isset($usuario['CPF']) ? $usuario['CPF'] : null; // Verifica se CPF existe na tabela
+            $_SESSION['cpf'] = $usuario['CPF'];
             $_SESSION['tipo'] = $tabela;
             header("Location: $redirect");
             exit;

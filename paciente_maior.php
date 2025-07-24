@@ -1,11 +1,11 @@
 <?php
     include 'conecta.php';
     
-    // session_start();
-    // if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'pacientemaior') {
-    //     header('Location: login.html');
-    //     exit();
-    // }
+    session_start();
+    if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'pacientemaior') {
+        header('Location: login.html');
+        exit();
+    }
     
 ?>
 
